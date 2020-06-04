@@ -1,0 +1,5 @@
+package com.tntapi.domain;
+
+public class Team {
+
+}

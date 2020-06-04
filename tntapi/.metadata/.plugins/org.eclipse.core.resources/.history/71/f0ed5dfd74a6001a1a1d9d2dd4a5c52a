@@ -1,0 +1,12 @@
+package com.tntapi.domain;
+
+import javax.persistence.Entity;
+
+@Entity
+public class User {
+	
+	public User() {
+		super();
+	}
+
+}
