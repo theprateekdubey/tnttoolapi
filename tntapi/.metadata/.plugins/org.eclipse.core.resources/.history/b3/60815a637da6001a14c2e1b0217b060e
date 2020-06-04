@@ -1,0 +1,5 @@
+package com.tntapi.repository;
+
+public interface TeamRepository {
+
+}
