@@ -17,10 +17,6 @@ import javax.validation.constraints.Size;
 @Entity
 public class Team {
 	
-	
-	public Team() {
-		super();
-	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
@@ -33,10 +29,12 @@ public class Team {
 	@Column(updatable = false,unique = true)
 	private String teamCode;
 
-	
 	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "team")
 	private List<User> users = new ArrayList<>();
 	
+	public Team() {
+		super();
+	}
 	
 	public Integer getUserSequence() {
 		return userSequence;

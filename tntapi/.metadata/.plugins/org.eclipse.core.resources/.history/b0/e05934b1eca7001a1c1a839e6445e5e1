@@ -1,0 +1,16 @@
+package com.tntapi.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tntapi.repository.TodoRepository;
+import com.tntapi.repository.UserRepository;
+
+@Service
+public class TodoService {
+	@Autowired
+	private TodoRepository todoRepository;
+	@Autowired
+	private UserRepository userRepository;
+
+}

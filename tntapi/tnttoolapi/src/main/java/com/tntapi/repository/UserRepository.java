@@ -15,4 +15,6 @@ public interface UserRepository extends  CrudRepository<User, Long> {
 	
 	// used to find the list of users from a team
 	List<User> findByTeamCode(String team_id);
+	
+	User findUserByUsername(String username);
 }

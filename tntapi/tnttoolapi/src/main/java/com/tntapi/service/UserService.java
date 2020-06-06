@@ -100,4 +100,15 @@ public class UserService {
 		// deleting the user from repository
 		userRepository.delete(user);
 	}
+	
+	public User userLoginCheck(String username,String password) {
+		User user=userRepository.findUserByUsername(username);
+		if (user==null) {
+			throw new UserNotFoundException("Username does not exists");
+		}
+		if (!user.getPassword().equals(password)) {
+			throw new UserNotFoundException("Wrong Password");
+		}
+		return user;
+	}
 }
