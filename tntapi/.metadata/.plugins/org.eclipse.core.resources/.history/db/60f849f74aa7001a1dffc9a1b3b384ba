@@ -1,0 +1,33 @@
+package com.tntapi.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tntapi.domain.Team;
+import com.tntapi.domain.User;
+import com.tntapi.repository.TeamRepository;
+import com.tntapi.repository.UserRepository;
+
+@Service
+public class UserService {
+	
+	@Autowired
+	private UserRepository userRepository;
+	@Autowired
+	private TeamRepository teamRepository;
+	
+	public User addUser(String teamCode,User user) {
+		
+		//find team
+		Team team=teamRepository.findByTeamCode(teamCode);
+		//setting  team to user
+		user.setTeam(team);
+		//generating userCode with teamCode and userSequence
+		Integer userSequence=team.getUserSequence();
+		userSequence++;
+		team.setUserSequence(userSequence);
+		user.setUserCode(user.getTeamCode()+"-"+userSequence);
+		return userRepository.save(user);
+	}
+
+}

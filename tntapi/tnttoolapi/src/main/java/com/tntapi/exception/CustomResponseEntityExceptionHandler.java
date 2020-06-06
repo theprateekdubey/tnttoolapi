@@ -1,4 +1,3 @@
-
 package com.tntapi.exception;
 
 import org.springframework.http.HttpStatus;
@@ -17,6 +16,18 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	public final ResponseEntity<Object> handleTeamIdException(TeamIdException ex, WebRequest request){
 		TeamIdExceptionResponse exceptionResponse = new TeamIdExceptionResponse(ex.getMessage());
 		return new ResponseEntity<Object> (exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleTeamNotFoundException(TeamNotFoundException ex, WebRequest request){
+		TeamNotFoundExceptionResponse exceptionResponse = new TeamNotFoundExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object> (exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+	
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleUserNotFoundException(UserNotFoundException ex, WebRequest request){
+		UserNotFoundExceptionResponse exceptionResponse = new UserNotFoundExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 
 }

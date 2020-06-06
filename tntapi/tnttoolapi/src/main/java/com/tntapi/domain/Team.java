@@ -16,64 +16,63 @@ import javax.validation.constraints.Size;
 
 @Entity
 public class Team {
+	
+	
 	public Team() {
 		super();
 	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long id;
+	private long id;
 	@NotBlank(message = "Team name is required")
 	private String name;
 	private String projectName;
-	@NotBlank(message = "Team Code is required")
+	private Integer userSequence =0;
+	@NotBlank(message = "Team Code is Required")
 	@Size(min = 3,max = 5,message = "It should be between 3 to 5 characters")
 	@Column(updatable = false,unique = true)
 	private String teamCode;
+
 	
-	//creating One to Many relationship between user and team
-	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "team")
-	@Column(updatable = false,unique = true)
-	private List<User> users=new ArrayList<>();
-
-	public Long getId() {
-		return id;
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL,mappedBy = "team")
+	private List<User> users = new ArrayList<>();
+	
+	
+	public Integer getUserSequence() {
+		return userSequence;
 	}
-
-	public void setId(Long id) {
-		this.id = id;
+	public void setUserSequence(Integer userSequence) {
+		this.userSequence = userSequence;
 	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getProjectName() {
-		return projectName;
-	}
-
-	public void setProjectName(String projectName) {
-		this.projectName = projectName;
-	}
-
-	public String getTeamCode() {
-		return teamCode;
-	}
-
-	public void setTeamCode(String teamCode) {
-		this.teamCode = teamCode;
-	}
-
 	public List<User> getUsers() {
 		return users;
 	}
-
 	public void setUsers(List<User> users) {
 		this.users = users;
 	}
-	
+	public long getId() {
+		return id;
+	}
+	public void setId(long id) {
+		this.id = id;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getProjectName() {
+		return projectName;
+	}
+	public void setProjectName(String projectName) {
+		this.projectName = projectName;
+	}
+	public String getTeamCode() {
+		return teamCode;
+	}
+	public void setTeamCode(String teamCode) {
+		this.teamCode = teamCode;
+	}
 	
 }
