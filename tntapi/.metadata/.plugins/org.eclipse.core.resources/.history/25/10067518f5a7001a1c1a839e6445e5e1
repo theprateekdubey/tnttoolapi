@@ -9,7 +9,6 @@ import com.tntapi.domain.Team;
 import com.tntapi.domain.User;
 import com.tntapi.exception.TeamNotFoundException;
 import com.tntapi.exception.UserNotFoundException;
-import com.tntapi.exception.UsernameException;
 import com.tntapi.repository.TeamRepository;
 import com.tntapi.repository.UserRepository;
 
@@ -21,7 +20,7 @@ public class UserService {
 	@Autowired
 	private TeamRepository teamRepository;
 	
-	public User addUser(String teamCode,User user) {
+	public User addUser(String teamCode,User user,String username) {
 		
 		try {
 			//find team
@@ -35,11 +34,12 @@ public class UserService {
 			userSequence++;
 			team.setUserSequence(userSequence);
 			user.setUserCode(user.getTeamCode()+"-"+userSequence);
+			if (user.getUsername().equals(username)) {
+				
+			}
 			return userRepository.save(user);
-		} catch (NullPointerException ex) {
+		} catch (Exception e) {
 			throw new TeamNotFoundException("Team Does not exist");
-		}catch (Exception e) {
-			throw new UsernameException("Username already exists");
 		}
 	}
 	
