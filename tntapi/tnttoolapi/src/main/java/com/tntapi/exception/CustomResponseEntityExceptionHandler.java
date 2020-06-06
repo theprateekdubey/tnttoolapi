@@ -35,5 +35,11 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 		UsernameExceptionResponse exceptionResponse = new UsernameExceptionResponse(ex.getMessage());
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
+	
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleTodoNotFoundException(TodoNotFoundException ex, WebRequest request){
+		TodoNotFoundExceptionResponse exceptionResponse = new TodoNotFoundExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
 
 }

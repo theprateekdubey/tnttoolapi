@@ -45,6 +45,7 @@ public class User {
 	
 	//creating one to many relationship between user and todo 
 	@OneToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL,mappedBy = "user")
+	@JsonIgnore
 	List<Todo> todos=new ArrayList<>();
 	
 	public User() {
