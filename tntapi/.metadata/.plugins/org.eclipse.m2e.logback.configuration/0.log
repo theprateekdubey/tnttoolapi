@@ -1362,3 +1362,9 @@
 2020-06-06 21:42:08,186 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-06-06 21:42:08,187 [Worker-36: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\TnTManagmentApp\tntapi\tnttoolapi\src\test\resources
 2020-06-06 21:55:52,421 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-06-07 16:08:18,731 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-06-07 16:10:58,477 [Worker-12: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-07 16:10:58,496 [Worker-12: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-06-07 16:10:58,541 [Worker-12: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-06-07 16:10:58,545 [Worker-12: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-06-07 16:10:58,545 [Worker-12: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\TnTManagmentApp\tntapi\tnttoolapi\src\test\resources

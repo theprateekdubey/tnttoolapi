@@ -7,14 +7,22 @@ import { Provider } from "react-redux";
 import store from "./store";
 import LoginForm from "./components/layout/login/forms/LoginForm";
 import TeamLeadDashboard from "./components/TeamLeadDashboard";
+import RegistrationForm from "./components/layout/login/forms/RegistrationForm";
+import TeamMemberDashboard from "./components/TeamMemberDashboard";
 
 function App() {
   return (
     <Provider store={store}>
       <Router>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/loginForm" component={LoginForm} />
-        <Route exact path="/TeamLeadDashboard" component={TeamLeadDashboard} />
+        <Route exact path="/login" component={LoginForm} />
+        <Route exact path="/registrationForm" component={RegistrationForm} />
+        <Route exact path="/teamLeadDashboard" component={TeamLeadDashboard} />
+        <Route
+          exact
+          path="/teamMemberDashboard"
+          component={TeamMemberDashboard}
+        />
       </Router>
     </Provider>
   );

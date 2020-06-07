@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { login } from "./../../../../actions/userActions";
 import HeaderLandingPage from "../../HeaderLandingPage";
+import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -10,6 +12,7 @@ class LoginForm extends Component {
     this.state = {
       username: "",
       password: "",
+      userCode: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -66,7 +69,9 @@ class LoginForm extends Component {
                     <input
                       type="text"
                       name="username"
-                      className="form-control"
+                      className={classnames("form-control", {
+                        "is-invalid": errors.userCode,
+                      })}
                       placeholder="username"
                       value={this.state.username}
                       onChange={this.onChange}
@@ -81,18 +86,24 @@ class LoginForm extends Component {
                     <input
                       type="password"
                       name="password"
-                      className="form-control"
+                      className={classnames("form-control", {
+                        "is-invalid": errors.userCode,
+                      })}
                       placeholder="password"
                       value={this.state.password}
                       onChange={this.onChange}
                     />
+                    {errors.userCode && (
+                      <div className="invalid-feedback">{errors.userCode}</div>
+                    )}
                   </div>
-                  <input type="submit" class="btn float-right login_btn" />
+                  <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>
               <div className="card-footer">
                 <div className="d-flex justify-content-center links">
-                  Don't have an account?<a href="#">Sign Up</a>
+                  Don't have an account?
+                  <Link to="/registrationForm">Sign Up</Link>
                 </div>
               </div>
             </div>

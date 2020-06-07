@@ -6,7 +6,7 @@ export default class SignUp extends Component {
     return (
       <div>
         <li className="nav-item">
-          <Link className="nav-link" to="/register">
+          <Link className="nav-link text-light" to="/register">
             Sign Up
           </Link>
         </li>

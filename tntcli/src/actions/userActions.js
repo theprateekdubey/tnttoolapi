@@ -1,13 +1,16 @@
 import axios from "axios";
 import { GET_ERRORS, USER_LOGIN } from "./type";
-import { browserHistory } from "./../index";
 export const login = (user, history) => async (dispatch) => {
   try {
     console.log("==>>", user);
     const res = await axios.post("http://localhost:8081/api/user/login", user);
     console.log("response in react", res);
-    //   history.push("/userDashboard");
-    browserHistory.push("/TeamLeadDashboard");
+    if (res.data.role == 2) {
+      history.push("/teamLeadDashboard");
+    }
+    if (res.data.role == 1) {
+      history.push("/teamMemberDashboard");
+    }
     dispatch({
       type: USER_LOGIN,
       payload: res.data,

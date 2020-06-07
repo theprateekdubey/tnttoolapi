@@ -4,46 +4,52 @@ export default class FooterLandingPage extends Component {
   render() {
     return (
       <div>
-        <footer id="main-footer" className=" bg-dark p-3 ">
-          <div className="wrapper">
-            <div className="row ml-5">
-              <div className="col-md-4">
-                <p className="text-light">
-                  <i className="fa fa-cog fa-spin fa-1x"></i> About Us
-                </p>
-              </div>
-              <div className="col-md-4 ">
-                <a
-                  href="#"
-                  data-toggle="modal"
-                  data-target="#developerInfo"
-                  className="nav-link text-light"
-                >
-                  Developers Description
+        <footer id="main-footer" className="p-3">
+          <div className="row mx-5">
+            <div className="col-md-4">
+              <p className="text-light">
+                <i className="fa fa-cog fa-spin fa-1x"></i> About Us
+              </p>
+              <i className="text-light">
+                We're a learning Developer, who loves building web solutions. We
+                have designed product features and flows (from gathering
+                requirements to prototyping) and brand websites, banners,
+                posters, etc. And, we seek our creative inspiration from mother
+                nature.
+              </i>
+            </div>
+            <div className="col-md-4">
+              <a
+                href="#"
+                data-toggle="modal"
+                data-target="#developerInfo"
+                className="nav-link text-light mt-n2 ml-5"
+              >
+                Developers Description
+              </a>
+            </div>
+            <div className="col-md-4 ">
+              <p className="text-light ml-5">
+                <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
+                Contact Us
+              </p>
+
+              <div className="social-bar">
+                <a href="#" className="social-icon">
+                  <img src="img/facebook.svg" className="social-icons" />
                 </a>
-              </div>
-              <div className="col-md-4 ">
-                <p className="text-light ml-5">
-                  <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
-                  Contact Us
-                </p>
-                <div className="social-bar">
-                  <a href="#" className="social-icon">
-                    <img src="img/facebook.svg" className="social-icons" />
-                  </a>
 
-                  <a href="#" className="social-icon">
-                    <img src="img/skype.svg" className="social-icons" />
-                  </a>
+                <a href="#" className="social-icon">
+                  <img src="img/skype.svg" className="social-icons" />
+                </a>
 
-                  <a href="#" className="social-icon">
-                    <img src="img/linkedin.svg" className="social-icons" />
-                  </a>
+                <a href="#" className="social-icon">
+                  <img src="img/linkedin.svg" className="social-icons" />
+                </a>
 
-                  <a href="#" className="social-icon">
-                    <img src="img/gmail.svg" className="social-icons" />
-                  </a>
-                </div>
+                <a href="#" className="social-icon">
+                  <img src="img/gmail.svg" className="social-icons" />
+                </a>
               </div>
             </div>
           </div>

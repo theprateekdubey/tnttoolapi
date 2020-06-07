@@ -6,7 +6,7 @@ class SignIn extends Component {
     return (
       <div>
         <li className="nav-item">
-          <Link className="nav-link " to="/loginForm">
+          <Link className="nav-link text-light " to="/login">
             Sign In
           </Link>
         </li>
