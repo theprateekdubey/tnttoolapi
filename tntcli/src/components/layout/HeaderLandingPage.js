@@ -9,9 +9,9 @@ class HeaderLandingPage extends Component {
       <div>
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
           <div className="container">
-            <a className="navbar-brand" href="#">
+            <Link className="navbar-brand text-light" to="/">
               Team and TODO Management Tool
-            </a>
+            </Link>
             <button
               className="navbar-toggler"
               type="button"

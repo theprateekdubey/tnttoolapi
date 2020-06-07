@@ -24,24 +24,24 @@ export default class FooterLandingPage extends Component {
               </div>
               <div className="col-md-4 ">
                 <p className="text-light ml-5">
-                  <i class="fa fa-address-card" aria-hidden="true"></i> Contact
-                  Us
+                  <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
+                  Contact Us
                 </p>
-                <div class="social-bar">
-                  <a href="#" class="social-icon">
-                    <img src="img/facebook.svg" class="social-icons" />
+                <div className="social-bar">
+                  <a href="#" className="social-icon">
+                    <img src="img/facebook.svg" className="social-icons" />
                   </a>
 
-                  <a href="#" class="social-icon">
-                    <img src="img/skype.svg" class="social-icons" />
+                  <a href="#" className="social-icon">
+                    <img src="img/skype.svg" className="social-icons" />
                   </a>
 
-                  <a href="#" class="social-icon">
-                    <img src="img/linkedin.svg" class="social-icons" />
+                  <a href="#" className="social-icon">
+                    <img src="img/linkedin.svg" className="social-icons" />
                   </a>
 
-                  <a href="#" class="social-icon">
-                    <img src="img/gmail.svg" class="social-icons" />
+                  <a href="#" className="social-icon">
+                    <img src="img/gmail.svg" className="social-icons" />
                   </a>
                 </div>
               </div>
