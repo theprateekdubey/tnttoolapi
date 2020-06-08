@@ -13,8 +13,8 @@
 }
 .teamLeadDash .todo-list .todo-list-content {
   background-color: rgba(0, 0, 0, 0.911);
-  border-top-right-radius: 50px;
-  border-bottom-left-radius: 25px;
+  border-top-right-radius: 60px;
+  border-bottom-left-radius: 30px;
 }
 /*PRELOADING------------ */
 #overlayer {
