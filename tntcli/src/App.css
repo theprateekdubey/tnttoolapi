@@ -1,3 +1,21 @@
+#main-header {
+  background-color: rgba(0, 0, 0, 0.911);
+}
+/*TodoList*/
+.teamLeadDash {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 100%;
+}
+.teamLeadDash .todo-list {
+  min-height: 588px;
+}
+.teamLeadDash .todo-list .todo-list-content {
+  background-color: rgba(0, 0, 0, 0.911);
+  border-top-right-radius: 50px;
+  border-bottom-left-radius: 25px;
+}
 /*PRELOADING------------ */
 #overlayer {
   width: 100%;

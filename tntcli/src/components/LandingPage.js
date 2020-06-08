@@ -4,12 +4,6 @@ import FooterLandingPage from "./layout/FooterLandingPage";
 
 class LandingPage extends Component {
   render() {
-    //after window is loaded completely
-    window.onload = setInterval(function () {
-      //hide the preloader
-      document.querySelector(".loader").style.display = "none";
-      document.querySelector("#overlayer").style.display = "none";
-    }, 1500);
     return (
       <div className="landing-page">
         <div id="overlayer"></div>

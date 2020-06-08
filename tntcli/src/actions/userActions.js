@@ -5,10 +5,10 @@ export const login = (user, history) => async (dispatch) => {
     console.log("==>>", user);
     const res = await axios.post("http://localhost:8081/api/user/login", user);
     console.log("response in react", res);
-    if (res.data.role == 2) {
+    if (res.data.role === 2) {
       history.push("/teamLeadDashboard");
     }
-    if (res.data.role == 1) {
+    if (res.data.role === 1) {
       history.push("/teamMemberDashboard");
     }
     dispatch({
