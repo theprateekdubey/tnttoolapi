@@ -28,14 +28,12 @@ public class Todo {
 	@Column(unique = true, updatable = false, nullable = false)
 	private String taskIdentifier;
 	@NotBlank(message = "Detail of the Todo Task is required")
-	@Size(min = 70,max = 200,message = "It should be between 70 to 200 characters")
 	private String detail;
 	@Column(nullable = false)
 	private String assignedTo;
 	private Date dueDateAndTime;
 	private int priority;
 	private String status;
-	@Size(min = 10,max = 70,message = "It should be between 10 to 70 characters")
 	private String comment;
 	@Column(updatable = false, nullable = false)
 	private String teamCode;

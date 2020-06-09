@@ -1,26 +1,38 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ViewTodoDetails from "./ViewTodoDetails";
 
 class TodoList extends Component {
   render() {
+    const { todo } = this.props;
     return (
-      <div className="todo-list  container mt-5">
-        <div class="todo-list-content card text-white  mb-3 w-25 ">
-          <div class="card-header">
-            TODO : name<p>Status : </p>
-          </div>
-          <div class="card-body">
-            <p class="card-title font-italic">Assigned To : person</p>
-            <p class="card-title font-italic">Due Date and Time : </p>
-            <p class="card-text">
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
-            </p>
+      <div class="todo-list-content card  ml-3 mb-3">
+        <div className="card-body">
+          <p className="mr-5">
+            TODO : <span>{todo.name}</span>
+          </p>
 
-            <ViewTodoDetails />
-          </div>
+          <p>
+            Status : <span>{todo.status}</span>
+          </p>
+          <p class="card-title  ">
+            Assigned To : <span>{todo.assignedTo}</span>
+          </p>
+          <p class="card-title ">
+            Due Date and Time : <span></span>
+          </p>
+          <p class="card-text text-light font-italic">
+            Some quick example text to build on the card title and make up the
+            bulk of the card's content.
+          </p>
         </div>
+        <span class="surface"></span>
+        <p class="todo-detail text-justify ">{todo.detail}</p>
+        <Link to="#">
+          <i class="fa fa-edit icons"></i>
+        </Link>
+        <Link to="#">
+          <i class="fa fa-trash icons"></i>
+        </Link>
       </div>
     );
   }

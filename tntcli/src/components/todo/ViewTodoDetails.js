@@ -5,11 +5,11 @@ class ViewTodoDetails extends Component {
   render() {
     return (
       <div>
-        <Link to="#" class="card-link btn btn-success btn-sm mx-1">
-          Edit
+        <Link to="#" class=" btn btn-success btn-sm mx-1">
+          <i class="fa fa-edit icons"></i>
         </Link>
-        <Link to="#" class="card-link btn btn-danger btn-sm mx-1">
-          Delete
+        <Link to="#" class=" btn btn-danger btn-sm mx-1">
+          <i class="fa fa-trash icons"></i>
         </Link>
         <button
           type="button"
@@ -17,7 +17,7 @@ class ViewTodoDetails extends Component {
           data-toggle="modal"
           data-target="#viewTodo"
         >
-          Details
+          <i class="fa fa-eye icons"></i>
         </button>
         <div
           class="modal fade"
@@ -29,7 +29,7 @@ class ViewTodoDetails extends Component {
         >
           <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-              <div class="modal-header bg-dark">
+              <div class="modal-header">
                 <h5 class="modal-title text-light" id="exampleModalLongTitle">
                   Todo Name :
                 </h5>
@@ -42,7 +42,7 @@ class ViewTodoDetails extends Component {
                   <span aria-hidden="true">&times;</span>
                 </button>
               </div>
-              <div class="modal-body bg-dark">
+              <div class="modal-body">
                 <p class="text-light">Detials</p>
               </div>
             </div>

@@ -17,10 +17,14 @@ function App() {
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/login" component={LoginForm} />
         <Route exact path="/registrationForm" component={RegistrationForm} />
-        <Route exact path="/teamLeadDashboard" component={TeamLeadDashboard} />
         <Route
           exact
-          path="/teamMemberDashboard"
+          path="/teamLeadDashboard/:teamCode/:userCode"
+          component={TeamLeadDashboard}
+        />
+        <Route
+          exact
+          path="/teamMemberDashboard/:teamCode/:userCode"
           component={TeamMemberDashboard}
         />
       </Router>

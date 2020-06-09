@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 
-export default class TeamMemberDashboard extends Component {
+class TeamMemberDashboard extends Component {
   render() {
     return <div>TeamMemberDashboard</div>;
   }
 }
+export default TeamMemberDashboard;

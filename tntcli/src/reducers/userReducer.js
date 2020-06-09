@@ -1,14 +1,18 @@
-import { USER_LOGIN } from "../actions/type";
-
+import { USER_LOGIN, GET_USER } from "./../actions/type";
 const initialState = {
-  userLoginDetails: {},
+  user: {},
 };
 export default function (state = initialState, action) {
   switch (action.type) {
     case USER_LOGIN:
       return {
         ...state,
-        userLoginDetails: action.payload,
+        user: action.payload,
+      };
+    case GET_USER:
+      return {
+        ...state,
+        user: action.payload,
       };
     default:
       return state;

@@ -1,17 +1,38 @@
 import React, { Component } from "react";
 import Header from "./layout/Header";
-import { Link } from "react-router-dom";
 import TodoList from "./todo/TodoList";
-import AddandListButton from "./todo/AddandListButton";
+import AddAndListButton from "./todo/AddAndListButton";
+import { PropTypes } from "prop-types";
+import { connect } from "react-redux";
+import { Link } from "react-router-dom";
+import { getTodos } from "./../actions/todoAction";
 
-export default class TeamLeadDashboard extends Component {
+class TeamLeadDashboard extends Component {
+  componentDidMount() {
+    const { teamCode, userCode } = this.props.match.params;
+    this.props.getTodos(teamCode, this.props.history);
+  }
   render() {
+    const { todos } = this.props.todos;
+    const { teamCode, userCode } = this.props.match.params;
     return (
       <div className="teamLeadDash">
         <Header />
-        <AddandListButton />
-        <TodoList />
+        <AddAndListButton />
+        <div className="todo-list ml-5 mt-5">
+          {todos.map((todo) => (
+            <TodoList key={todo.id} todo={todo} />
+          ))}
+        </div>
       </div>
     );
   }
 }
+TeamLeadDashboard.propTypes = {
+  todo: PropTypes.object.isRequired,
+  getTodos: PropTypes.func.isRequired,
+};
+const mapStateToProps = (state) => ({
+  todos: state.todos,
+});
+export default connect(mapStateToProps, { getTodos })(TeamLeadDashboard);

@@ -12,7 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -23,26 +22,20 @@ public class Todo {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@NotBlank(message = "name of the TODO Task is required")
-	@Size(min = 5,max = 20,message = "It should be between 5 to 20 characters")
 	private String name;
 	@Column(unique = true, updatable = false, nullable = false)
 	private String taskIdentifier;
 	@NotBlank(message = "Detail of the Todo Task is required")
-	@Size(min = 70,max = 200,message = "It should be between 70 to 200 characters")
 	private String detail;
 	@Column(nullable = false)
 	private String assignedTo;
 	private Date dueDateAndTime;
 	private int priority;
 	private String status;
-	@Size(min = 10,max = 70,message = "It should be between 10 to 70 characters")
 	private String comment;
 	@Column(updatable = false, nullable = false)
 	private String teamCode;
-	//add userCode
-    @Column(updatable = false, nullable = false)
-    private String userCode;
- 
+	
 	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
 	@JoinColumn(name = "user_id",updatable =false , nullable = false)
 	@JsonIgnore
@@ -52,14 +45,6 @@ public class Todo {
 		super();
 	}
 	
-	public String getUserCode() {
-		return userCode;
-	}
-
-	public void setUserCode(String userCode) {
-		this.userCode = userCode;
-	}
-
 	public String getTeamCode() {
 		return teamCode;
 	}
