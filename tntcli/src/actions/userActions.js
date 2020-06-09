@@ -1,5 +1,6 @@
 import axios from "axios";
-import { GET_ERRORS, USER_LOGIN, GET_USER } from "./type";
+import { GET_ERRORS, USER_LOGIN, GET_USER, GET_USERS } from "./type";
+
 export const login = (user, history) => async (dispatch) => {
   try {
     console.log("==>>", user);
@@ -33,6 +34,15 @@ export const getUser = (team_id, user_id, history) => async (dispatch) => {
   );
   dispatch({
     type: GET_USER,
+    payload: res.data,
+  });
+};
+
+export const getUsers = (team_id, history) => async (dispatch) => {
+  const res = await axios.get(`http://localhost:8081/api/user/${team_id}`);
+  console.log("response in react", res);
+  dispatch({
+    type: GET_USERS,
     payload: res.data,
   });
 };

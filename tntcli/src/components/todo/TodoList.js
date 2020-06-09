@@ -20,10 +20,7 @@ class TodoList extends Component {
           <p class="card-title ">
             Due Date and Time : <span></span>
           </p>
-          <p class="card-text text-light font-italic">
-            Some quick example text to build on the card title and make up the
-            bulk of the card's content.
-          </p>
+          <p class="card-text text-light font-italic">{todo.comment}</p>
         </div>
         <span class="surface"></span>
         <p class="todo-detail text-justify ">{todo.detail}</p>

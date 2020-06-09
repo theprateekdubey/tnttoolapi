@@ -9,6 +9,8 @@ import LoginForm from "./components/layout/login/forms/LoginForm";
 import TeamLeadDashboard from "./components/TeamLeadDashboard";
 import RegistrationForm from "./components/layout/login/forms/RegistrationForm";
 import TeamMemberDashboard from "./components/TeamMemberDashboard";
+import ListTeamMember from "./components/user/ListTeamMember";
+import AddTodoForm from "./components/todo/AddTodoForm";
 
 function App() {
   return (
@@ -26,6 +28,16 @@ function App() {
           exact
           path="/teamMemberDashboard/:teamCode/:userCode"
           component={TeamMemberDashboard}
+        />
+        <Route
+          exact
+          path="/teamMember/:teamCode/:userCode"
+          component={ListTeamMember}
+        />
+        <Route
+          exact
+          path="/addTodo/:teamCode/:userCode"
+          component={AddTodoForm}
         />
       </Router>
     </Provider>

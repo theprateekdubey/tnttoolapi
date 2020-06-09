@@ -1,6 +1,9 @@
 #main-header {
   background-color: rgba(0, 0, 0, 0.911);
 }
+.list-team-member .list-member {
+  background-color: rgba(0, 0, 0, 0.911);
+}
 /*TodoList*/
 body {
   background-image: url("./bg-01.jpg");
@@ -81,28 +84,6 @@ body {
   transition-delay: 0.4s;
 }
 
-/*PRELOADING------------ */
-#overlayer {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  z-index: 7100;
-  background: #fff;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-}
-
-.loader {
-  z-index: 7700;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  transform: translate(-50%, -50%);
-}
 /*Landing Page*/
 .landing-page {
   background-image: url("http://getwallpapers.com/wallpaper/full/0/e/6/165796.jpg");
@@ -217,3 +198,54 @@ body {
   background-color: rgba(0, 0, 0, 0.911);
 }
 /*******End*********/
+/**Add Todo Form*/
+.add-todo {
+  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 100%;
+}
+.add-todo .card {
+  margin-top: -1.5%;
+  margin-bottom: 3.1%;
+  width: 600px;
+  height: 630px;
+  background-color: rgba(0, 0, 0, 0.692) !important;
+}
+.add-todo input {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-todo textarea {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-todo select {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-todo input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  background-color: rgba(17, 17, 104, 0.404);
+  caret-color: white;
+}
+
+.add-todo .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+
+.add-todo .login_btn:hover {
+  color: black;
+  background-color: white;
+}
+
+.add-todo .links {
+  color: white;
+}
+
+.add-todo .links a {
+  margin-left: 4px;
+}
