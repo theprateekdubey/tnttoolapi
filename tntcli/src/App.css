@@ -1,9 +1,14 @@
 #main-header {
   background-color: rgba(0, 0, 0, 0.911);
 }
+/**List Team Member*/
 .list-team-member .list-member {
   background-color: rgba(0, 0, 0, 0.911);
 }
+.add-member-btn {
+  margin: -4.3% 0 0 7%;
+}
+
 /*TodoList*/
 body {
   background-image: url("./bg-01.jpg");

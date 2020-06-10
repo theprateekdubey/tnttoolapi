@@ -1,4 +1,4 @@
-import { GET_TODOTASKS } from "./../actions/type";
+import { GET_TODOTASKS, DELETE_TODO, GET_TODO } from "./../actions/type";
 
 const initialState = {
   todos: [],
@@ -10,6 +10,18 @@ export default function (state = initialState, action) {
       return {
         ...state,
         todos: action.payload,
+      };
+    case GET_TODO:
+      return {
+        ...state,
+        todo: action.payload,
+      };
+    case DELETE_TODO:
+      return {
+        ...state,
+        todos: state.todos.filter(
+          (todo) => todo.taskIdentifier != action.payload
+        ),
       };
     default:
       return state;

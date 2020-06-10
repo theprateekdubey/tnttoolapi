@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { getUsers } from "./../../actions/userActions";
-import { createTodo } from "./../../actions/todoAction";
-import { Link } from "react-router-dom";
-import Header from "../layout/Header";
 import classnames from "classnames";
 import BackToDashboardButton from "./../user/BackToDashboardButton";
+import { getTodo } from "./../../actions/todoAction";
+import { getUsers } from "./../../actions/userActions";
+import { createTodo } from "./../../actions/todoAction";
+import Header from "../layout/Header";
 
-class AddTodoForm extends Component {
+class UpdateTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      id: "",
       name: "",
       detail: "",
       assignedTo: "",
@@ -20,20 +21,12 @@ class AddTodoForm extends Component {
       status: "",
       comment: "",
       userCode: "",
+      teamCode: "",
+      todoIdentifier: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    const { teamCode } = this.props.match.params;
-    this.props.getUsers(teamCode, this.props.history);
-  }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.errors) {
-      this.setState({ errors: nextProps.errors });
-    }
   }
 
   onChange(event) {
@@ -41,10 +34,10 @@ class AddTodoForm extends Component {
   }
 
   onSubmit(event) {
-    event.preventDefault();
     const { teamCode, userCode } = this.props.match.params;
     event.preventDefault();
-    const newTodo = {
+    const updateTodo = {
+      id: this.state.id,
       name: this.state.name,
       detail: this.state.detail,
       assignedTo: this.state.assignedTo,
@@ -52,17 +45,48 @@ class AddTodoForm extends Component {
       priority: this.state.priority,
       status: this.state.status,
       comment: this.state.comment,
-      userCode: this.state.userCode,
     };
     this.props.createTodo(
       teamCode,
       this.state.userCode,
       userCode,
-      newTodo,
+      updateTodo,
       this.props.history
     );
   }
-
+  componentWillReceiveProps(nextProps) {
+    const {
+      id,
+      name,
+      detail,
+      assignedTo,
+      dueDateAndTime,
+      priority,
+      status,
+      comment,
+      userCode,
+      teamCode,
+      todoIdentifier,
+    } = nextProps.todo;
+    this.setState({
+      id,
+      name,
+      detail,
+      assignedTo,
+      dueDateAndTime,
+      priority,
+      status,
+      comment,
+      userCode,
+      teamCode,
+      todoIdentifier,
+    });
+  }
+  componentDidMount() {
+    const { teamCode, userCode, taskIdentifier } = this.props.match.params;
+    this.props.getTodo(teamCode, userCode, taskIdentifier, this.props.history);
+    this.props.getUsers(teamCode, this.props.history);
+  }
   render() {
     const { errors } = this.state;
     const { users } = this.props.users;
@@ -77,21 +101,20 @@ class AddTodoForm extends Component {
             <div className="card">
               <div className="card-body">
                 <h5 className="display-5 text-center text-light">
-                  Create TODO Form
+                  Update TODO Form
                 </h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
                   <div className="input-group form-group">
                     <input
                       type="text"
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.name,
                       })}
                       placeholder="Todo Name"
                       name="name"
                       value={this.state.name}
                       onChange={this.onChange}
-                      required
                     />
                     {errors.name && (
                       <div className="invalid-feedback">{errors.name}</div>
@@ -99,7 +122,7 @@ class AddTodoForm extends Component {
                   </div>
                   <div className="input-group form-group">
                     <textarea
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.detail,
                       })}
                       rows="3"
@@ -107,10 +130,9 @@ class AddTodoForm extends Component {
                       name="detail"
                       value={this.state.detail}
                       onChange={this.onChange}
-                      required
                     ></textarea>
-                    {errors.detail && (
-                      <div className="invalid-feedback">{errors.detail}</div>
+                    {errors.name && (
+                      <div className="invalid-feedback">{errors.name}</div>
                     )}
                   </div>
                   <div className="input-group form-group">
@@ -121,8 +143,8 @@ class AddTodoForm extends Component {
                       onChange={this.onChange}
                       required
                     >
-                      <option value="">
-                        Select a Team Member to assign the Todo Task
+                      <option value={this.state.userCode}>
+                        {this.state.assignedTo}
                       </option>
                       {users.map((user) => (
                         <option value={user.userCode}>{user.name}</option>
@@ -164,7 +186,7 @@ class AddTodoForm extends Component {
                   </div>
                   <div className="input-group form-group">
                     <textarea
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.comment,
                       })}
                       rows="3"
@@ -172,10 +194,9 @@ class AddTodoForm extends Component {
                       name="comment"
                       value={this.state.comment}
                       onChange={this.onChange}
-                      required
                     ></textarea>
-                    {errors.comment && (
-                      <div className="invalid-feedback">{errors.comment}</div>
+                    {errors.name && (
+                      <div className="invalid-feedback">{errors.name}</div>
                     )}
                   </div>
 
@@ -189,14 +210,19 @@ class AddTodoForm extends Component {
     );
   }
 }
-AddTodoForm.propTypes = {
+UpdateTodoForm.propTypes = {
   user: PropTypes.object.isRequired,
   getUsers: PropTypes.func.isRequired,
   createTodo: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
+  getTodo: PropTypes.func.isRequired,
+  todo: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   users: state.users,
   errors: state.errors,
+  todo: state.todos.todo,
 });
-export default connect(mapStateToProps, { getUsers, createTodo })(AddTodoForm);
+export default connect(mapStateToProps, { getUsers, createTodo, getTodo })(
+  UpdateTodoForm
+);

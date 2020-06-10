@@ -20,6 +20,13 @@ class ListTeamMember extends Component {
       <div>
         <Header />
         <BackToDashboardButton teamCode={teamCode} userCode={userCode} />
+        <Link
+          type="button"
+          className="add-member-btn rounded-pill btn btn-success px-4"
+          to={`/addTeamMember/${teamCode}/${userCode}`}
+        >
+          <i class="fa fa-plus" aria-hidden="true"></i> Add Member
+        </Link>
         <p>
           {users.map((user) => (
             <span>
