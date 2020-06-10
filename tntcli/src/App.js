@@ -12,6 +12,7 @@ import TeamMemberDashboard from "./components/TeamMemberDashboard";
 import ListTeamMember from "./components/user/ListTeamMember";
 import AddTodoForm from "./components/todo/AddTodoForm";
 import UpdateTodoForm from "./components/todo/UpdateTodoForm";
+import AddTeamMember from "./components/user/AddTeamMember";
 
 function App() {
   return (
@@ -44,6 +45,11 @@ function App() {
           exact
           path="/updateTodo/:teamCode/:userCode/:taskIdentifier"
           component={UpdateTodoForm}
+        />
+        <Route
+          exact
+          path="/addTeamMember/:teamCode/:userCode"
+          component={AddTeamMember}
         />
       </Router>
     </Provider>

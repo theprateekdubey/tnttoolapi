@@ -37,17 +37,16 @@ class TodoList extends Component {
         >
           <i class="fa fa-edit icons"></i>
         </Link>
-        <Link to="#">
-          <div
-            onClick={this.onDeleteClick.bind(
-              this,
-              todo.userCode,
-              todo.taskIdentifier
-            )}
-          >
-            <i class="fa fa-trash icons"></i>
-          </div>
-        </Link>
+
+        <div
+          onClick={this.onDeleteClick.bind(
+            this,
+            todo.userCode,
+            todo.taskIdentifier
+          )}
+        >
+          <i class="fa fa-trash icons"></i>
+        </div>
       </div>
     );
   }

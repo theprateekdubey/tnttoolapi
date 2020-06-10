@@ -178,7 +178,6 @@ class AddTodoForm extends Component {
                       <div className="invalid-feedback">{errors.comment}</div>
                     )}
                   </div>
-
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>

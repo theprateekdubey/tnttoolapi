@@ -33,6 +33,7 @@ public class Todo {
 	private String detail;
 	@Column(nullable = false)
 	private String assignedTo;
+	//macthing Date Formate
 	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date dueDateAndTime;
 	private int priority;
