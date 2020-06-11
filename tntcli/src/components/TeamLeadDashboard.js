@@ -4,7 +4,6 @@ import TodoList from "./todo/TodoList";
 import AddAndListButton from "./todo/AddAndListButton";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { getTodos } from "./../actions/todoAction";
 
 class TeamLeadDashboard extends Component {
@@ -17,7 +16,7 @@ class TeamLeadDashboard extends Component {
     const { teamCode, userCode } = this.props.match.params;
     return (
       <div className="teamLeadDash">
-        <Header />
+        <Header teamCode={teamCode} userCode={userCode} />
         <AddAndListButton teamCode={teamCode} userCode={userCode} />
         <div className="todo-list ml-5 mt-5">
           {todos.map((todo) => (

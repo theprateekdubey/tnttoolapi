@@ -14,7 +14,7 @@ export const login = (user, history) => async (dispatch) => {
     console.log("response in react", res);
     if (res.data.role === 2) {
       history.push(
-        `/teamLeadDashboard/${res.data.teamCode}/${res.data.userCode}`
+        `/teamLeadDashboard/${res.data.teamCode}/${res.data.userCode}/`
       );
     }
     if (res.data.role === 1) {

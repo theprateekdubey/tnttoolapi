@@ -17,7 +17,7 @@ class ListTeamMember extends Component {
     const { teamCode, userCode } = this.props.match.params;
     return (
       <div>
-        <Header />
+        <Header teamCode={teamCode} userCode={userCode} />
         <BackToDashboardButton teamCode={teamCode} userCode={userCode} />
         <Link
           type="button"

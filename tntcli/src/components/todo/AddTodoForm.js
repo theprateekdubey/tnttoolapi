@@ -3,7 +3,6 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { getUsers } from "./../../actions/userActions";
 import { createTodo } from "./../../actions/todoAction";
-import { Link } from "react-router-dom";
 import Header from "../layout/Header";
 import classnames from "classnames";
 import BackToDashboardButton from "./../user/BackToDashboardButton";
@@ -20,6 +19,7 @@ class AddTodoForm extends Component {
       status: "",
       comment: "",
       userCode: "",
+      role: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -41,7 +41,6 @@ class AddTodoForm extends Component {
   }
 
   onSubmit(event) {
-    event.preventDefault();
     const { teamCode, userCode } = this.props.match.params;
     event.preventDefault();
     const newTodo = {
@@ -52,13 +51,13 @@ class AddTodoForm extends Component {
       priority: this.state.priority,
       status: this.state.status,
       comment: this.state.comment,
-      userCode: this.state.userCode,
     };
     this.props.createTodo(
       teamCode,
       this.state.userCode,
       userCode,
       newTodo,
+      this.state.role,
       this.props.history
     );
   }
@@ -70,7 +69,8 @@ class AddTodoForm extends Component {
 
     return (
       <div className="add-todo">
-        <Header />
+        <Header teamCode={teamCode} userCode={userCode} />
+
         <BackToDashboardButton teamCode={teamCode} userCode={userCode} />
         <div className="add-todo-form container">
           <div className="d-flex justify-content-center h-100">
@@ -84,7 +84,7 @@ class AddTodoForm extends Component {
                   <div className="input-group form-group">
                     <input
                       type="text"
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.name,
                       })}
                       placeholder="Todo Name"
@@ -99,7 +99,7 @@ class AddTodoForm extends Component {
                   </div>
                   <div className="input-group form-group">
                     <textarea
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.detail,
                       })}
                       rows="3"
@@ -164,7 +164,7 @@ class AddTodoForm extends Component {
                   </div>
                   <div className="input-group form-group">
                     <textarea
-                      className={classnames("form-control", {
+                      className={classnames("form-control ", {
                         "is-invalid": errors.comment,
                       })}
                       rows="3"
@@ -178,6 +178,7 @@ class AddTodoForm extends Component {
                       <div className="invalid-feedback">{errors.comment}</div>
                     )}
                   </div>
+
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>

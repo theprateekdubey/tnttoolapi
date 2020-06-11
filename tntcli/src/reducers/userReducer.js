@@ -28,7 +28,7 @@ export default function (state = initialState, action) {
     case DELETE_USER:
       return {
         ...state,
-        users: state.users.filter((user) => user.userCode != action.payload),
+        users: state.users.filter((user) => user.userCode !== action.payload),
       };
     default:
       return state;

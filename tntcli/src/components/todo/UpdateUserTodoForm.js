@@ -1,13 +1,13 @@
 import React, { Component } from "react";
-import { connect } from "react-redux";
-import { PropTypes } from "prop-types";
-import classnames from "classnames";
-import BackToDashboardButton from "./../user/BackToDashboardButton";
 import { getTodo, createTodo } from "./../../actions/todoAction";
 import { getUser } from "./../../actions/userActions";
-import Header from "../layout/Header";
+import { connect } from "react-redux";
+import { PropTypes } from "prop-types";
+import Header from "./../layout/Header";
+import classnames from "classnames";
+import BackToTeamMemberDashBoard from "./../user/BackToTeamMemberDashBoard";
 
-class UpdateTodoForm extends Component {
+class UpdateUserTodoForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -35,6 +35,8 @@ class UpdateTodoForm extends Component {
 
   onSubmit(event) {
     const { teamCode, userCode } = this.props.match.params;
+
+    console.log("userRole -------------" + this.state.role);
     event.preventDefault();
     const updateTodo = {
       id: this.state.id,
@@ -98,12 +100,14 @@ class UpdateTodoForm extends Component {
 
   render() {
     const { errors } = this.state;
+    const { user } = this.props.user;
     const { teamCode, userCode } = this.props.match.params;
 
     return (
       <div className="add-todo">
         <Header teamCode={teamCode} userCode={userCode} />
-        <BackToDashboardButton teamCode={teamCode} userCode={userCode} />
+        <BackToTeamMemberDashBoard teamCode={teamCode} userCode={userCode} />
+
         <div className="add-todo-form container">
           <div className="d-flex justify-content-center h-100">
             <div className="card">
@@ -113,57 +117,16 @@ class UpdateTodoForm extends Component {
                 </h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
-                  <div className="input-group form-group">
-                    <input
-                      type="text"
-                      className={classnames("form-control ", {
-                        "is-invalid": errors.name,
-                      })}
-                      placeholder="Todo Name"
-                      name="name"
-                      value={this.state.name}
-                      onChange={this.onChange}
-                    />
-                    {errors.name && (
-                      <div className="invalid-feedback">{errors.name}</div>
-                    )}
+                  <div className="input-group form-group text-secondary border border-white p-2 rounded">
+                    {this.state.name}
                   </div>
-                  <div className="input-group form-group">
-                    <textarea
-                      className={classnames("form-control ", {
-                        "is-invalid": errors.detail,
-                      })}
-                      rows="3"
-                      placeholder="Detail"
-                      name="detail"
-                      value={this.state.detail}
-                      onChange={this.onChange}
-                    ></textarea>
-                    {errors.detail && (
-                      <div className="invalid-feedback">{errors.detail}</div>
-                    )}
+                  <div className="input-group form-group text-secondary border border-white p-2 rounded">
+                    {this.state.detail}
                   </div>
-                  <div className="input-group form-group">
-                    <input
-                      type="name"
-                      className="form-control"
-                      name="assignedTo"
-                      value={this.state.assignedTo}
-                    />
+                  <div className="input-group form-group text-secondary border border-white p-2 rounded">
+                    {this.state.assignedTo}
                   </div>
-                  <div className="input-group form-group">
-                    <select
-                      className="form-control"
-                      name="priority"
-                      value={this.state.priority}
-                      onChange={this.onChange}
-                    >
-                      <option value={0}>Select Priority</option>
-                      <option value={1}>High</option>
-                      <option value={2}>Medium</option>
-                      <option value={3}>Low</option>
-                    </select>
-                  </div>
+
                   <div className="input-group form-group">
                     <input
                       type="text"
@@ -174,16 +137,10 @@ class UpdateTodoForm extends Component {
                       onChange={this.onChange}
                     />
                   </div>
-
-                  <div className="input-group form-group">
-                    <input
-                      type="date"
-                      className="form-control"
-                      name="dueDateAndTime"
-                      value={this.state.dueDateAndTime}
-                      onChange={this.onChange}
-                    />
+                  <div className="input-group form-group text-secondary border border-white p-2 rounded">
+                    {this.state.dueDateAndTime}
                   </div>
+
                   <div className="input-group form-group">
                     <textarea
                       className={classnames("form-control ", {
@@ -210,8 +167,8 @@ class UpdateTodoForm extends Component {
     );
   }
 }
-UpdateTodoForm.propTypes = {
-  // user: PropTypes.object.isRequired,
+UpdateUserTodoForm.propTypes = {
+  user: PropTypes.object.isRequired,
   getUser: PropTypes.func.isRequired,
   createTodo: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
@@ -224,5 +181,5 @@ const mapStateToProps = (state) => ({
   todo: state.todos.todo,
 });
 export default connect(mapStateToProps, { getUser, createTodo, getTodo })(
-  UpdateTodoForm
+  UpdateUserTodoForm
 );
