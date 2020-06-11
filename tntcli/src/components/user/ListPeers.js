@@ -22,10 +22,16 @@ class ListPeers extends Component {
           <div className="container list-team-peer">
             <div className="card card-body list-peer ">
               <div className="row">
-                <div className="text-light list-peer-detail">
-                  <h3>Name : {user.name}</h3>
-                  <h6>Username : {user.username}</h6>
-                  <small>User Id : {user.userCode}</small>
+                <div className="list-peer-detail">
+                  <h3>
+                    Name : <span>{user.name}</span>
+                  </h3>
+                  <h6>
+                    Username : <span>{user.username}</span>
+                  </h6>
+                  <small>
+                    User Id : <span>{user.userCode}</span>
+                  </small>
                 </div>
               </div>
             </div>

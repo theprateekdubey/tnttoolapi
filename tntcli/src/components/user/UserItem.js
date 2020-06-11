@@ -16,11 +16,17 @@ class UserItem extends Component {
       <div className="container list-team-member">
         <div className="card card-body  list-member mb-3 p-3">
           <div className="row">
-            <div className="col-lg-1 col-md-1 col-1 text-light pl-5"></div>
-            <div className="col-lg-7 col-md-5 col-9 text-light pl-5">
-              <h3>{user.name}</h3>
-              <h6>{user.username}</h6>
-              <small>{user.userCode}</small>
+            <div className="col-lg-1 col-md-1 col-1 pl-5"></div>
+            <div className="col-lg-7 col-md-5 col-9 pl-5 list-team-detail">
+              <h3>
+                Name : <span>{user.name}</span>
+              </h3>
+              <h6>
+                Username : <span>{user.username}</span>
+              </h6>
+              <small>
+                User Id : <span>{user.userCode}</span>
+              </small>
             </div>
             <div className="col-lg-3 col-md-5 col-1">
               <Link

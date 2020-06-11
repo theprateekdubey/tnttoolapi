@@ -6,9 +6,13 @@
   background-color: rgba(0, 0, 0, 0.911);
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a9a9a9;
 }
 .list-team-member .list-member:hover {
   background-color: black;
+}
+.list-team-member .list-member .list-team-detail span {
+  color: #f5fffa;
 }
 .add-member-btn {
   margin: -4.3% 0 0 13.5%;
@@ -23,6 +27,10 @@
   padding-left: 160px;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a9a9a9;
+}
+.list-team-peer .list-peer .list-peer-detail span {
+  color: #f5fffa;
 }
 
 .list-team-peer .list-peer:hover {
