@@ -47,11 +47,6 @@ public class TodoController {
 		return new ResponseEntity<Todo>(todo,HttpStatus.OK);
 	}
 	
-	@GetMapping("/{team_id}/{user_id}")
-	public Iterable<Todo> getUserTodo(@PathVariable String team_id, @PathVariable String user_id){
-		return todoService.findAllTodoAssignToUser(team_id, user_id);
-	}
-
 	@GetMapping("/{team_id}")
 	public Iterable<Todo> getTodoTasks(@PathVariable String team_id){
 		return todoService.findAllTodoTask(team_id);
