@@ -13,7 +13,7 @@ class TodoList extends Component {
     const { todo } = this.props;
     const { userCode } = this.props;
     return (
-      <div class="todo-list-content card  ml-3 mb-3">
+      <div className="todo-list-content card  ml-3 mb-3">
         <div className="card-body">
           <p className="mr-5">
             TODO : <span>{todo.name}</span>
@@ -22,20 +22,20 @@ class TodoList extends Component {
           <p>
             Status : <span>{todo.status}</span>
           </p>
-          <p class="card-title  ">
+          <p className="card-title  ">
             Assigned To : <span>{todo.assignedTo}</span>
           </p>
-          <p class="card-title ">
+          <p className="card-title ">
             Due Date and Time : <span>{todo.dueDateAndTime}</span>
           </p>
-          <p class="card-text text-light font-italic">{todo.comment}</p>
+          <p className="card-text text-light font-italic">{todo.comment}</p>
         </div>
-        <span class="surface"></span>
-        <p class="todo-detail text-justify ">{todo.detail}</p>
+        <span className="surface"></span>
+        <p className="todo-detail text-justify ">{todo.detail}</p>
         <Link
           to={`/updateTodo/${todo.teamCode}/${userCode}/${todo.taskIdentifier}`}
         >
-          <i class="fa fa-edit icons"></i>
+          <i className="fa fa-edit icons"></i>
         </Link>
 
         <div
@@ -45,7 +45,7 @@ class TodoList extends Component {
             todo.taskIdentifier
           )}
         >
-          <i class="fa fa-trash icons"></i>
+          <i className="fa fa-trash icons"></i>
         </div>
       </div>
     );

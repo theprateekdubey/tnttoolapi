@@ -12,7 +12,6 @@ class ListTeamMember extends Component {
     const { teamCode } = this.props.match.params;
     this.props.getUsers(teamCode, this.props.history);
   }
-
   render() {
     const { users } = this.props.users;
     const { teamCode, userCode } = this.props.match.params;
@@ -25,12 +24,12 @@ class ListTeamMember extends Component {
           className="add-member-btn rounded-pill btn btn-success px-4"
           to={`/addTeamMember/${teamCode}/${userCode}`}
         >
-          <i class="fa fa-plus" aria-hidden="true"></i> Add Member
+          <i className="fa fa-plus" aria-hidden="true"></i> Add Member
         </Link>
         <p>
           {users.map((user) => (
             <span>
-              <UserItem key={user.id} user={user} />
+              <UserItem key={user.id} user={user} userCode={userCode} />
             </span>
           ))}
         </p>

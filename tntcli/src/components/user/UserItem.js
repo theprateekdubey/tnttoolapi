@@ -11,6 +11,7 @@ class UserItem extends Component {
   };
   render() {
     const { user } = this.props;
+    const { userCode } = this.props;
     return (
       <div className="container list-team-member">
         <div className="card card-body  list-member mb-3 p-3">
@@ -25,9 +26,9 @@ class UserItem extends Component {
               <Link
                 type="button"
                 className="rounded-pill btn btn-warning px-5 mt-3"
-                to={`/UpdateTeamMember/${user.teamCode}/${user.userCode}`}
+                to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
               >
-                <i class="fa fa-edit"></i>
+                <i className="fa fa-edit"></i>
               </Link>
 
               <div
@@ -39,7 +40,7 @@ class UserItem extends Component {
                 type="button"
                 className="rounded-pill btn btn-danger px-5 ml-2 mt-3"
               >
-                <i class="fa fa-trash"></i>
+                <i className="fa fa-trash"></i>
               </div>
             </div>
           </div>

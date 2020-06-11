@@ -9,9 +9,9 @@ class BackToMemberListboardButton extends Component {
         <Link
           to={`/teamMember/${teamCode}/${userCode}`}
           type="button"
-          class="btn btn-outline-dark ml-3 mt-n3 rounded-circle"
+          className="btn btn-outline-dark ml-3 mt-n3 rounded-circle"
         >
-          <i class="fa fa-arrow-left" aria-hidden="true"></i>
+          <i className="fa fa-arrow-left" aria-hidden="true"></i>
         </Link>
       </div>
     );

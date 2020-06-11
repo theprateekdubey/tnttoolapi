@@ -55,6 +55,9 @@ class UpdateTodoForm extends Component {
     );
   }
   componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
     const {
       id,
       name,

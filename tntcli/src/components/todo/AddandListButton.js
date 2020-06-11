@@ -11,14 +11,14 @@ class AddandListButton extends Component {
           className="rounded-pill btn btn-success px-5 ml-3"
           to={`/addTodo/${teamCode}/${userCode}`}
         >
-          <i class="fa fa-plus" aria-hidden="true"></i> Add TODO
+          <i className="fa fa-plus" aria-hidden="true"></i> Add TODO
         </Link>
         <Link
           type="button"
-          class="rounded-pill btn btn-warning px-5 ml-3"
+          className="rounded-pill btn btn-warning px-5 ml-3"
           to={`/teamMember/${teamCode}/${userCode}`}
         >
-          <i class="fa fa-list" aria-hidden="true"></i> List Team Members
+          <i className="fa fa-list" aria-hidden="true"></i> List Team Members
         </Link>
       </div>
     );
