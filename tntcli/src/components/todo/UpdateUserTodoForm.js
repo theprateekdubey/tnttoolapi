@@ -100,7 +100,6 @@ class UpdateUserTodoForm extends Component {
 
   render() {
     const { errors } = this.state;
-    const { user } = this.props.user;
     const { teamCode, userCode } = this.props.match.params;
 
     return (

@@ -30,7 +30,7 @@ export default function (state = initialState, action) {
       return {
         ...state,
         todos: state.todos.filter(
-          (todo) => todo.taskIdentifier != action.payload
+          (todo) => todo.taskIdentifier !== action.payload
         ),
       };
     default:

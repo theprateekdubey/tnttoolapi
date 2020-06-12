@@ -7,6 +7,8 @@
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #a9a9a9;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .list-team-member .list-member:hover {
   background-color: black;
@@ -22,6 +24,8 @@
 .list-team-peer .list-peer {
   background-color: rgba(0, 0, 0, 0.911);
   margin: 0 225px 25px 250px;
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .list-team-peer .list-peer .list-peer-detail {
   padding-left: 160px;
@@ -38,7 +42,7 @@
 }
 /*TodoList*/
 body {
-  background-image: url("./bg-01.jpg");
+  background-image: url("./bg-03.jpg");
   background-size: cover;
   background-repeat: space;
 }
@@ -51,8 +55,8 @@ body {
   color: #a9a9a9;
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   background-color: rgba(0, 0, 0, 0.911);
-  border-top-right-radius: 60px;
-  border-bottom-left-radius: 30px;
+  border-top-right-radius: 65px;
+  border-bottom-left-radius: 35px;
   width: 300px;
   margin-right: 40px;
   float: left;
@@ -102,7 +106,7 @@ body {
 }
 .card:hover .todo-detail {
   opacity: 1;
-  transform: translateX(0px) translateY(-50px);
+  transform: translateX(0px) translateY(-20px);
   transition: 0.4s;
 }
 .card:hover .icons {
@@ -124,8 +128,8 @@ body {
   color: #a9a9a9;
   /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   background-color: rgba(0, 0, 0, 0.911);
-  border-top-right-radius: 60px;
-  border-bottom-left-radius: 30px;
+  border-top-right-radius: 65px;
+  border-bottom-left-radius: 35px;
   width: 300px;
   margin-right: 40px;
   float: left;
@@ -175,7 +179,7 @@ body {
 }
 .card:hover .todo-detail-member {
   opacity: 1;
-  transform: translateX(0px) translateY(-150px);
+  transform: translateX(0px) translateY(-65px);
   transition: 0.4s;
 }
 .card:hover .icons {
@@ -191,16 +195,18 @@ body {
 
 /*Landing Page*/
 .landing-page {
-  background-image: url("http://getwallpapers.com/wallpaper/full/0/e/6/165796.jpg");
+  background-image: url("./bg-02.jpg");
   background-size: cover;
   background-repeat: round;
   height: 100%;
 }
 .landing-page .landing-page-content {
-  min-height: 575px;
+  min-height: 505px;
 }
 /*Footer*/
-
+#main-footer {
+  margin-left: 3%;
+}
 .social-bar {
   width: 43%;
   display: flex;
@@ -224,10 +230,9 @@ body {
   max-width: 50%;
 }
 /**SignIn Form*/
-@import url("https://fonts.googleapis.com/css?family=Numans");
 
 .login-form {
-  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-image: url("./bg-01.jpg");
   background-size: cover;
   background-repeat: round;
   height: 100%;
@@ -297,7 +302,7 @@ body {
 
 /**Add Todo Form*/
 .add-todo {
-  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-image: url("./bg-01.jpg");
   background-size: cover;
   background-repeat: round;
 }
@@ -347,7 +352,7 @@ body {
 }
 /**Add Team Member Form*/
 .add-user {
-  background-image: url("http://getwallpapers.com/wallpaper/full/a/5/d/544750.jpg");
+  background-image: url("./bg-01.jpg");
   background-size: cover;
   background-repeat: round;
   height: 753px;

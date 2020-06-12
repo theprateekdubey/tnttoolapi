@@ -7,7 +7,7 @@ import Header from "./../layout/Header";
 
 class ListPeers extends Component {
   componentDidMount() {
-    const { teamCode, userCode } = this.props.match.params;
+    const { teamCode } = this.props.match.params;
     this.props.getUsers(teamCode, this.props.history);
   }
 

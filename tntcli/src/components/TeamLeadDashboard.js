@@ -8,7 +8,7 @@ import { getTodos } from "./../actions/todoAction";
 
 class TeamLeadDashboard extends Component {
   componentDidMount() {
-    const { teamCode, userCode } = this.props.match.params;
+    const { teamCode } = this.props.match.params;
     this.props.getTodos(teamCode, this.props.history);
   }
   render() {

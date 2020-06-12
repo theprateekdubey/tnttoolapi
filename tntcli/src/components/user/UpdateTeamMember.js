@@ -36,14 +36,14 @@ class UpdateTeamMember extends Component {
     });
   }
   componentDidMount() {
-    const { teamCode, userCode, userId } = this.props.match.params;
+    const { teamCode, userId } = this.props.match.params;
     this.props.getUser(teamCode, userId, this.props.history);
   }
   onChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
   onSubmit(event) {
-    const { teamCode, userCode, userId } = this.props.match.params;
+    const { teamCode, userCode } = this.props.match.params;
     event.preventDefault();
     const updateUser = {
       id: this.state.id,

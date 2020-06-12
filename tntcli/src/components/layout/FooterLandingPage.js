@@ -1,14 +1,15 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 export default class FooterLandingPage extends Component {
   render() {
     return (
       <div>
         <footer id="main-footer" className="p-3">
-          <div className="row mx-5">
+          <div className="row">
             <div className="col-md-4">
               <p className="text-light">
-                <i className="fa fa-cog fa-spin fa-1x"></i> About Us
+                <i className="fas fa-user-circle fa-spin fa-1x"></i> About Us
               </p>
               <i className="text-light">
                 We're a learning Developer, who loves building web solutions. We
@@ -19,37 +20,53 @@ export default class FooterLandingPage extends Component {
               </i>
             </div>
             <div className="col-md-4">
-              <a
-                href="#"
+              <Link
+                to="#"
                 data-toggle="modal"
                 data-target="#developerInfo"
                 className="nav-link text-light mt-n2 ml-5"
               >
                 Developers Description
-              </a>
+              </Link>
             </div>
-            <div className="col-md-4 ">
+            <div className="col-md-4">
               <p className="text-light ml-5">
                 <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
                 Contact Us
               </p>
 
               <div className="social-bar">
-                <a href="#" className="social-icon">
-                  <img src="img/facebook.svg" className="social-icons" />
-                </a>
+                <Link to="#" className="social-icon">
+                  <img
+                    src="img/facebook.svg"
+                    className="social-icons"
+                    alt="facebook"
+                  />
+                </Link>
 
-                <a href="#" className="social-icon">
-                  <img src="img/skype.svg" className="social-icons" />
-                </a>
+                <Link to="#" className="social-icon">
+                  <img
+                    src="img/skype.svg"
+                    className="social-icons"
+                    alt="skype"
+                  />
+                </Link>
 
-                <a href="#" className="social-icon">
-                  <img src="img/linkedin.svg" className="social-icons" />
-                </a>
+                <Link to="#" className="social-icon">
+                  <img
+                    src="img/linkedin.svg"
+                    className="social-icons"
+                    alt="linkedin"
+                  />
+                </Link>
 
-                <a href="#" className="social-icon">
-                  <img src="img/gmail.svg" className="social-icons" />
-                </a>
+                <Link to="#" className="social-icon">
+                  <img
+                    src="img/gmail.svg"
+                    className="social-icons"
+                    alt="gmail"
+                  />
+                </Link>
               </div>
             </div>
           </div>
@@ -71,10 +88,19 @@ export default class FooterLandingPage extends Component {
                   <img
                     className="img-responsive  rounded mx-auto d-block"
                     src="img/modal1.jpg"
-                    alt="Developer image"
+                    alt="Developer 1"
                   />
                   <h5 className="text-light  text-center text-muted">
                     Prateek Dubey
+                  </h5>
+
+                  <img
+                    className="img-responsive border border-dark rounded mx-auto d-block"
+                    src="img/modal2.jpg"
+                    alt="Developer 2"
+                  />
+                  <h5 className="text-light  text-center text-muted">
+                    Samay Jain
                   </h5>
                 </div>
               </div>

@@ -26,7 +26,7 @@ class TodoList extends Component {
             Assigned To : <span>{todo.assignedTo}</span>
           </p>
           <p className="card-title ">
-            Due Date and Time : <span>{todo.dueDateAndTime}</span>
+            Due Date : <span>{todo.dueDateAndTime}</span>
           </p>
           <p className="card-text text-light font-italic">{todo.comment}</p>
         </div>

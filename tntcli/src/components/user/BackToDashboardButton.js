@@ -9,7 +9,7 @@ class BackToDashboardButton extends Component {
         <Link
           to={`/teamLeadDashboard/${teamCode}/${userCode}`}
           type="button"
-          className="btn btn-outline-dark ml-3 mt-n3 rounded-circle"
+          className="btn btn-outline-light ml-3 mt-n3 rounded-circle"
         >
           <i className="fa fa-arrow-left" aria-hidden="true"></i>
         </Link>
