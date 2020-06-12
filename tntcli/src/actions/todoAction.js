@@ -20,7 +20,6 @@ export const createTodo = (
       `http://localhost:8081/api/todo/${teamCode}/${assignUserId}/`,
       todo
     );
-    history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
     }

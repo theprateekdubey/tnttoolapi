@@ -36,18 +36,27 @@ class UserItem extends Component {
               >
                 <i className="fa fa-edit"></i>
               </Link>
+              {(() => {
+                switch (user.role) {
+                  case 1:
+                    return (
+                      <div
+                        onClick={this.onDeleteClick.bind(
+                          this,
+                          user.teamCode,
+                          user.userCode
+                        )}
+                        type="button"
+                        className="rounded-pill btn btn-danger px-5 ml-2 mt-3"
+                      >
+                        <i className="fa fa-trash"></i>
+                      </div>
+                    );
 
-              <div
-                onClick={this.onDeleteClick.bind(
-                  this,
-                  user.teamCode,
-                  user.userCode
-                )}
-                type="button"
-                className="rounded-pill btn btn-danger px-5 ml-2 mt-3"
-              >
-                <i className="fa fa-trash"></i>
-              </div>
+                  default:
+                    return "";
+                }
+              })()}
             </div>
           </div>
         </div>

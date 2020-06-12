@@ -317,6 +317,7 @@ body {
   background-color: rgba(17, 17, 104, 0.404);
   color: white;
 }
+
 .add-todo textarea {
   background-color: rgba(17, 17, 104, 0.404);
   color: white;
@@ -325,6 +326,7 @@ body {
   background-color: rgba(17, 17, 104, 0.404);
   color: white;
 }
+
 .add-todo input:focus {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;

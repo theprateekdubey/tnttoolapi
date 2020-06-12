@@ -38,7 +38,7 @@ public class TodoService {
 		userTaskSequence++;
 		user.setTaskSequence(userTaskSequence);
 		todo.setTaskIdentifier(user.getUserCode() + "-" + userTaskSequence);
-		if (todo.getStatus()== null || todo.getStatus()== "") {
+		if (todo.getStatus()==null) {
 			todo.setStatus("TODO");
 			
 		}

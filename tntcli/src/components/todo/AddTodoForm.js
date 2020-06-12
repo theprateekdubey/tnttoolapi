@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { getUsers } from "./../../actions/userActions";
+import { getUsers, getUser } from "./../../actions/userActions";
 import { createTodo } from "./../../actions/todoAction";
 import Header from "../layout/Header";
 import classnames from "classnames";
@@ -27,13 +27,18 @@ class AddTodoForm extends Component {
   }
 
   componentDidMount() {
-    const { teamCode } = this.props.match.params;
+    const { teamCode, userCode } = this.props.match.params;
     this.props.getUsers(teamCode, this.props.history);
+    this.props.getUser(teamCode, userCode, this.props.history);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
+    const { role } = nextProps.user;
+    this.setState({
+      role,
+    });
   }
 
   onChange(event) {
@@ -192,11 +197,15 @@ class AddTodoForm extends Component {
 AddTodoForm.propTypes = {
   user: PropTypes.object.isRequired,
   getUsers: PropTypes.func.isRequired,
+  getUser: PropTypes.func.isRequired,
   createTodo: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   users: state.users,
+  user: state.users.user,
   errors: state.errors,
 });
-export default connect(mapStateToProps, { getUsers, createTodo })(AddTodoForm);
+export default connect(mapStateToProps, { getUsers, createTodo, getUser })(
+  AddTodoForm
+);
