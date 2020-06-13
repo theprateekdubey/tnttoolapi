@@ -16,22 +16,22 @@ class UserItem extends Component {
       <div className="container list-team-member">
         <div className="card card-body  list-member mb-3 p-3">
           <div className="row">
-            <div className="col-lg-1 col-md-1 col-1 pl-5"></div>
-            <div className="col-lg-7 col-md-5 col-9 pl-5 list-team-detail">
+            <div className="col-lg-8 col-md-6 col-10 pl-4 list-team-detail">
               <h3>
-                Name : <span>{user.name}</span>
+                <span>
+                  {user.name}
+                  <span className="font-italic h6"> ({user.username})</span>
+                </span>
               </h3>
-              <h6>
-                Username : <span>{user.username}</span>
-              </h6>
+
               <small>
                 User Id : <span>{user.userCode}</span>
               </small>
             </div>
-            <div className="col-lg-3 col-md-5 col-1">
+            <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
               <Link
                 type="button"
-                className="rounded-pill btn btn-warning px-5 mt-3"
+                className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
                 to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
               >
                 <i className="fa fa-edit"></i>
@@ -47,7 +47,7 @@ class UserItem extends Component {
                           user.userCode
                         )}
                         type="button"
-                        className="rounded-pill btn btn-danger px-5 ml-2 mt-3"
+                        className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2"
                       >
                         <i className="fa fa-trash"></i>
                       </div>

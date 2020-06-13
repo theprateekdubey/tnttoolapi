@@ -18,7 +18,7 @@ class TeamLeadDashboard extends Component {
       <div className="teamLeadDash">
         <Header teamCode={teamCode} userCode={userCode} />
         <AddAndListButton teamCode={teamCode} userCode={userCode} />
-        <div className="todo-list ml-5 mt-5">
+        <div className="todo-list ml-5">
           {todos.map((todo) => (
             <TodoList key={todo.id} todo={todo} userCode={userCode} />
           ))}

@@ -1,5 +1,6 @@
 #main-header {
   background-color: rgba(0, 0, 0, 0.911);
+  padding-top: 5px;
 }
 /**List Team Member*/
 .list-team-member .list-member {
@@ -7,8 +8,9 @@
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #a9a9a9;
-  border-radius: 50px;
+  border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 0 20% 0 20%;
 }
 .list-team-member .list-member:hover {
   background-color: black;
@@ -23,12 +25,11 @@
 /**List Team Peer*/
 .list-team-peer .list-peer {
   background-color: rgba(0, 0, 0, 0.911);
-  margin: 0 225px 25px 250px;
-  border-radius: 50px;
+  margin: 0 310px 0px 310px;
+  border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
 .list-team-peer .list-peer .list-peer-detail {
-  padding-left: 160px;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: #a9a9a9;
@@ -46,7 +47,9 @@ body {
   background-size: cover;
   background-repeat: space;
 }
-
+.teamLeadDash .todo-list {
+  margin-top: 1.3%;
+}
 .teamLeadDash .todo-list .todo-list-content {
   position: relative;
   width: 280px;
@@ -120,6 +123,9 @@ body {
   transition-delay: 0.4s;
 }
 /*Team Member Todo List*/
+.teamMemberDash .todo-list-member {
+  margin-top: 1.3%;
+}
 .teamMemberDash .todo-list-member .todo-list-content {
   position: relative;
   width: 280px;

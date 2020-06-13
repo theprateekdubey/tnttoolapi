@@ -22,9 +22,9 @@ class Header extends Component {
   render() {
     return (
       <div id="main-header">
-        <nav className=" navbar navbar-expand-sm  mb-4 ml-5 mr-5">
-          <a className="navbar-brand text-light">
-            Team and TODO Management Tool
+        <nav className=" navbar navbar-expand-sm  mb-4 mx-5">
+          <a className="navbar-brand text-light mt-n3">
+            Team & TODO Management Tool
           </a>
           <button
             className="navbar-toggler"
@@ -37,12 +37,12 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item text-light mt-2 mr-5 font-weight-light">
-                Welcome {this.state.name}
+              <li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
+                Welcome, {this.state.name}!
               </li>
               <li className="nav-item">
-                <Link className="nav-link text-light " to="/">
-                  Logout
+                <Link className="nav-link text-light" to="/">
+                  <i class="fas fa-sign-out-alt h5 mt-1"></i>
                 </Link>
               </li>
             </ul>

@@ -14,7 +14,7 @@ class TodoList extends Component {
     const { userCode } = this.props;
     return (
       <div className="todo-list-content card  ml-3 mb-3">
-        <div className="card-body">
+        <div className="card-body ">
           <p className="mr-5">
             TODO : <span>{todo.name}</span>
           </p>

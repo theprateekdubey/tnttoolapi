@@ -38,7 +38,7 @@ public class Todo {
 	private int priority;
 	private String status;
 	@Size(min = 10,max = 150,message = "It should be between 10 to 150 characters")
-	private String comment; 
+	private String comment;
 	@Column(updatable = false, nullable = false)
 	private String teamCode;
 	//add userCode

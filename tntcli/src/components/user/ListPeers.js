@@ -20,15 +20,16 @@ class ListPeers extends Component {
         <BackToTeamMemberDashBoard teamCode={teamCode} userCode={userCode} />
         {users.map((user) => (
           <div className="container list-team-peer">
-            <div className="card card-body list-peer ">
+            <div className="card card-body list-peer mb-3">
               <div className="row">
-                <div className="list-peer-detail">
+                <div className="list-peer-detail px-5">
                   <h3>
-                    Name : <span>{user.name}</span>
+                    <span>
+                      {user.name}
+                      <span className="font-italic h6"> ({user.username})</span>
+                    </span>
                   </h3>
-                  <h6>
-                    Username : <span>{user.username}</span>
-                  </h6>
+
                   <small>
                     User Id : <span>{user.userCode}</span>
                   </small>

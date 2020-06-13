@@ -19,13 +19,15 @@ class ListTeamMember extends Component {
       <div>
         <Header teamCode={teamCode} userCode={userCode} />
         <BackToDashboardButton teamCode={teamCode} userCode={userCode} />
-        <Link
-          type="button"
-          className="add-member-btn rounded-pill btn btn-success px-4"
-          to={`/addTeamMember/${teamCode}/${userCode}`}
-        >
-          <i className="fa fa-plus" aria-hidden="true"></i> Add Member
-        </Link>
+        <div className="d-flex justify-content-end mt-n2">
+          <Link
+            type="button"
+            className="add-member-btn rounded  btn btn-success px-3 mt-n4 mr-5"
+            to={`/addTeamMember/${teamCode}/${userCode}`}
+          >
+            <i className="fa fa-plus" aria-hidden="true"></i> Add Member
+          </Link>
+        </div>
         <p>
           {users.map((user) => (
             <span>
