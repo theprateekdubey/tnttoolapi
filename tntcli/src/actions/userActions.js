@@ -74,3 +74,25 @@ export const deleteUser = (teamCode, userCode) => async (dispatch) => {
     payload: userCode,
   });
 };
+export const updateUser = (teamCode, userCode, user, history) => async (
+  dispatch
+) => {
+  try {
+    const res = await axios.patch(
+      `http://localhost:8081/api/user/${teamCode}/${userCode}`,
+      user
+    );
+    console.log("user role---------" + user.role);
+    if (user.role === 2) {
+      history.push(`/teamLeadDashboard/${teamCode}/${userCode}/`);
+    }
+    if (user.role === 1) {
+      history.push(`/teamMemberDashboard/${teamCode}/${userCode}`);
+    }
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
+    });
+  }
+};

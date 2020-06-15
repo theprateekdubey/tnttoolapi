@@ -165,14 +165,17 @@ class UpdateTodoForm extends Component {
                     </select>
                   </div>
                   <div className="input-group form-group">
-                    <input
-                      type="text"
-                      className="form-control "
-                      placeholder="Todo status"
+                    <select
+                      className="form-control"
                       name="status"
                       value={this.state.status}
                       onChange={this.onChange}
-                    />
+                    >
+                      <option>Select Status</option>
+                      <option value="TODO">TODO</option>
+                      <option value="In-Progress">In-Progress</option>
+                      <option value="Completed">Completed</option>
+                    </select>
                   </div>
 
                   <div className="input-group form-group">

@@ -20,10 +20,11 @@ class Header extends Component {
     this.setState({ name });
   }
   render() {
+    const { teamCode, userCode } = this.props;
     return (
       <div id="main-header">
         <nav className=" navbar navbar-expand-sm  mb-4 mx-5">
-          <a className="navbar-brand text-light mt-n3">
+          <a className="navbar-brand text-light mt-n1">
             Team & TODO Management Tool
           </a>
           <button
@@ -40,11 +41,31 @@ class Header extends Component {
               <li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
                 Welcome, {this.state.name}!
               </li>
-              <li className="nav-item">
-                <Link className="nav-link text-light" to="/">
-                  <i class="fas fa-sign-out-alt h5 mt-1"></i>
+              <a
+                class="nav-link dropdown-toggle text-light"
+                href="#"
+                id="navbarDropdownMenuLink"
+                role="button"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <i class="fa fa-user mt-n1" aria-hidden="true"></i>
+              </a>
+              <div
+                class="dropdown-menu"
+                aria-labelledby="navbarDropdownMenuLink"
+              >
+                <Link
+                  class="dropdown-item"
+                  to={`/updateUserCredentials/${teamCode}/${userCode}`}
+                >
+                  Edit Credentials <i className="fa fa-edit icons"></i>
                 </Link>
-              </li>
+                <Link className="nav-link text-dark ml-3" to="/">
+                  Sign Out <i class="fas fa-sign-out-alt"></i>
+                </Link>
+              </div>
             </ul>
           </div>
         </nav>

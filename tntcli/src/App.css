@@ -2,6 +2,9 @@
   background-color: rgba(0, 0, 0, 0.911);
   padding-top: 5px;
 }
+#main-header .dropdown-menu {
+  margin-left: 86%;
+}
 /**List Team Member*/
 .list-team-member .list-member {
   background-color: rgba(0, 0, 0, 0.911);
@@ -337,7 +340,7 @@ body {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;
   background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
+  caret-color: red;
 }
 
 .add-todo .login_btn {
@@ -389,7 +392,7 @@ body {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;
   background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
+  caret-color: red;
 }
 
 .add-user .login_btn {

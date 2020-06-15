@@ -1,14 +1,14 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { deleteTodo } from "../../actions/todoAction";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
+import { deleteTodo } from "../../actions/todoAction";
 
-class TodoList extends Component {
+class CompletedTodoList extends Component {
   onDeleteClick = (userId, taskId) => {
-    console.log("-------> delete method called.");
     this.props.deleteTodo(userId, taskId);
   };
+
   render() {
     const { todo } = this.props;
     const { userCode } = this.props;
@@ -17,9 +17,6 @@ class TodoList extends Component {
         {(() => {
           switch (todo.status) {
             case "Completed":
-              return;
-
-            default:
               return (
                 <div className="todo-list-content card ml-3 mb-3">
                   <div className="card-body">
@@ -59,13 +56,17 @@ class TodoList extends Component {
                   </div>
                 </div>
               );
+
+            default:
+              return;
           }
         })()}
       </div>
     );
   }
 }
-TodoList.propTypes = {
+
+CompletedTodoList.propTypes = {
   deleteTodo: PropTypes.func.isRequired,
 };
-export default connect(null, { deleteTodo })(TodoList);
+export default connect(null, { deleteTodo })(CompletedTodoList);
