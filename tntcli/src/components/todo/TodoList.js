@@ -35,7 +35,11 @@ class TodoList extends Component {
         <Link
           to={`/updateTodo/${todo.teamCode}/${userCode}/${todo.taskIdentifier}`}
         >
-          <i className="fa fa-edit icons"></i>
+          <i
+            className="fa fa-edit icons"
+            data-toggle="tooltip"
+            title="Edit TODO"
+          ></i>
         </Link>
 
         <div
@@ -45,7 +49,11 @@ class TodoList extends Component {
             todo.taskIdentifier
           )}
         >
-          <i className="fa fa-trash icons"></i>
+          <i
+            className="fa fa-trash icons"
+            data-toggle="tooltip"
+            title="Delete TODO"
+          ></i>
         </div>
       </div>
     );

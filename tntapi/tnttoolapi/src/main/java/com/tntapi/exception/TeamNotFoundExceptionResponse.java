@@ -1,7 +1,7 @@
 package com.tntapi.exception;
 
 public class TeamNotFoundExceptionResponse {
-	
+
 	private String teamCode;
 
 	public TeamNotFoundExceptionResponse(String teamCode) {

@@ -7,7 +7,7 @@ import com.tntapi.domain.Team;
 
 @Repository
 public interface TeamRepository extends CrudRepository<Team, Long> {
-	
+
 	// used to find the team from team Code
 	public Team findByTeamCode(String team_id);
 

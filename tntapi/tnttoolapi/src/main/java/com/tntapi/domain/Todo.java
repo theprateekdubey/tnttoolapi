@@ -19,17 +19,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 public class Todo {
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private long id;
 	@NotBlank(message = "name of the TODO Task is required")
-	@Size(min = 5,max = 20,message = "It should be between 5 to 20 characters")
+	@Size(min = 5, max = 20, message = "It should be between 5 to 20 characters")
 	private String name;
 	@Column(unique = true, updatable = false, nullable = false)
 	private String taskIdentifier;
 	@NotBlank(message = "Detail of the Todo Task is required")
-	@Size(min = 50,max = 250,message = "It should be between 70 to 250 characters")
+	@Size(min = 50, max = 250, message = "It should be between 70 to 250 characters")
 	private String detail;
 	@Column(nullable = false)
 	private String assignedTo;
@@ -37,23 +36,23 @@ public class Todo {
 	private Date dueDateAndTime;
 	private int priority;
 	private String status;
-	@Size(min = 10,max = 150,message = "It should be between 10 to 150 characters")
-	private String comment; 
+	@Size(min = 10, max = 150, message = "It should be between 10 to 150 characters")
+	private String comment;
 	@Column(updatable = false, nullable = false)
 	private String teamCode;
-	//add userCode
-    @Column(updatable = false, nullable = false)
-    private String userCode;
- 
-	@ManyToOne(fetch = FetchType.EAGER,cascade = CascadeType.REFRESH)
-	@JoinColumn(name = "user_id",updatable =false , nullable = false)
+	// add userCode
+	@Column(updatable = false, nullable = false)
+	private String userCode;
+
+	@ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.REFRESH)
+	@JoinColumn(name = "user_id", updatable = false, nullable = false)
 	@JsonIgnore
 	private User user;
-	
+
 	public Todo() {
 		super();
 	}
-	
+
 	public String getUserCode() {
 		return userCode;
 	}
@@ -149,5 +148,5 @@ public class Todo {
 	public void setUser(User user) {
 		this.user = user;
 	}
-	
+
 }

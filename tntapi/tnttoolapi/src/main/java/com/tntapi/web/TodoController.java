@@ -29,49 +29,50 @@ public class TodoController {
 	private TodoService todoService;
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
-	
+
 	@PostMapping("/{team_id}/{user_id}")
 	public ResponseEntity<?> addTodoTask(@Valid @RequestBody Todo todo, BindingResult result,
-			@PathVariable String user_id, @PathVariable String team_id){
+			@PathVariable String user_id, @PathVariable String team_id) {
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidateError(result);
-		if(errorMap!= null) {
+		if (errorMap != null) {
 			return errorMap;
 		}
-		Todo newTodo = todoService.createTodoTask(todo, user_id,team_id);
-		return new ResponseEntity<Todo> (newTodo, HttpStatus.CREATED);
+		Todo newTodo = todoService.createTodoTask(todo, user_id, team_id);
+		return new ResponseEntity<Todo>(newTodo, HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/{team_id}/{user_id}/{task_id}")
-	public ResponseEntity<?> getTodo(@PathVariable String team_id, @PathVariable String user_id, @PathVariable String task_id){
+	public ResponseEntity<?> getTodo(@PathVariable String team_id, @PathVariable String user_id,
+			@PathVariable String task_id) {
 		Todo todo = todoService.findTodoByTaskSequence(team_id, user_id, task_id);
-		return new ResponseEntity<Todo>(todo,HttpStatus.OK);
+		return new ResponseEntity<Todo>(todo, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("/{team_id}/{user_id}")
-	public Iterable<Todo> getUserTodo(@PathVariable String team_id, @PathVariable String user_id){
+	public Iterable<Todo> getUserTodo(@PathVariable String team_id, @PathVariable String user_id) {
 		return todoService.findAllTodoAssignToUser(team_id, user_id);
 	}
 
 	@GetMapping("/{team_id}")
-	public Iterable<Todo> getTodoTasks(@PathVariable String team_id){
+	public Iterable<Todo> getTodoTasks(@PathVariable String team_id) {
 		return todoService.findAllTodoTask(team_id);
 	}
-	
+
 	@PatchMapping("/{team_id}/{user_id}/{task_id}")
-	public ResponseEntity<?> updateTodo(@Valid @RequestBody Todo todo,BindingResult result,@PathVariable String team_id,
-			@PathVariable String user_id,@PathVariable String task_id){
-		
+	public ResponseEntity<?> updateTodo(@Valid @RequestBody Todo todo, BindingResult result,
+			@PathVariable String team_id, @PathVariable String user_id, @PathVariable String task_id) {
+
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidateError(result);
-		if(errorMap != null) {
+		if (errorMap != null) {
 			return errorMap;
 		}
 		Todo updateTodo = todoService.updateBytaskSequence(todo, team_id, user_id, task_id);
-		return new ResponseEntity<Todo> (updateTodo,HttpStatus.OK);
+		return new ResponseEntity<Todo>(updateTodo, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/{user_id}/{task_id}")
-	public ResponseEntity<?> deleteTodo(@PathVariable String user_id,@PathVariable String task_id){
+	public ResponseEntity<?> deleteTodo(@PathVariable String user_id, @PathVariable String task_id) {
 		todoService.deleteTodo(user_id, task_id);
-		return new ResponseEntity<String >("todo task successfully removed",HttpStatus.OK);
+		return new ResponseEntity<String>("todo task successfully removed", HttpStatus.OK);
 	}
 }

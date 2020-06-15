@@ -23,66 +23,66 @@ public class TodoService {
 	private UserRepository userRepository;
 	@Autowired
 	private TeamRepository teamRepository;
-	
+
 	public Todo createTodoTask(Todo todo, String user_id, String team_id) {
-		//finding user
+		// finding user
 		User user = userRepository.findUserByUserCode(user_id);
-		//if user not found
+		// if user not found
 		if (user == null) {
 			throw new UserNotFoundException("team member does not exists");
 		}
-		//assigning user to todo task
+		// assigning user to todo task
 		todo.setAssignedTo(user.getName());
-		//assigning taskIdentifier to todo task
+		// assigning taskIdentifier to todo task
 		Integer userTaskSequence = user.getTaskSequence();
 		userTaskSequence++;
 		user.setTaskSequence(userTaskSequence);
 		todo.setTaskIdentifier(user.getUserCode() + "-" + userTaskSequence);
-		if (todo.getStatus()== null || todo.getStatus()== "") {
+		if (todo.getStatus() == null || todo.getStatus() == "") {
 			todo.setStatus("TODO");
-			
+
 		}
-		if (todo.getPriority()==0) {
+		if (todo.getPriority() == 0) {
 			todo.setPriority(3);
 		}
-		//setting user to todo task
+		// setting user to todo task
 		todo.setUser(user);
-		//setting userCode to todo task
+		// setting userCode to todo task
 		todo.setUserCode(user.getUserCode());
 		todo.setTeamCode(user.getTeamCode());
-		//checking team code and user team code is same 
+		// checking team code and user team code is same
 		if (!team_id.equals(user.getTeamCode())) {
 			throw new UserNotFoundException(
 					"user code '" + user_id + "' does not match with team code '" + team_id + "'");
 		}
 		return todoRepository.save(todo);
 	}
-	
+
 	public Todo findTodoByTaskSequence(String team_id, String user_id, String task_id) {
-		//finding team
-		Team team=teamRepository.findByTeamCode(team_id);
-		//if not found
-		if (team==null) {
-			throw new TeamNotFoundException("Team with team code '"+team_id+"' does not exist");
+		// finding team
+		Team team = teamRepository.findByTeamCode(team_id);
+		// if not found
+		if (team == null) {
+			throw new TeamNotFoundException("Team with team code '" + team_id + "' does not exist");
 		}
-		//finding user
-		User user=userRepository.findUserByUserCode(user_id);
-		//if user not found
-		if (user==null) {
+		// finding user
+		User user = userRepository.findUserByUserCode(user_id);
+		// if user not found
+		if (user == null) {
 			throw new UserNotFoundException("User not found");
 		}
-		//find todo
-		Todo todo=todoRepository.findTodoByTaskIdentifier(task_id);
-		if (todo==null) {
+		// find todo
+		Todo todo = todoRepository.findTodoByTaskIdentifier(task_id);
+		if (todo == null) {
 			throw new TodoNotFoundException("Task not found");
 		}
-		if(!team_id.equals(user.getTeamCode()) || !user.getTeamCode().equals(todo.getTeamCode())) {
+		if (!team_id.equals(user.getTeamCode()) || !user.getTeamCode().equals(todo.getTeamCode())) {
 			throw new TodoNotFoundException("task team Code and user Team code does not match");
 		}
 		return todo;
 	}
-	
-	public List<Todo> findAllTodoTask (String teamCode) {
+
+	public List<Todo> findAllTodoTask(String teamCode) {
 		// find the team
 		Team team = teamRepository.findByTeamCode(teamCode);
 		// team not found
@@ -91,37 +91,37 @@ public class TodoService {
 		}
 		return todoRepository.findTodoByTeamCode(teamCode);
 	}
-	
-	public List<Todo> findAllTodoAssignToUser(String teamCode, String userCode){
+
+	public List<Todo> findAllTodoAssignToUser(String teamCode, String userCode) {
 		Team team = teamRepository.findByTeamCode(teamCode);
 		// team not found
 		if (team == null) {
 			throw new TeamNotFoundException("team with team code '" + teamCode + "' does not exist");
 		}
 		User user = userRepository.findUserByUserCode(userCode);
-		if(user == null) {
+		if (user == null) {
 			throw new UserNotFoundException("user not found");
 		}
-		if(!teamCode.equals(user.getTeamCode())) {
+		if (!teamCode.equals(user.getTeamCode())) {
 			throw new TodoNotFoundException("task team Code and user Team code does not match");
 		}
 		return todoRepository.findTodoByUserCode(userCode);
 	}
-	
-	public Todo updateBytaskSequence(Todo updatedTodo , String team_id, String user_id, String task_id) {
+
+	public Todo updateBytaskSequence(Todo updatedTodo, String team_id, String user_id, String task_id) {
 		Todo todo = findTodoByTaskSequence(team_id, user_id, task_id);
-		todo =updatedTodo;
+		todo = updatedTodo;
 		return todoRepository.save(todo);
-				
+
 	}
-	
+
 	public void deleteTodo(String user_id, String task_id) {
 		User user = userRepository.findUserByUserCode(user_id);
-		if(user == null) {
+		if (user == null) {
 			throw new UserNotFoundException("user not found");
 		}
 		Todo todo = todoRepository.findTodoByTaskIdentifier(task_id);
-		if(todo == null) {
+		if (todo == null) {
 			throw new TodoNotFoundException("task not found");
 		}
 		List<Todo> todos = user.getTodos();

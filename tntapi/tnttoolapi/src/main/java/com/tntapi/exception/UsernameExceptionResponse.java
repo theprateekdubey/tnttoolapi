@@ -1,7 +1,7 @@
 package com.tntapi.exception;
 
 public class UsernameExceptionResponse {
-	
+
 	private String username;
 
 	public UsernameExceptionResponse(String username) {

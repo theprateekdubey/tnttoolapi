@@ -31,6 +31,8 @@ class UserItem extends Component {
             <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
               <Link
                 type="button"
+                data-toggle="tooltip"
+                title="Edit Member"
                 className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
                 to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
               >
@@ -41,6 +43,8 @@ class UserItem extends Component {
                   case 1:
                     return (
                       <div
+                        data-toggle="tooltip"
+                        title="Delete Member"
                         onClick={this.onDeleteClick.bind(
                           this,
                           user.teamCode,

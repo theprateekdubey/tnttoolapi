@@ -1,7 +1,7 @@
 package com.tntapi.exception;
 
 public class TodoNotFoundExceptionResponse {
-	
+
 	private String taskIdentifier;
 
 	public TodoNotFoundExceptionResponse(String taskIdentifier) {
@@ -16,5 +16,5 @@ public class TodoNotFoundExceptionResponse {
 	public void setTaskIdentifier(String taskIdentifier) {
 		this.taskIdentifier = taskIdentifier;
 	}
-	
+
 }

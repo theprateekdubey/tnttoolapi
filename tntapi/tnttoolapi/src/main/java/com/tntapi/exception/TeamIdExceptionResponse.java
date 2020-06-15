@@ -1,7 +1,7 @@
 package com.tntapi.exception;
 
 public class TeamIdExceptionResponse {
-	
+
 	private String teamCode;
 
 	public TeamIdExceptionResponse(String teamCode) {
@@ -16,8 +16,5 @@ public class TeamIdExceptionResponse {
 	public void setTeamCode(String teamCode) {
 		this.teamCode = teamCode;
 	}
-	
-	
-	
 
 }

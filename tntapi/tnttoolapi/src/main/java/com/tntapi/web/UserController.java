@@ -24,54 +24,55 @@ import com.tntapi.service.UserService;
 @RequestMapping("/api/user")
 @CrossOrigin
 public class UserController {
-	
+
 	@Autowired
 	private UserService userService;
-	
+
 	@Autowired
 	private MapValidationErrorService mapValidationErrorService;
-	
+
 	@PostMapping("/{team_id}")
-	public ResponseEntity<?>  addMemberToTeam(@Valid @RequestBody User user ,BindingResult result,@PathVariable String team_id){
-		ResponseEntity<?> errorMap=mapValidationErrorService.mapValidateError(result);
-		if (errorMap!=null) {
+	public ResponseEntity<?> addMemberToTeam(@Valid @RequestBody User user, BindingResult result,
+			@PathVariable String team_id) {
+		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidateError(result);
+		if (errorMap != null) {
 			return errorMap;
 		}
-		User newUser=userService.addUser(team_id, user);
-		return new ResponseEntity<User>(newUser,HttpStatus.CREATED);
+		User newUser = userService.addUser(team_id, user);
+		return new ResponseEntity<User>(newUser, HttpStatus.CREATED);
 	}
-	
+
 	@GetMapping("/{team_id}/{user_id}")
-	public ResponseEntity<?> getUser(@PathVariable String team_id, @PathVariable String user_id){
-		User user=userService.findUserByUCode(team_id,user_id);
-		return new ResponseEntity<User>(user,HttpStatus.OK);
+	public ResponseEntity<?> getUser(@PathVariable String team_id, @PathVariable String user_id) {
+		User user = userService.findUserByUCode(team_id, user_id);
+		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
-	
+
 	@GetMapping("{team_id}")
-	public Iterable<User> getUserList(@PathVariable String team_id){
+	public Iterable<User> getUserList(@PathVariable String team_id) {
 		return userService.findUserList(team_id);
 	}
-	
+
 	@PatchMapping("/{team_id}/{user_id}")
-	public ResponseEntity<?> updateUser(@Valid @RequestBody User user,@PathVariable String team_id,
-			@PathVariable String user_id, BindingResult result){
+	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable String team_id,
+			@PathVariable String user_id, BindingResult result) {
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidateError(result);
-		if(errorMap != null) {
+		if (errorMap != null) {
 			return errorMap;
 		}
 		User updateUser = userService.updateByUserCode(user, team_id, user_id);
-		return new ResponseEntity<User>(updateUser,HttpStatus.OK);
+		return new ResponseEntity<User>(updateUser, HttpStatus.OK);
 	}
-	
+
 	@DeleteMapping("/{team_id}/{user_id}")
-	public ResponseEntity<?> deleteUser(@PathVariable String team_id,@PathVariable String user_id){
+	public ResponseEntity<?> deleteUser(@PathVariable String team_id, @PathVariable String user_id) {
 		userService.deleteUser(team_id, user_id);
-		return new ResponseEntity<String>("User successfully removed",HttpStatus.OK);
+		return new ResponseEntity<String>("User successfully removed", HttpStatus.OK);
 	}
-	
+
 	@PostMapping("/login")
-	public ResponseEntity<?> loginUser(@RequestBody User user){
+	public ResponseEntity<?> loginUser(@RequestBody User user) {
 		User loggedInUser = userService.userLoginCheck(user.getUsername(), user.getPassword());
-		return new ResponseEntity<User>(loggedInUser,HttpStatus.OK);
+		return new ResponseEntity<User>(loggedInUser, HttpStatus.OK);
 	}
 }
