@@ -6,8 +6,8 @@ import { deleteUser } from "./../../actions/userActions";
 
 class UserItem extends Component {
   onDeleteClick = (teamCode, userCode) => {
-    console.log("-------> delete method called.");
-    this.props.deleteUser(teamCode, userCode);
+    window.confirm("Are you sure you want to remove this member?") &&
+      this.props.deleteUser(teamCode, userCode);
   };
   render() {
     const { user } = this.props;
@@ -20,7 +20,26 @@ class UserItem extends Component {
               <h3>
                 <span>
                   {user.name}
-                  <span className="font-italic h6"> ({user.username})</span>
+                  <span className="font-italic h6">
+                    {" "}
+                    ({user.username}){" "}
+                    {(() => {
+                      switch (user.role) {
+                        case 2:
+                          return (
+                            <span>
+                              -{" "}
+                              <span className="text-danger">
+                                Team Lead <br />
+                              </span>
+                            </span>
+                          );
+
+                        default:
+                          return;
+                      }
+                    })()}
+                  </span>
                 </span>
               </h3>
 

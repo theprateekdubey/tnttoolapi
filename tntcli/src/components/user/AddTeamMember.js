@@ -37,7 +37,8 @@ class AddTeamMember extends Component {
       password: this.state.password,
       role: this.state.role,
     };
-    this.props.createUser(teamCode, userCode, newUser, this.props.history);
+    window.confirm("Are you sure you want to add this member to the team?") &&
+      this.props.createUser(teamCode, userCode, newUser, this.props.history);
   }
   render() {
     const { errors } = this.state;

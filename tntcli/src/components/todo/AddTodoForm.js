@@ -168,6 +168,7 @@ class AddTodoForm extends Component {
                       name="dueDateAndTime"
                       value={this.state.dueDateAndTime}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
                   <div className="input-group form-group">

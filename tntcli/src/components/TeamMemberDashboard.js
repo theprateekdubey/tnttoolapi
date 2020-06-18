@@ -17,16 +17,16 @@ class TeamMemberDashboard extends Component {
     return (
       <div className="teamMemberDash ">
         <Header teamCode={teamCode} userCode={userCode} />
-        <div className="mx-5 d-flex justify-content-end">
+        <div className="mx-5 d-flex justify-content-end mt-n2">
           <Link
             type="button"
-            className="rounded btn btn-warning px-3"
+            className="rounded btn btn-warning px-3 ml-3"
             to={`/listPeers/${teamCode}/${userCode}`}
           >
-            <i className="fa fa-list" aria-hidden="true"></i> List Team Members
+            <i className="fa fa-list" aria-hidden="true"></i> List Members
           </Link>
         </div>
-        <div className="todo-list-member ml-5 mt-5">
+        <div className="todo-list-member ml-5">
           {todos.map((todo) => (
             <TodoListMember key={todo.id} todo={todo} userCode={userCode} />
           ))}

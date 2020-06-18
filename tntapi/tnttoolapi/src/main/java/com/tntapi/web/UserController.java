@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.tntapi.domain.Team;
 import com.tntapi.domain.User;
 import com.tntapi.service.MapValidationErrorService;
 import com.tntapi.service.UserService;
@@ -51,6 +52,11 @@ public class UserController {
 	@GetMapping("{team_id}")
 	public Iterable<User> getUserList(@PathVariable String team_id) {
 		return userService.findUserList(team_id);
+	}
+	
+	@GetMapping("/all")
+	public Iterable<User> findAllUsers() {
+		return userService.listAllUsers();
 	}
 
 	@PatchMapping("/{team_id}/{user_id}")

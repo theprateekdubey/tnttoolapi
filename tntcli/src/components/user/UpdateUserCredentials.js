@@ -4,6 +4,8 @@ import { PropTypes } from "prop-types";
 import classnames from "classnames";
 import Header from "../layout/Header";
 import { updateUser, getUser } from "./../../actions/userActions";
+import BackToTeamMemberDashBoard from "./BackToTeamMemberDashBoard";
+import BackToDashboardButton from "./BackToDashboardButton";
 
 class UpdateUserCredentials extends Component {
   constructor(props) {
@@ -48,24 +50,31 @@ class UpdateUserCredentials extends Component {
     event.preventDefault();
     const { teamCode, userCode } = this.props.match.params;
     if (this.state.password == this.state.currentPassword) {
-      if (this.state.newPassword == this.state.confirmPassword) {
-        const updatedUser = {
-          id: this.state.id,
-          name: this.state.name,
-          username: this.state.username,
-          password: this.state.confirmPassword,
-          role: this.state.role,
-        };
-        this.props.updateUser(
-          teamCode,
-          userCode,
-          updatedUser,
-          this.props.history
-        );
+      if (this.state.newPassword && this.state.confirmPassword != "") {
+        if (this.state.newPassword == this.state.confirmPassword) {
+          const updatedUser = {
+            id: this.state.id,
+            name: this.state.name,
+            username: this.state.username,
+            password: this.state.confirmPassword,
+            role: this.state.role,
+          };
+          window.confirm("Are you sure you want to delete the TODO?") &&
+            this.props.updateUser(
+              teamCode,
+              userCode,
+              updatedUser,
+              this.props.history
+            );
+        } else {
+          this.setState({ errorMessage: "Your password did not match" });
+          this.setState({ confirmPassword: "" });
+          this.setState({ newPassword: "" });
+        }
       } else {
-        this.setState({ errorMessage: "Your password did not match" });
-        this.setState({ confirmPassword: "" });
-        this.setState({ newPassword: "" });
+        this.setState({
+          errorMessage: "Password can not be blank",
+        });
       }
     } else {
       this.setState({
@@ -77,11 +86,37 @@ class UpdateUserCredentials extends Component {
     }
   }
   render() {
+    const { user } = this.props;
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
     return (
       <div className="add-user">
         <Header teamCode={teamCode} userCode={userCode} />
+        {(() => {
+          switch (user.role) {
+            case 1:
+              return (
+                <div>
+                  <BackToTeamMemberDashBoard
+                    teamCode={teamCode}
+                    userCode={userCode}
+                  />
+                </div>
+              );
+            case 2:
+              return (
+                <div>
+                  <BackToDashboardButton
+                    teamCode={teamCode}
+                    userCode={userCode}
+                  />
+                </div>
+              );
+
+            default:
+              return "";
+          }
+        })()}
         <div className="add-user-form container">
           <div className="d-flex justify-content-center h-100">
             <div className="card">

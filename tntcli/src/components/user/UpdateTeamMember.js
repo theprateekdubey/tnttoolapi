@@ -25,12 +25,11 @@ class UpdateTeamMember extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-    const { id, name, username, password, role, userCode } = nextProps.user;
+    const { id, name, username, role, userCode } = nextProps.user;
     this.setState({
       id,
       name,
       username,
-      password,
       role,
       userCode,
     });
@@ -52,7 +51,10 @@ class UpdateTeamMember extends Component {
       password: this.state.password,
       role: this.state.role,
     };
-    this.props.createUser(teamCode, userCode, updateUser, this.props.history);
+    window.confirm(
+      "Are you sure you want to update the details of this member?"
+    ) &&
+      this.props.createUser(teamCode, userCode, updateUser, this.props.history);
   }
   render() {
     const { errors } = this.state;

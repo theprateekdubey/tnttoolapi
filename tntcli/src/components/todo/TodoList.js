@@ -6,8 +6,8 @@ import { PropTypes } from "prop-types";
 
 class TodoList extends Component {
   onDeleteClick = (userId, taskId) => {
-    console.log("-------> delete method called.");
-    this.props.deleteTodo(userId, taskId);
+    window.confirm("Are you sure you want to delete the TODO?") &&
+      this.props.deleteTodo(userId, taskId);
   };
   render() {
     const { todo } = this.props;

@@ -48,14 +48,15 @@ class UpdateUserTodoForm extends Component {
       status: this.state.status,
       comment: this.state.comment,
     };
-    this.props.createTodo(
-      teamCode,
-      this.state.userCode,
-      userCode,
-      updateTodo,
-      this.state.role,
-      this.props.history
-    );
+    window.confirm("Are you sure you want to update this TODO?") &&
+      this.props.createTodo(
+        teamCode,
+        this.state.userCode,
+        userCode,
+        updateTodo,
+        this.state.role,
+        this.props.history
+      );
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -140,7 +141,7 @@ class UpdateUserTodoForm extends Component {
                     </select>
                   </div>
                   <div className="input-group form-group text-secondary border border-white p-2 rounded">
-                    {this.state.dueDateAndTime}
+                    <span>{this.state.dueDateAndTime}</span>
                   </div>
 
                   <div className="input-group form-group">

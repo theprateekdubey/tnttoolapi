@@ -3,6 +3,7 @@ import {
   GET_USER,
   GET_USERS,
   DELETE_USER,
+  LIST_ALL_USERS,
 } from "./../actions/type";
 const initialState = {
   user: {},
@@ -21,6 +22,11 @@ export default function (state = initialState, action) {
         user: action.payload,
       };
     case GET_USERS:
+      return {
+        ...state,
+        users: action.payload,
+      };
+    case LIST_ALL_USERS:
       return {
         ...state,
         users: action.payload,

@@ -5,20 +5,11 @@ import { PropTypes } from "prop-types";
 import { getUser } from "./../../actions/userActions";
 
 class Header extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      name: "",
-    };
-  }
   componentDidMount() {
     const { teamCode, userCode } = this.props;
     this.props.getUser(teamCode, userCode, this.props.history);
   }
-  componentWillReceiveProps(nextProps) {
-    const { name } = nextProps.user;
-    this.setState({ name });
-  }
+
   render() {
     const { teamCode, userCode } = this.props;
     return (
@@ -38,9 +29,6 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
-              <li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
-                Welcome, {this.state.name}!
-              </li>
               <a
                 class="nav-link dropdown-toggle text-light"
                 href="#"
@@ -60,9 +48,9 @@ class Header extends Component {
                   class="dropdown-item"
                   to={`/updateUserCredentials/${teamCode}/${userCode}`}
                 >
-                  Edit Credentials <i className="fa fa-edit icons"></i>
+                  Manage Credentials <i className="fa fa-cog fa-spin fa-1x"></i>
                 </Link>
-                <Link className="nav-link text-dark ml-3" to="/">
+                <Link className="dropdown-item" to="/">
                   Sign Out <i class="fas fa-sign-out-alt"></i>
                 </Link>
               </div>
