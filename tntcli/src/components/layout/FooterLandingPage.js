@@ -7,9 +7,9 @@ export default class FooterLandingPage extends Component {
       <div>
         <footer id="main-footer" className="p-3">
           <div className="row">
-            <div className="col-md-4">
+            <div className="col-md-5">
               <p className="text-light">
-                <i className="fas fa-user-circle fa-spin fa-1x"></i> About Us
+                <i className="fas fa-user-circle"></i> About Us
               </p>
               <i className="text-light">
                 We're a learning Developer, who loves building web solutions. We
@@ -29,13 +29,13 @@ export default class FooterLandingPage extends Component {
                 Developers Description
               </Link>
             </div>
-            <div className="col-md-4">
+            <div className="col-md-3">
               <p className="text-light ml-5">
                 <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
                 Contact Us
               </p>
 
-              <div className="social-bar">
+              <div className="social-bar ml-4">
                 <Link to="#" className="social-icon">
                   <img
                     src="img/facebook.svg"

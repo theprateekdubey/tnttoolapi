@@ -41,12 +41,16 @@ class CompletedTodoList extends Component {
                   <span className="surface"></span>
                   <p className="todo-detail text-justify ">{todo.detail}</p>
                   <Link
+                    data-toggle="tooltip"
+                    title="Edit TODO"
                     to={`/updateTodo/${todo.teamCode}/${userCode}/${todo.taskIdentifier}`}
                   >
                     <i className="fa fa-edit icons"></i>
                   </Link>
 
                   <div
+                    data-toggle="tooltip"
+                    title="Delete TODO"
                     onClick={this.onDeleteClick.bind(
                       this,
                       todo.userCode,

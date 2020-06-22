@@ -26,17 +26,35 @@ class TeamList extends Component {
           <p className="card-title  ">
             Team Code : <span>{team.teamCode}</span>
           </p>
-          <p className="card-title ">
-            Team Lead : <span>{team.teamLead}</span>
-          </p>
+
+          {(() => {
+            switch (team.teamCode) {
+              case "A01":
+                return;
+              default:
+                return (
+                  <p className="card-title ">
+                    Team Lead : <span>{team.teamLead}</span>
+                  </p>
+                );
+            }
+          })()}
         </div>
         <span className="surface"></span>
 
-        <Link to={`/listTeamMember/${teamCode}/${userCode}/${team.teamCode}`}>
+        <Link
+          data-toggle="tooltip"
+          title="List Team Members"
+          to={`/listTeamMember/${teamCode}/${userCode}/${team.teamCode}`}
+        >
           <i className="fa fa-list icons"></i>
         </Link>
 
-        <Link to={`/updateTeamForm/${teamCode}/${userCode}/${team.teamCode}`}>
+        <Link
+          data-toggle="tooltip"
+          title="Edit Team "
+          to={`/updateTeamForm/${teamCode}/${userCode}/${team.teamCode}`}
+        >
           <i className="fa fa-edit icons"></i>
         </Link>
 
@@ -46,7 +64,11 @@ class TeamList extends Component {
               return;
             default:
               return (
-                <div onClick={this.onDeleteClick.bind(this, team.teamCode)}>
+                <div
+                  data-toggle="tooltip"
+                  title="Delete Team "
+                  onClick={this.onDeleteClick.bind(this, team.teamCode)}
+                >
                   <i className="fa fa-trash icons"></i>
                 </div>
               );

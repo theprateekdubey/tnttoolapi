@@ -129,6 +129,8 @@ class UpdateUserTodoForm extends Component {
 
                   <div className="input-group form-group">
                     <select
+                      data-toggle="tooltip"
+                      title="Update TODO status here"
                       className="form-control"
                       name="status"
                       value={this.state.status}
@@ -146,6 +148,8 @@ class UpdateUserTodoForm extends Component {
 
                   <div className="input-group form-group">
                     <textarea
+                      data-toggle="tooltip"
+                      title="Update comments here"
                       className={classnames("form-control ", {
                         "is-invalid": errors.comment,
                       })}

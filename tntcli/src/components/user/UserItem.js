@@ -51,11 +51,11 @@ class UserItem extends Component {
               <Link
                 type="button"
                 data-toggle="tooltip"
-                title="Edit Member"
+                title="Edit Team Member"
                 className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
                 to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
               >
-                <i className="fa fa-edit"></i>
+                <i className="fas fa-user-edit"></i>
               </Link>
               {(() => {
                 switch (user.role) {
@@ -63,7 +63,7 @@ class UserItem extends Component {
                     return (
                       <div
                         data-toggle="tooltip"
-                        title="Delete Member"
+                        title="Delete Team Member"
                         onClick={this.onDeleteClick.bind(
                           this,
                           user.teamCode,
@@ -72,7 +72,7 @@ class UserItem extends Component {
                         type="button"
                         className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2"
                       >
-                        <i className="fa fa-trash"></i>
+                        <i class="fas fa-trash-alt"></i>
                       </div>
                     );
 

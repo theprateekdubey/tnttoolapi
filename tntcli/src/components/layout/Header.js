@@ -5,9 +5,19 @@ import { PropTypes } from "prop-types";
 import { getUser } from "./../../actions/userActions";
 
 class Header extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: "",
+    };
+  }
   componentDidMount() {
     const { teamCode, userCode } = this.props;
     this.props.getUser(teamCode, userCode, this.props.history);
+  }
+  componentWillReceiveProps(nextProps) {
+    const { name } = nextProps.user;
+    this.setState({ name });
   }
 
   render() {
@@ -29,6 +39,9 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
+              {/*<li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
+                Welcome, {this.state.name}!
+    </li>*/}
               <a
                 class="nav-link dropdown-toggle text-light"
                 href="#"

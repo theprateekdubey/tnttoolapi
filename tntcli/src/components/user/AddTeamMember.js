@@ -58,6 +58,8 @@ class AddTeamMember extends Component {
                 <form onSubmit={this.onSubmit}>
                   <div className="input-group form-group">
                     <input
+                      data-toggle="tooltip"
+                      title="Enter name here"
                       type="text"
                       className={classnames("form-control", {
                         "is-invalid": errors.name,
@@ -73,6 +75,8 @@ class AddTeamMember extends Component {
                   </div>
                   <div className="input-group form-group">
                     <input
+                      data-toggle="tooltip"
+                      title="Enter username here"
                       type="text"
                       className={classnames("form-control", {
                         "is-invalid": errors.username,

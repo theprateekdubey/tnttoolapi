@@ -6,6 +6,7 @@ import Header from "../layout/Header";
 import { updateUser, getUser } from "./../../actions/userActions";
 import BackToTeamMemberDashBoard from "./BackToTeamMemberDashBoard";
 import BackToDashboardButton from "./BackToDashboardButton";
+import { Link } from "react-router-dom";
 
 class UpdateUserCredentials extends Component {
   constructor(props) {
@@ -43,6 +44,7 @@ class UpdateUserCredentials extends Component {
     const { teamCode, userId } = this.props.match.params;
     this.props.getUser(teamCode, userId, this.props.history);
   }
+
   onChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
@@ -90,7 +92,7 @@ class UpdateUserCredentials extends Component {
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
     return (
-      <div className="add-user">
+      <div className="add-user-credentials">
         <Header teamCode={teamCode} userCode={userCode} />
         {(() => {
           switch (user.role) {
@@ -112,7 +114,16 @@ class UpdateUserCredentials extends Component {
                   />
                 </div>
               );
-
+            case 3:
+              return (
+                <Link
+                  to={`/adminDashboard/${teamCode}/${userCode}`}
+                  type="button"
+                  className="btn btn-outline-light ml-3 mt-n3 rounded-circle"
+                >
+                  <i className="fa fa-arrow-left" aria-hidden="true"></i>
+                </Link>
+              );
             default:
               return "";
           }
@@ -130,7 +141,14 @@ class UpdateUserCredentials extends Component {
                     {this.state.name}
                   </div>
                   <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text bg-warning border border-warning">
+                        <i className="fas fa-user"></i>
+                      </span>
+                    </div>
                     <input
+                      data-toggle="tooltip"
+                      title="Update username here"
                       type="text"
                       className={classnames("form-control", {
                         "is-invalid": errors.username,
@@ -145,6 +163,11 @@ class UpdateUserCredentials extends Component {
                     )}
                   </div>
                   <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text bg-warning border border-warning">
+                        <i className="fa fa-lock"></i>
+                      </span>
+                    </div>
                     <input
                       type="password"
                       className="form-control"
@@ -155,20 +178,30 @@ class UpdateUserCredentials extends Component {
                     />
                   </div>
                   <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text bg-warning border border-warning">
+                        <i className="fas fa-key"></i>
+                      </span>
+                    </div>
                     <input
                       type="password"
                       className="form-control"
-                      placeholder="Re-Enter New Password"
+                      placeholder="Enter New Password"
                       name="newPassword"
                       value={this.state.newPassword}
                       onChange={this.onChange}
                     />
                   </div>
                   <div className="input-group form-group">
+                    <div className="input-group-prepend">
+                      <span className="input-group-text bg-warning border border-warning">
+                        <i className="fas fa-key"></i>
+                      </span>
+                    </div>
                     <input
                       type="password"
                       className="form-control"
-                      placeholder="Enter New Password"
+                      placeholder="Re-Enter New Password"
                       name="confirmPassword"
                       value={this.state.confirmPassword}
                       onChange={this.onChange}

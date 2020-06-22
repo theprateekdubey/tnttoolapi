@@ -1,5 +1,6 @@
 package com.tntapi.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.tntapi.domain.Team;
 import com.tntapi.domain.Todo;
 import com.tntapi.domain.User;
+import com.tntapi.exception.DueDateAndTimeException;
 import com.tntapi.exception.TeamNotFoundException;
 import com.tntapi.exception.TodoNotFoundException;
 import com.tntapi.exception.UserNotFoundException;
@@ -50,6 +52,10 @@ public class TodoService {
 		// setting userCode to todo task
 		todo.setUserCode(user.getUserCode());
 		todo.setTeamCode(user.getTeamCode());
+		Date currentDate = new Date();
+		if (todo.getDueDateAndTime().before(currentDate)) {
+			throw new DueDateAndTimeException("please enter future date");
+		}
 		// checking team code and user team code is same
 		if (!team_id.equals(user.getTeamCode())) {
 			throw new UserNotFoundException(

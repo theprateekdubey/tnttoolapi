@@ -30,7 +30,7 @@ class AllTeamMember extends Component {
             className="add-member-btn rounded  btn btn-success px-3 mt-n4 mr-5"
             to={`/addMember/${teamId}/${userCode}/${teamCode}`}
           >
-            <i className="fa fa-plus" aria-hidden="true"></i> Add Member
+            <i class="fas fa-user-plus"></i> Add Member
           </Link>
         </div>
         <p>

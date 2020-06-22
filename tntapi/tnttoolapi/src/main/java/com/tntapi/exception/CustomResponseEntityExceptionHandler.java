@@ -42,4 +42,10 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
 
+	@ExceptionHandler
+	public final ResponseEntity<Object> handleDueDateAndTimeException(DueDateAndTimeException ex, WebRequest request) {
+		DueDateAndTimeExceptionResponse exceptionResponse = new DueDateAndTimeExceptionResponse(ex.getMessage());
+		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
+	}
+
 }

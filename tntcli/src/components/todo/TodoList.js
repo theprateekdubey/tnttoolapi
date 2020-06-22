@@ -18,10 +18,53 @@ class TodoList extends Component {
           switch (todo.status) {
             case "Completed":
               return;
+            case "In-Progress":
+              return (
+                <div className="todo-list-content card ml-3 mb-3 border border-warning">
+                  <div className="card-body">
+                    <p className="mr-5">
+                      TODO : <span>{todo.name}</span>
+                    </p>
 
+                    <p>
+                      Status : <span>{todo.status}</span>
+                    </p>
+                    <p className="card-title">
+                      Assigned To : <span>{todo.assignedTo}</span>
+                    </p>
+                    <p className="card-title ">
+                      Due Date : <span>{todo.dueDateAndTime}</span>
+                    </p>
+                    <p className="card-text text-light font-italic">
+                      {todo.comment}
+                    </p>
+                  </div>
+                  <span className="surface"></span>
+                  <p className="todo-detail text-justify ">{todo.detail}</p>
+                  <Link
+                    data-toggle="tooltip"
+                    title="Edit TODO"
+                    to={`/updateTodo/${todo.teamCode}/${userCode}/${todo.taskIdentifier}`}
+                  >
+                    <i className="fa fa-edit icons"></i>
+                  </Link>
+
+                  <div
+                    data-toggle="tooltip"
+                    title="Delete TODO"
+                    onClick={this.onDeleteClick.bind(
+                      this,
+                      todo.userCode,
+                      todo.taskIdentifier
+                    )}
+                  >
+                    <i className="fa fa-trash icons"></i>
+                  </div>
+                </div>
+              );
             default:
               return (
-                <div className="todo-list-content card ml-3 mb-3">
+                <div className="todo-list-content card ml-3 mb-3 border border-secondary">
                   <div className="card-body">
                     <p className="mr-5">
                       TODO : <span>{todo.name}</span>
@@ -43,12 +86,16 @@ class TodoList extends Component {
                   <span className="surface"></span>
                   <p className="todo-detail text-justify ">{todo.detail}</p>
                   <Link
+                    data-toggle="tooltip"
+                    title="Edit TODO"
                     to={`/updateTodo/${todo.teamCode}/${userCode}/${todo.taskIdentifier}`}
                   >
                     <i className="fa fa-edit icons"></i>
                   </Link>
 
                   <div
+                    data-toggle="tooltip"
+                    title="Delete TODO"
                     onClick={this.onDeleteClick.bind(
                       this,
                       todo.userCode,

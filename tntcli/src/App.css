@@ -1,3 +1,4 @@
+/**HEADER**/
 #main-header {
   background-color: rgba(0, 0, 0, 0.911);
   padding-top: 5px;
@@ -300,8 +301,8 @@ body {
   min-height: 505px;
 }
 /*Footer*/
-#main-footer {
-  margin-left: 3%;
+#main-footer .row {
+  margin-left: 8%;
 }
 .social-bar {
   width: 43%;
@@ -441,13 +442,6 @@ body {
   background-color: white;
 }
 
-.add-todo .links {
-  color: white;
-}
-
-.add-todo .links a {
-  margin-left: 4px;
-}
 /**Add Team Member Form*/
 .add-user {
   background-image: url("./bg-01.jpg");
@@ -493,10 +487,47 @@ body {
   background-color: white;
 }
 
-.add-user .links {
-  color: white;
+/**CRedentials***/
+.add-user-credentials {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 753px;
 }
 
-.add-user .links a {
-  margin-left: 4px;
+.add-user-credentials .card {
+  align-content: center;
+  margin-top: 9%;
+  width: 500px;
+
+  background-color: rgba(0, 0, 0, 0.692) !important;
+}
+.add-user-credentials input {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials textarea {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials select {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  background-color: rgba(17, 17, 104, 0.404);
+  caret-color: white;
+}
+
+.add-user-credentials .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+
+.add-user-credentials .login_btn:hover {
+  color: black;
+  background-color: white;
 }

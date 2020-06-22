@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tntapi.domain.Team;
+
 import com.tntapi.domain.User;
 import com.tntapi.service.MapValidationErrorService;
 import com.tntapi.service.UserService;

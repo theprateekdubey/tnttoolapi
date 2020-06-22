@@ -44,7 +44,15 @@ class ListAllEmployees extends Component {
                                   </span>
                                 </span>
                               );
-
+                            case 3:
+                              return (
+                                <span>
+                                  -{" "}
+                                  <span className="text-danger">
+                                    Admin <br />
+                                  </span>
+                                </span>
+                              );
                             default:
                               return;
                           }
