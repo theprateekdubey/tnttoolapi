@@ -71,30 +71,41 @@ class UserItemAdmin extends Component {
                 User Id : <span>{user.userCode}</span>
               </small>
             </div>
-            <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
-              <Link
-                data-toggle="tooltip"
-                title="Edit Team Member"
-                type="button"
-                className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
-                to={`/updateTeamMemberAdmin/${teamCode}/${userCode}/${user.teamCode}/${user.userCode}`}
-              >
-                <i className="fas fa-user-edit"></i>
-              </Link>
-              <div
-                data-toggle="tooltip"
-                title="Delete Team Member"
-                onClick={this.onDeleteClick.bind(
-                  this,
-                  user.teamCode,
-                  user.userCode
-                )}
-                type="button"
-                className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2"
-              >
-                <i class="fas fa-trash-alt"></i>
-              </div>
-            </div>
+
+            {(() => {
+              switch (user.userCode) {
+                case "A01-1":
+                  return;
+
+                default:
+                  return (
+                    <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
+                      <Link
+                        data-toggle="tooltip"
+                        title="Edit Team Member"
+                        type="button"
+                        className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
+                        to={`/updateTeamMemberAdmin/${teamCode}/${userCode}/${user.teamCode}/${user.userCode}`}
+                      >
+                        <i className="fas fa-user-edit"></i>
+                      </Link>
+                      <div
+                        data-toggle="tooltip"
+                        title="Delete Team Member"
+                        onClick={this.onDeleteClick.bind(
+                          this,
+                          user.teamCode,
+                          user.userCode
+                        )}
+                        type="button"
+                        className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2"
+                      >
+                        <i class="fas fa-trash-alt"></i>
+                      </div>
+                    </div>
+                  );
+              }
+            })()}
           </div>
         </div>
       </div>

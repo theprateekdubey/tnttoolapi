@@ -100,12 +100,6 @@ class LoginForm extends Component {
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>
-              <div className="card-footer">
-                <div className="d-flex justify-content-center links">
-                  Don't have an account?
-                  <Link to="/registrationForm">Sign Up</Link>
-                </div>
-              </div>
             </div>
           </div>
         </div>

@@ -75,8 +75,8 @@ export default class FooterLandingPage extends Component {
         <div className="modal fade" id="developerInfo">
           <div className="modal-dialog">
             <div className="modal-content">
-              <div className="modal-header bg-dark">
-                <h5 className="modal-title text-light" id="contactModalLabel">
+              <div className="modal-header">
+                <h5 className="modal-title text-dark" id="contactModalLabel">
                   Developed By
                 </h5>
                 <button type="button" className="close" data-dismiss="modal">
@@ -104,8 +104,8 @@ export default class FooterLandingPage extends Component {
                   </h5>
                 </div>
               </div>
-              <div className="modal-footer bg-dark">
-                <p className="text-light mx-auto d-block">
+              <div className="modal-footer">
+                <p className="text-dark mx-auto d-block">
                   Thank you for Visiting...
                 </p>
               </div>

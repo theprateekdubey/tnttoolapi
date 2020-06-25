@@ -7,7 +7,6 @@ import store from "./store";
 import LandingPage from "./components/LandingPage";
 import LoginForm from "./components/layout/login/forms/LoginForm";
 import TeamLeadDashboard from "./components/TeamLeadDashboard";
-import RegistrationForm from "./components/layout/login/forms/RegistrationForm";
 import TeamMemberDashboard from "./components/TeamMemberDashboard";
 import ListTeamMember from "./components/user/ListTeamMember";
 import AddTodoForm from "./components/todo/AddTodoForm";
@@ -32,7 +31,7 @@ function App() {
       <Router>
         <Route exact path="/" component={LandingPage} />
         <Route exact path="/login" component={LoginForm} />
-        <Route exact path="/registrationForm" component={RegistrationForm} />
+
         <Route
           exact
           path="/teamLeadDashboard/:teamCode/:userCode"

@@ -282,8 +282,11 @@ export const createUserViaAdmin = (
         });
       }, 1000);
     };
-    history.push(`/listTeamMember/${teamId}/${userId}/${teamCode}`);
-    openMessage();
+    if (userId == "") {
+    } else {
+      history.push(`/listTeamMember/${teamId}/${userId}/${teamCode}`);
+      openMessage();
+    }
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
