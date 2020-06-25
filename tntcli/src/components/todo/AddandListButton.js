@@ -5,10 +5,10 @@ class AddandListButton extends Component {
   render() {
     const { teamCode, userCode } = this.props;
     return (
-      <div className="mx-5 d-flex justify-content-end mt-n2">
+      <div className="mx-5 d-flex justify-content-end mt-n2 gradient-buttons">
         <Link
           type="button"
-          className="rounded btn btn-success px-3 ml-3"
+          className="rounded btn btn-success px-3 ml-3 "
           to={`/addTodo/${teamCode}/${userCode}`}
         >
           <i class="fa fa-plus-circle"></i> Add TODO
@@ -18,7 +18,8 @@ class AddandListButton extends Component {
           className="rounded btn btn-info px-3 ml-3"
           to={`/completedTodo/${teamCode}/${userCode}`}
         >
-          <i class="fa fa-check-circle"></i> Completed TODO
+          <i class="fa fa-check-circle"></i> Completed TODO{"   "}
+          <span class="badge bg-dark"></span>
         </Link>
         <Link
           type="button"

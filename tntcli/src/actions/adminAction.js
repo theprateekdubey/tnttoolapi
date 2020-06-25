@@ -1,15 +1,93 @@
 import axios from "axios";
 import { GET_TEAMS, GET_ERRORS, DELETE_TEAM, GET_TEAM } from "./type";
+import { message, Button, Space } from "antd";
 
 export const createTeam = (teamCode, userCode, role, team, history) => async (
   dispatch
 ) => {
   try {
     await axios.post("http://localhost:8081/api/team/", team);
-    console.log("----------admin role- --------" + role);
+    const openMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Adding...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "43%",
+          marginRight: "43.5%",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  Team added succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "43%",
+            marginRight: "43.5%",
+            marginBottom: "10%",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
+    const updateMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Updating...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "42%",
+          marginRight: "43.5%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  Team updated succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "42%",
+            marginRight: "43.5%",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
     if (role == 3) {
-      console.log("----------admin role- --------" + role);
       history.push(`/adminDashboard/${teamCode}/${userCode}`);
+      if (team.id == null) {
+        openMessage();
+      } else {
+        updateMessage();
+      }
     }
   } catch (error) {
     dispatch({

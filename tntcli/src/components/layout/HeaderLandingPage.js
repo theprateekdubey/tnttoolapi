@@ -7,7 +7,7 @@ class HeaderLandingPage extends Component {
   render() {
     return (
       <div>
-        <nav className=" navbar navbar-expand-sm  mb-4 ml-5 mr-5">
+        <nav className=" navbar navbar-expand-sm  mb-4 ml-5 mr-5 ">
           <Link className="navbar-brand text-light" to="/">
             Team and TODO Management Tool
           </Link>

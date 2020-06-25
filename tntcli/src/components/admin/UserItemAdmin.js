@@ -3,11 +3,35 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { deleteUser } from "../../actions/userActions";
+import { message, Button, Space } from "antd";
 
 class UserItemAdmin extends Component {
   onDeleteClick = (teamCode, userCode) => {
     window.confirm("Are you sure you want to remove this member?") &&
-      this.props.deleteUser(teamCode, userCode);
+      this.props.deleteUser(teamCode, userCode) &&
+      this.openMessage();
+  };
+  openMessage = () => {
+    const key = "updatable";
+    setTimeout(() => {
+      message.success({
+        content: "Member deleted succesfully",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "40%",
+          marginRight: "44.5%",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+        duration: 2,
+      });
+    }, 1000);
   };
   render() {
     const { user } = this.props;

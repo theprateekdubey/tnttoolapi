@@ -72,7 +72,7 @@ class AddTeamForm extends Component {
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-body">
-                <h5 className="display-5 text-center text-light">Add Team</h5>
+                <h5 className="display-6 text-center text-light">Add Team</h5>
                 <hr />
                 <form onSubmit={this.onSubmit}>
                   <div className="input-group form-group">

@@ -109,7 +109,7 @@ class UpdateTodoForm extends Component {
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-body">
-                <h5 className="display-5 text-center text-light">
+                <h5 className="display-6 text-center text-light">
                   Update TODO Form
                 </h5>
                 <hr />

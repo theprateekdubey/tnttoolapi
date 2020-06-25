@@ -342,11 +342,19 @@ body {
 }
 
 .login-form .card {
+  /* background-image: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.16) 25%,
+    rgba(0, 0, 0, 0.55) 41%,
+    rgba(0, 0, 0, 0.6)
+  );
+  background-repeat: repeat-x; */
   height: 370px;
   margin-top: 15%;
   margin-bottom: 12.4444%;
   width: 400px;
-  background-color: rgba(0, 0, 0, 0.5) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 
 .login-form .social_icon span {
@@ -530,4 +538,15 @@ body {
 .add-user-credentials .login_btn:hover {
   color: black;
   background-color: white;
+}
+/************All Btn class gradient***********/
+.btn {
+  background-image: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.5),
+    rgba(255, 255, 255, 0.2) 49%,
+    rgba(0, 0, 0, 0.15) 51%,
+    rgba(0, 0, 0, 0.05)
+  );
+  background-repeat: repeat-x;
 }

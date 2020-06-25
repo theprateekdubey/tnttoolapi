@@ -3,11 +3,35 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { deleteUser } from "./../../actions/userActions";
+import { message, Button, Space } from "antd";
 
 class UserItem extends Component {
   onDeleteClick = (teamCode, userCode) => {
     window.confirm("Are you sure you want to remove this member?") &&
-      this.props.deleteUser(teamCode, userCode);
+      this.props.deleteUser(teamCode, userCode) &&
+      this.openMessage();
+  };
+  openMessage = () => {
+    const key = "updatable";
+    setTimeout(() => {
+      message.success({
+        content: "  Member deleted succesfully",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-18%",
+          marginLeft: "40%",
+          marginRight: "44.5%",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+        duration: 2,
+      });
+    }, 1000);
   };
   render() {
     const { user } = this.props;
@@ -70,7 +94,7 @@ class UserItem extends Component {
                           user.userCode
                         )}
                         type="button"
-                        className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2"
+                        className="rounded btn btn-danger px-3 py-2  ml-2 mt-3 mr-2 "
                       >
                         <i class="fas fa-trash-alt"></i>
                       </div>

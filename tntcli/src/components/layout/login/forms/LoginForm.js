@@ -62,7 +62,7 @@ class LoginForm extends Component {
                 <form onSubmit={this.onSubmit}>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
-                      <span className="input-group-text">
+                      <span className="input-group-text btn">
                         <i className="fas fa-user"></i>
                       </span>
                     </div>
@@ -79,7 +79,7 @@ class LoginForm extends Component {
                   </div>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
-                      <span className="input-group-text">
+                      <span className="input-group-text btn">
                         <i className="fas fa-key"></i>
                       </span>
                     </div>

@@ -44,7 +44,7 @@ public class TeamController {
 	public Iterable<Team> findAllTeams() {
 		return teamService.listAllTeams();
 	}
-
+	
 	@GetMapping("/{team_id}")
 	public ResponseEntity<?> getTeam(@PathVariable String team_id) {
 		Team team = teamService.findTeam(team_id);

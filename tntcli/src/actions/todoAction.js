@@ -7,6 +7,8 @@ import {
   GET_USERTODOTASKS,
 } from "./type";
 
+import { message, Button, Space } from "antd";
+
 export const createTodo = (
   teamCode,
   assignUserId,
@@ -20,11 +22,93 @@ export const createTodo = (
       `http://localhost:8081/api/todo/${teamCode}/${assignUserId}/`,
       todo
     );
+    const openMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Adding...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "40%",
+          marginRight: "46%",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  TODO added succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "40%",
+            marginRight: "46%",
+            marginBottom: "10%",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
+    const updateMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Updating...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "40%",
+          marginRight: "46%",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  TODO updated succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "40%",
+            marginRight: "45%",
+            marginBottom: "10%",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
+      if (todo.id != null) {
+        updateMessage();
+      } else {
+        openMessage();
+      }
     }
     if (userRole === 1) {
       history.push(`/teamMemberDashboard/${teamCode}/${userCode}`);
+      updateMessage();
     }
   } catch (error) {
     dispatch({
@@ -33,6 +117,7 @@ export const createTodo = (
     });
   }
 };
+
 export const getTodos = (team_id, history) => async (dispatch) => {
   const res = await axios.get(`http://localhost:8081/api/todo/${team_id}`);
   console.log("response in react", res);

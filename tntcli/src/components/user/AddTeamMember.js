@@ -51,7 +51,7 @@ class AddTeamMember extends Component {
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-body">
-                <h5 className="display-5 text-center text-light">
+                <h5 className="display-6 text-center text-light">
                   Add Team Member
                 </h5>
                 <hr />

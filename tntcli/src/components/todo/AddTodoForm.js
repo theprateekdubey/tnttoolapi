@@ -57,14 +57,15 @@ class AddTodoForm extends Component {
       status: this.state.status,
       comment: this.state.comment,
     };
-    this.props.createTodo(
-      teamCode,
-      this.state.userCode,
-      userCode,
-      newTodo,
-      this.state.role,
-      this.props.history
-    );
+    window.confirm("Are you sure you want to add this TODO?") &&
+      this.props.createTodo(
+        teamCode,
+        this.state.userCode,
+        userCode,
+        newTodo,
+        this.state.role,
+        this.props.history
+      );
   }
 
   render() {
@@ -81,7 +82,7 @@ class AddTodoForm extends Component {
           <div className="d-flex justify-content-center h-100">
             <div className="card">
               <div className="card-body">
-                <h5 className="display-5 text-center text-light">
+                <h5 className="display-6 text-center text-light">
                   Create TODO Form
                 </h5>
                 <hr />
