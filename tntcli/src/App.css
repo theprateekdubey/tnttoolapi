@@ -297,8 +297,11 @@ body {
   background-repeat: round;
   height: 100%;
 }
-.landing-page .landing-page-content {
-  min-height: 505px;
+.landing-page-text {
+  margin: 14% 3% 10% 8.3%;
+  width: 505px;
+  transform: rotate(-9deg);
+  text-align: justify;
 }
 /*Footer*/
 #main-footer .row {

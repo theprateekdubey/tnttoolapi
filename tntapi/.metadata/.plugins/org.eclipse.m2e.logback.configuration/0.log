@@ -1770,3 +1770,9 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact mysql:mysql-c
 2020-07-02 13:44:23,021 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
 2020-07-02 13:44:23,024 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2020-07-02 13:44:23,025 [Worker-21: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\TnTManagmentApp\tntapi\tnttoolapi\src\test\resources
+2020-07-07 16:30:06,319 [Worker-0: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2020-07-07 16:33:19,483 [Worker-15: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-07-07 16:33:19,565 [Worker-15: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2020-07-07 16:33:19,673 [Worker-15: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2020-07-07 16:33:19,682 [Worker-15: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2020-07-07 16:33:19,682 [Worker-15: Launching tnttoolapi - TnttoolapiApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory F:\TnTManagmentApp\tntapi\tnttoolapi\src\test\resources
