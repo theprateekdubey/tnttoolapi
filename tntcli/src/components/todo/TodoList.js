@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { deleteTodo } from "../../actions/todoAction";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 class TodoList extends Component {
   onDeleteClick = (userId, taskId) => {
@@ -12,16 +12,17 @@ class TodoList extends Component {
       this.openMessage();
   };
   openMessage = () => {
+    const { todo } = this.props;
     const key = "updatable";
     setTimeout(() => {
       message.success({
-        content: "  TODO deleted succesfully ",
+        content: "  TODO ' " + todo.name + " ' deleted succesfully",
         className: "custom-class",
         style: {
           position: "relative",
           marginTop: "-4%",
-          marginLeft: "40%",
-          marginRight: "46%",
+          marginLeft: "37%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",

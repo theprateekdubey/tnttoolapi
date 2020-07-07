@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 import classnames from "classnames";
 import Header from "../layout/Header";
 import BackToMemberListboardButton from "./BackToMemberListboardButton";
-import { getUser, createUser } from "./../../actions/userActions";
+import { getUser, updateUser } from "./../../actions/userActions";
 
 class UpdateTeamMember extends Component {
   constructor(props) {
@@ -16,6 +16,9 @@ class UpdateTeamMember extends Component {
       password: "password",
       role: "1",
       userCode: "",
+      teamCode: "",
+      teamId: "",
+      taskSequence: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -25,13 +28,25 @@ class UpdateTeamMember extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-    const { id, name, username, role, userCode } = nextProps.user;
+    const {
+      id,
+      name,
+      username,
+      role,
+      userCode,
+      teamId,
+      teamCode,
+      taskSequence,
+    } = nextProps.user;
     this.setState({
       id,
       name,
       username,
       role,
       userCode,
+      teamId,
+      teamCode,
+      taskSequence,
     });
   }
   componentDidMount() {
@@ -50,11 +65,15 @@ class UpdateTeamMember extends Component {
       username: this.state.username,
       password: this.state.password,
       role: this.state.role,
+      teamId: this.state.teamId,
+      userCode: this.state.userCode,
+      teamCode: this.state.teamCode,
+      taskSequence: this.state.taskSequence,
     };
     window.confirm(
       "Are you sure you want to update the details of this member?"
     ) &&
-      this.props.createUser(teamCode, userCode, updateUser, this.props.history);
+      this.props.updateUser(teamCode, userCode, updateUser, this.props.history);
   }
   render() {
     const { errors } = this.state;
@@ -84,6 +103,7 @@ class UpdateTeamMember extends Component {
                       name="name"
                       value={this.state.name}
                       onChange={this.onChange}
+                      required
                     />
                     {errors.name && (
                       <div className="invalid-feedback">{errors.name}</div>
@@ -101,6 +121,7 @@ class UpdateTeamMember extends Component {
                       name="username"
                       value={this.state.username}
                       onChange={this.onChange}
+                      required
                     />
                     {errors.username && (
                       <div className="invalid-feedback">{errors.username}</div>
@@ -120,15 +141,14 @@ class UpdateTeamMember extends Component {
 
 UpdateTeamMember.propTypes = {
   user: PropTypes.object.isRequired,
-  // getUsers: PropTypes.func.isRequired,
   getUser: PropTypes.func.isRequired,
-  createUser: PropTypes.func.isRequired,
+  updateUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
 };
 const mapStateToProps = (state) => ({
   errors: state.errors,
   user: state.users.user,
 });
-export default connect(mapStateToProps, { getUser, createUser })(
+export default connect(mapStateToProps, { getUser, updateUser })(
   UpdateTeamMember
 );

@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { login } from "./../../../../actions/userActions";
 import HeaderLandingPage from "../../HeaderLandingPage";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor(props) {

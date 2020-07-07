@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import classnames from "classnames";
 import Header from "../layout/Header";
-import { updateUser, getUser } from "./../../actions/userActions";
+import { updateUserCredential, getUser } from "./../../actions/userActions";
 import BackToTeamMemberDashBoard from "./BackToTeamMemberDashBoard";
 import BackToDashboardButton from "./BackToDashboardButton";
 import { Link } from "react-router-dom";
@@ -20,6 +20,10 @@ class UpdateUserCredentials extends Component {
       currentPassword: "",
       newPassword: "",
       role: "",
+      userCode: "",
+      teamCode: "",
+      teamId: "",
+      taskSequence: "",
       errorMessage: "",
       errors: {},
     };
@@ -30,7 +34,17 @@ class UpdateUserCredentials extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-    const { id, name, username, password, role, userCode } = nextProps.user;
+    const {
+      id,
+      name,
+      username,
+      password,
+      role,
+      userCode,
+      teamId,
+      teamCode,
+      taskSequence,
+    } = nextProps.user;
     this.setState({
       id,
       name,
@@ -38,6 +52,9 @@ class UpdateUserCredentials extends Component {
       password,
       role,
       userCode,
+      teamId,
+      teamCode,
+      taskSequence,
     });
   }
   componentDidMount() {
@@ -60,9 +77,13 @@ class UpdateUserCredentials extends Component {
             username: this.state.username,
             password: this.state.confirmPassword,
             role: this.state.role,
+            teamId: this.state.teamId,
+            userCode: this.state.userCode,
+            teamCode: this.state.teamCode,
+            taskSequence: this.state.taskSequence,
           };
           window.confirm("Are you sure you want to delete the TODO?") &&
-            this.props.updateUser(
+            this.props.updateUserCredential(
               teamCode,
               userCode,
               updatedUser,
@@ -219,7 +240,7 @@ class UpdateUserCredentials extends Component {
   }
 }
 UpdateUserCredentials.propTypes = {
-  updateUser: PropTypes.func.isRequired,
+  updateUserCredential: PropTypes.func.isRequired,
   getUser: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
 };
@@ -227,6 +248,6 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
   user: state.users.user,
 });
-export default connect(mapStateToProps, { updateUser, getUser })(
+export default connect(mapStateToProps, { updateUserCredential, getUser })(
   UpdateUserCredentials
 );

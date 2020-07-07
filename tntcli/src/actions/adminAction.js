@@ -1,12 +1,13 @@
 import axios from "axios";
 import { GET_TEAMS, GET_ERRORS, DELETE_TEAM, GET_TEAM } from "./type";
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 export const createTeam = (teamCode, userCode, role, team, history) => async (
   dispatch
 ) => {
   try {
     await axios.post("http://localhost:8081/api/team/", team);
+    const teamName = team.name;
     const openMessage = () => {
       const key = "updatable";
       message.loading({
@@ -16,7 +17,7 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "43%",
-          marginRight: "43.5%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -27,13 +28,13 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
       });
       setTimeout(() => {
         message.success({
-          content: "  Team added succesfully",
+          content: "  Team ' " + teamName + " ' added succesfully",
           className: "custom-class",
           style: {
             position: "relative",
             marginTop: "-4%",
-            marginLeft: "43%",
-            marginRight: "43.5%",
+            marginLeft: "39%",
+            width: "max-content",
             marginBottom: "10%",
             padding: "6px",
             color: "green",
@@ -45,48 +46,11 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
         });
       }, 1000);
     };
-    const updateMessage = () => {
-      const key = "updatable";
-      message.loading({
-        content: "  Updating...",
-        className: "custom-class",
-        style: {
-          position: "relative",
-          marginTop: "-4%",
-          marginLeft: "42%",
-          marginRight: "43.5%",
-          padding: "6px",
-          color: "green",
-          background: "whitesmoke",
-        },
-        top: 100,
-        key,
-      });
-      setTimeout(() => {
-        message.success({
-          content: "  Team updated succesfully",
-          className: "custom-class",
-          style: {
-            position: "relative",
-            marginTop: "-4%",
-            marginLeft: "42%",
-            marginRight: "43.5%",
-            padding: "6px",
-            color: "green",
-            background: "whitesmoke",
-          },
-          top: 100,
-          key,
-          duration: 2,
-        });
-      }, 1000);
-    };
+
     if (role == 3) {
       history.push(`/adminDashboard/${teamCode}/${userCode}`);
       if (team.id == null) {
         openMessage();
-      } else {
-        updateMessage();
       }
     }
   } catch (error) {
@@ -97,9 +61,64 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
   }
 };
 
+export const updateTeam = (teamCode, userCode, team, history) => async (
+  dispatch
+) => {
+  try {
+    const res = await axios.patch(
+      `http://localhost:8081/api/team/${team.teamCode}`,
+      team
+    );
+    const teamName = team.name;
+    const updateMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Updating...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "42%",
+          width: "max-content",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  Team ' " + teamName + " ' updated succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "39%",
+            width: "max-content",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
+    history.push(`/adminDashboard/${teamCode}/${userCode}/`);
+    updateMessage();
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
+    });
+  }
+};
+
 export const getTeams = (history) => async (dispatch) => {
   const res = await axios.get(`http://localhost:8081/api/team/all`);
-  console.log("response in react", res);
+
   dispatch({
     type: GET_TEAMS,
     payload: res.data,

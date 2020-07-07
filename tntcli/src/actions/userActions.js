@@ -7,25 +7,65 @@ import {
   DELETE_USER,
   LIST_ALL_USERS,
 } from "./type";
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 export const login = (user, history) => async (dispatch) => {
   try {
-    console.log("==>>", user);
     const res = await axios.post("http://localhost:8081/api/user/login", user);
-    console.log("response in react", res);
+    const loggedInName = res.data.name;
+    const loginMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Login...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "40%",
+          width: "max-content",
+          marginBottom: "10%",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  Welcome, " + loggedInName,
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "40%",
+            width: "max-content",
+            marginBottom: "10%",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 3,
+        });
+      }, 1000);
+    };
     if (res.data.role === 3) {
       history.push(`/adminDashboard/${res.data.teamCode}/${res.data.userCode}`);
+      loginMessage();
     }
     if (res.data.role === 2) {
       history.push(
         `/teamLeadDashboard/${res.data.teamCode}/${res.data.userCode}/`
       );
+      loginMessage();
     }
     if (res.data.role === 1) {
       history.push(
         `/teamMemberDashboard/${res.data.teamCode}/${res.data.userCode}`
       );
+      loginMessage();
     }
     dispatch({
       type: USER_LOGIN,
@@ -46,6 +86,7 @@ export const createUser = (teamCode, userCode, user, history) => async (
       `http://localhost:8081/api/user/${teamCode}/`,
       user
     );
+    const userInTeam = user.name;
     const openMessage = () => {
       const key = "updatable";
       message.loading({
@@ -55,7 +96,7 @@ export const createUser = (teamCode, userCode, user, history) => async (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "40%",
-          marginRight: "44.5%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -66,13 +107,13 @@ export const createUser = (teamCode, userCode, user, history) => async (
       });
       setTimeout(() => {
         message.success({
-          content: "  Member added succesfully",
+          content: "  Member ' " + userInTeam + " ' added succesfully",
           className: "custom-class",
           style: {
             position: "relative",
             marginTop: "-4%",
             marginLeft: "40%",
-            marginRight: "44.5%",
+            width: "max-content",
             marginBottom: "10%",
             padding: "6px",
             color: "green",
@@ -84,50 +125,9 @@ export const createUser = (teamCode, userCode, user, history) => async (
         });
       }, 1000);
     };
-    const updateMessage = () => {
-      const key = "updatable";
-      message.loading({
-        content: "  Updating...",
-        className: "custom-class",
-        style: {
-          position: "relative",
-          marginTop: "-41%",
-          marginLeft: "40%",
-          marginRight: "43.5%",
-          marginBottom: "10%",
-          padding: "6px",
-          color: "green",
-          background: "whitesmoke",
-        },
-        top: 100,
-        key,
-      });
-      setTimeout(() => {
-        message.success({
-          content: "  Member updated succesfully",
-          className: "custom-class",
-          style: {
-            position: "relative",
-            marginTop: "-41%",
-            marginLeft: "40%",
-            marginRight: "43.5%",
-            marginBottom: "10%",
-            padding: "6px",
-            color: "green",
-            background: "whitesmoke",
-          },
-          top: 100,
-          key,
-          duration: 2,
-        });
-      }, 1000);
-    };
+
     history.push(`/teamMember/${teamCode}/${userCode}`);
-    if (user.id != null) {
-      updateMessage();
-    } else {
-      openMessage();
-    }
+    openMessage();
   } catch (error) {
     dispatch({
       type: GET_ERRORS,
@@ -143,6 +143,61 @@ export const getUser = (team_id, user_id, history) => async (dispatch) => {
     type: GET_USER,
     payload: res.data,
   });
+};
+
+export const updateUser = (teamCode, userCode, user, history) => async (
+  dispatch
+) => {
+  try {
+    const res = await axios.patch(
+      `http://localhost:8081/api/user/${teamCode}/${user.userCode}`,
+      user
+    );
+    const userInTeam = user.name;
+    const updateMessage = () => {
+      const key = "updatable";
+      message.loading({
+        content: "  Updating...",
+        className: "custom-class",
+        style: {
+          position: "relative",
+          marginTop: "-4%",
+          marginLeft: "40%",
+          width: "max-content",
+          padding: "6px",
+          color: "green",
+          background: "whitesmoke",
+        },
+        top: 100,
+        key,
+      });
+      setTimeout(() => {
+        message.success({
+          content: "  Member ' " + userInTeam + " ' updated succesfully",
+          className: "custom-class",
+          style: {
+            position: "relative",
+            marginTop: "-4%",
+            marginLeft: "40%",
+            width: "max-content",
+            padding: "6px",
+            color: "green",
+            background: "whitesmoke",
+          },
+          top: 100,
+          key,
+          duration: 2,
+        });
+      }, 1000);
+    };
+    history.push(`/teamMember/${teamCode}/${userCode}`);
+    updateMessage();
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
+    });
+  }
 };
 
 export const getUsers = (team_id, history) => async (dispatch) => {
@@ -170,9 +225,12 @@ export const deleteUser = (teamCode, userCode) => async (dispatch) => {
     payload: userCode,
   });
 };
-export const updateUser = (teamCode, userCode, user, history) => async (
-  dispatch
-) => {
+export const updateUserCredential = (
+  teamCode,
+  userCode,
+  user,
+  history
+) => async (dispatch) => {
   try {
     const res = await axios.patch(
       `http://localhost:8081/api/user/${teamCode}/${userCode}`,
@@ -187,7 +245,7 @@ export const updateUser = (teamCode, userCode, user, history) => async (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "42%",
-          marginRight: "43.5%",
+          width: "max-content",
           padding: "6px",
           color: "green",
           background: "whitesmoke",
@@ -203,7 +261,7 @@ export const updateUser = (teamCode, userCode, user, history) => async (
             position: "relative",
             marginTop: "-4%",
             marginLeft: "40.5%",
-            marginRight: "42.5%",
+            width: "max-content",
             padding: "6px",
             color: "green",
             background: "whitesmoke",
@@ -243,7 +301,7 @@ export const createUserViaAdmin = (
 ) => async (dispatch) => {
   try {
     await axios.post(`http://localhost:8081/api/user/${teamCode}/`, user);
-    console.log("user role team lead -" + user.role);
+    const userInTeam = user.name;
     const openMessage = () => {
       const key = "updatable";
       message.loading({
@@ -253,7 +311,7 @@ export const createUserViaAdmin = (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "40%",
-          marginRight: "44.5%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -264,13 +322,13 @@ export const createUserViaAdmin = (
       });
       setTimeout(() => {
         message.success({
-          content: "  Member added succesfully",
+          content: "  Member ' " + userInTeam + " ' added succesfully",
           className: "custom-class",
           style: {
             position: "relative",
             marginTop: "-4%",
             marginLeft: "40%",
-            marginRight: "44.5%",
+            width: "max-content",
             marginBottom: "10%",
             padding: "6px",
             color: "green",
@@ -307,6 +365,7 @@ export const updateUserViaAdmin = (
       `http://localhost:8081/api/user/${teamCode}/${user.userCode}`,
       user
     );
+    const userInTeam = user.name;
     const updateMessage = () => {
       const key = "updatable";
       message.loading({
@@ -314,10 +373,9 @@ export const updateUserViaAdmin = (
         className: "custom-class",
         style: {
           position: "relative",
-          marginTop: "-25.5%",
+          marginTop: "-4%",
           marginLeft: "40%",
-          marginRight: "44%",
-          marginBottom: "10%",
+          width: "max-content",
           padding: "6px",
           color: "green",
           background: "whitesmoke",
@@ -327,14 +385,13 @@ export const updateUserViaAdmin = (
       });
       setTimeout(() => {
         message.success({
-          content: "  Member updated succesfully",
+          content: "  Member ' " + userInTeam + " ' updated succesfully",
           className: "custom-class",
           style: {
             position: "relative",
-            marginTop: "-25.5%",
+            marginTop: "-4%",
             marginLeft: "40%",
-            marginRight: "44%",
-            marginBottom: "10%",
+            width: "max-content",
             padding: "6px",
             color: "green",
             background: "whitesmoke",

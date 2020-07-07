@@ -7,7 +7,7 @@ import {
   GET_USERTODOTASKS,
 } from "./type";
 
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 export const createTodo = (
   teamCode,
@@ -22,6 +22,7 @@ export const createTodo = (
       `http://localhost:8081/api/todo/${teamCode}/${assignUserId}/`,
       todo
     );
+    const todoName = res.data.name;
     const openMessage = () => {
       const key = "updatable";
       message.loading({
@@ -31,7 +32,7 @@ export const createTodo = (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "40%",
-          marginRight: "46%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -42,13 +43,14 @@ export const createTodo = (
       });
       setTimeout(() => {
         message.success({
-          content: "  TODO added succesfully",
+          content: "  TODO ' " + todoName + " ' added succesfully",
           className: "custom-class",
           style: {
             position: "relative",
             marginTop: "-4%",
-            marginLeft: "40%",
-            marginRight: "46%",
+            marginLeft: "37%",
+            width: "max-content",
+
             marginBottom: "10%",
             padding: "6px",
             color: "green",
@@ -60,6 +62,33 @@ export const createTodo = (
         });
       }, 1000);
     };
+
+    if (userRole === 2) {
+      history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
+      openMessage();
+    }
+  } catch (error) {
+    dispatch({
+      type: GET_ERRORS,
+      payload: error.response.data,
+    });
+  }
+};
+
+export const updateTodo = (
+  teamCode,
+  assignUserId,
+  userCode,
+  todo,
+  userRole,
+  history
+) => async (dispatch) => {
+  try {
+    const res = await axios.patch(
+      `http://localhost:8081/api/todo/${teamCode}/${assignUserId}/${todo.taskIdentifier}`,
+      todo
+    );
+    const todoName = res.data.name;
     const updateMessage = () => {
       const key = "updatable";
       message.loading({
@@ -69,7 +98,7 @@ export const createTodo = (
           position: "relative",
           marginTop: "-4%",
           marginLeft: "40%",
-          marginRight: "46%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -80,13 +109,13 @@ export const createTodo = (
       });
       setTimeout(() => {
         message.success({
-          content: "  TODO updated succesfully",
+          content: "  TODO ' " + todoName + " ' updated succesfully",
           className: "custom-class",
           style: {
             position: "relative",
             marginTop: "-4%",
-            marginLeft: "40%",
-            marginRight: "45%",
+            marginLeft: "37%",
+            width: "max-content",
             marginBottom: "10%",
             padding: "6px",
             color: "green",
@@ -100,11 +129,7 @@ export const createTodo = (
     };
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
-      if (todo.id != null) {
-        updateMessage();
-      } else {
-        openMessage();
-      }
+      updateMessage();
     }
     if (userRole === 1) {
       history.push(`/teamMemberDashboard/${teamCode}/${userCode}`);

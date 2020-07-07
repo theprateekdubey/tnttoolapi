@@ -342,14 +342,6 @@ body {
 }
 
 .login-form .card {
-  /* background-image: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.5),
-    rgba(255, 255, 255, 0.16) 25%,
-    rgba(0, 0, 0, 0.55) 41%,
-    rgba(0, 0, 0, 0.6)
-  );
-  background-repeat: repeat-x; */
   height: 370px;
   margin-top: 15%;
   margin-bottom: 12.4444%;
@@ -416,7 +408,7 @@ body {
   margin-bottom: 3.1%;
   width: 600px;
   height: 680px;
-  background-color: rgba(0, 0, 0, 0.692) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 .add-todo input {
   background-color: rgba(17, 17, 104, 0.404);
@@ -462,8 +454,7 @@ body {
   align-content: center;
   margin-top: 9%;
   width: 500px;
-
-  background-color: rgba(0, 0, 0, 0.692) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 .add-user input {
   background-color: rgba(17, 17, 104, 0.404);
@@ -505,10 +496,9 @@ body {
 
 .add-user-credentials .card {
   align-content: center;
-  margin-top: 9%;
+  margin-top: 7%;
   width: 500px;
-
-  background-color: rgba(0, 0, 0, 0.692) !important;
+  background-color: rgba(0, 0, 0, 0.75) !important;
 }
 .add-user-credentials input {
   background-color: rgba(17, 17, 104, 0.404);

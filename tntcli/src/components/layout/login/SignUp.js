@@ -74,38 +74,43 @@ class SignUp extends Component {
           <div
             data-backdrop="static"
             data-keyboard="false"
-            class="modal fade"
+            className="modal fade"
             id="myModal"
             aria-labelledby="exampleModalLabel"
           >
             <div
-              class="modal-dialog modal-dialog-centered"
+              className="modal-dialog modal-dialog-centered"
               data-dismiss="modal"
             >
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h5 className="modal-title" id="exampleModalLabel">
                     Admin Registered Successfully , Login Credentials !
                   </h5>
                 </div>
-                <div class="modal-body">
-                  <span class="text-secondary font-italic">Name : </span>Admin
+                <div className="modal-body">
+                  <span className="text-secondary font-italic">Name : </span>
+                  Admin
                   <br />
-                  <span class="text-secondary font-italic">Username : </span>
+                  <span className="text-secondary font-italic">
+                    Username :{" "}
+                  </span>
                   admin
                   <br />
-                  <span class="text-secondary font-italic">Password : </span>
+                  <span className="text-secondary font-italic">
+                    Password :{" "}
+                  </span>
                   admin
                   <p className="text-success font-weight-bold">
                     After clicking on 'OK', click on Sign In and enter above
                     credentials.
                   </p>
                 </div>
-                <div class="modal-footer">
+                <div className="modal-footer">
                   <Link
                     to="/login"
                     type="button"
-                    class="btn btn-primary"
+                    className="btn btn-primary"
                     onClick={this.onClickCreateUser.bind()}
                   >
                     Ok

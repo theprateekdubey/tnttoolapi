@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import classnames from "classnames";
 import BackToDashboardButton from "./../user/BackToDashboardButton";
-import { getTodo, createTodo } from "./../../actions/todoAction";
+import { getTodo, updateTodo } from "./../../actions/todoAction";
 import { getUser } from "./../../actions/userActions";
 import Header from "../layout/Header";
 
@@ -21,7 +21,7 @@ class UpdateTodoForm extends Component {
       comment: "",
       userCode: "",
       teamCode: "",
-      todoIdentifier: "",
+      taskIdentifier: "",
       role: "",
       errors: {},
     };
@@ -45,9 +45,12 @@ class UpdateTodoForm extends Component {
       priority: this.state.priority,
       status: this.state.status,
       comment: this.state.comment,
+      userCode: this.state.userCode,
+      teamCode: this.state.teamCode,
+      taskIdentifier: this.state.taskIdentifier,
     };
     window.confirm("Are you sure you want to update this TODO?") &&
-      this.props.createTodo(
+      this.props.updateTodo(
         teamCode,
         this.state.userCode,
         userCode,
@@ -71,7 +74,7 @@ class UpdateTodoForm extends Component {
       comment,
       userCode,
       teamCode,
-      todoIdentifier,
+      taskIdentifier,
     } = nextProps.todo;
     this.setState({
       id,
@@ -84,7 +87,7 @@ class UpdateTodoForm extends Component {
       comment,
       userCode,
       teamCode,
-      todoIdentifier,
+      taskIdentifier,
     });
     const { role } = nextProps.user;
     this.setState({
@@ -229,7 +232,7 @@ class UpdateTodoForm extends Component {
 }
 UpdateTodoForm.propTypes = {
   getUser: PropTypes.func.isRequired,
-  createTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   getTodo: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
@@ -241,6 +244,6 @@ const mapStateToProps = (state) => ({
 });
 export default connect(mapStateToProps, {
   getUser,
-  createTodo,
+  updateTodo,
   getTodo,
 })(UpdateTodoForm);

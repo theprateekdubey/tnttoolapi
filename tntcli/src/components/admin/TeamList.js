@@ -12,16 +12,17 @@ class TeamList extends Component {
       this.openMessage();
   };
   openMessage = () => {
+    const { team } = this.props;
     const key = "updatable";
     setTimeout(() => {
       message.success({
-        content: "  Team deleted succesfully",
+        content: "  Team ' " + team.name + " ' deleted succesfully",
         className: "custom-class",
         style: {
           position: "relative",
           marginTop: "-4%",
-          marginLeft: "43%",
-          marginRight: "43.5%",
+          marginLeft: "39%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",

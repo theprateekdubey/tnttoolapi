@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getTodo, createTodo } from "./../../actions/todoAction";
+import { getTodo, updateTodo } from "./../../actions/todoAction";
 import { getUser } from "./../../actions/userActions";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
@@ -21,7 +21,7 @@ class UpdateUserTodoForm extends Component {
       comment: "",
       userCode: "",
       teamCode: "",
-      todoIdentifier: "",
+      taskIdentifier: "",
       role: "",
       errors: {},
     };
@@ -35,8 +35,6 @@ class UpdateUserTodoForm extends Component {
 
   onSubmit(event) {
     const { teamCode, userCode } = this.props.match.params;
-
-    console.log("userRole -------------" + this.state.role);
     event.preventDefault();
     const updateTodo = {
       id: this.state.id,
@@ -47,9 +45,12 @@ class UpdateUserTodoForm extends Component {
       priority: this.state.priority,
       status: this.state.status,
       comment: this.state.comment,
+      userCode: this.state.userCode,
+      teamCode: this.state.teamCode,
+      taskIdentifier: this.state.taskIdentifier,
     };
     window.confirm("Are you sure you want to update this TODO?") &&
-      this.props.createTodo(
+      this.props.updateTodo(
         teamCode,
         this.state.userCode,
         userCode,
@@ -73,7 +74,7 @@ class UpdateUserTodoForm extends Component {
       comment,
       userCode,
       teamCode,
-      todoIdentifier,
+      taskIdentifier,
     } = nextProps.todo;
     this.setState({
       id,
@@ -86,7 +87,7 @@ class UpdateUserTodoForm extends Component {
       comment,
       userCode,
       teamCode,
-      todoIdentifier,
+      taskIdentifier,
     });
     const { role } = nextProps.user;
     this.setState({
@@ -177,7 +178,7 @@ class UpdateUserTodoForm extends Component {
 UpdateUserTodoForm.propTypes = {
   user: PropTypes.object.isRequired,
   getUser: PropTypes.func.isRequired,
-  createTodo: PropTypes.func.isRequired,
+  updateTodo: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   getTodo: PropTypes.func.isRequired,
   todo: PropTypes.object.isRequired,
@@ -187,6 +188,6 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
   todo: state.todos.todo,
 });
-export default connect(mapStateToProps, { getUser, createTodo, getTodo })(
+export default connect(mapStateToProps, { getUser, updateTodo, getTodo })(
   UpdateUserTodoForm
 );

@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { deleteUser } from "../../actions/userActions";
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 class UserItemAdmin extends Component {
   onDeleteClick = (teamCode, userCode) => {
@@ -12,16 +12,17 @@ class UserItemAdmin extends Component {
       this.openMessage();
   };
   openMessage = () => {
+    const { user } = this.props;
     const key = "updatable";
     setTimeout(() => {
       message.success({
-        content: "Member deleted succesfully",
+        content: "Member ' " + user.name + " ' deleted succesfully",
         className: "custom-class",
         style: {
           position: "relative",
           marginTop: "-4%",
-          marginLeft: "40%",
-          marginRight: "44.5%",
+          marginLeft: "37%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",

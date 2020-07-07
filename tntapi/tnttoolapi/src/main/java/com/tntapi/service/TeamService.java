@@ -36,6 +36,12 @@ public class TeamService {
 		return teamRepository.findAll();
 	}
 
+	public Team updateTeam(String teamCode, Team updateTeam) {
+		Team team = findTeam(teamCode);
+		team = updateTeam;
+		return teamRepository.save(team);
+	}
+
 	public void deleteTeam(String teamCode) {
 		// getting the team form team code
 		Team team = teamRepository.findByTeamCode(teamCode);

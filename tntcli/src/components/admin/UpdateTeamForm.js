@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { getUser } from "../../actions/userActions";
-import { createTeam, getTeam } from "../../actions/adminAction";
+import { updateTeam, getTeam } from "../../actions/adminAction";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
@@ -14,6 +14,9 @@ class UpdateTeamForm extends Component {
       id: "",
       name: "",
       projectName: "",
+      userSequence: "",
+      teamLead: "",
+      teamLeadCode: "",
       teamCode: "",
       role: "",
       errors: {},
@@ -31,8 +34,24 @@ class UpdateTeamForm extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-    const { id, name, projectName, teamCode } = nextProps.team;
-    this.setState({ id, name, projectName, teamCode });
+    const {
+      id,
+      name,
+      projectName,
+      userSequence,
+      teamLead,
+      teamLeadCode,
+      teamCode,
+    } = nextProps.team;
+    this.setState({
+      id,
+      name,
+      projectName,
+      userSequence,
+      teamLead,
+      teamLeadCode,
+      teamCode,
+    });
     const { role } = nextProps.user;
     this.setState({ role });
   }
@@ -48,18 +67,15 @@ class UpdateTeamForm extends Component {
       id: this.state.id,
       name: this.state.name,
       projectName: this.state.projectName,
+      userSequence: this.state.userSequence,
+      teamLead: this.state.teamLead,
+      teamLeadCode: this.state.teamLeadCode,
       teamCode: this.state.teamCode,
     };
     window.confirm(
       "Are you sure you want to Update the details of this Team ?"
     ) &&
-      this.props.createTeam(
-        teamId,
-        userCode,
-        this.state.role,
-        updatedTeam,
-        this.props.history
-      );
+      this.props.updateTeam(teamId, userCode, updatedTeam, this.props.history);
   }
 
   render() {
@@ -130,7 +146,7 @@ class UpdateTeamForm extends Component {
 
 UpdateTeamForm.propTypes = {
   getTeam: PropTypes.func.isRequired,
-  createTeam: PropTypes.func.isRequired,
+  updateTeam: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
   getUser: PropTypes.func.isRequired,
 };
@@ -139,6 +155,6 @@ const mapStateToProps = (state) => ({
   errors: state.errors,
   team: state.teams.team,
 });
-export default connect(mapStateToProps, { createTeam, getUser, getTeam })(
+export default connect(mapStateToProps, { updateTeam, getUser, getTeam })(
   UpdateTeamForm
 );

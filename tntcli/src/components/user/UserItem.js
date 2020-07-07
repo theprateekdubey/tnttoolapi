@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
 import { deleteUser } from "./../../actions/userActions";
-import { message, Button, Space } from "antd";
+import { message } from "antd";
 
 class UserItem extends Component {
   onDeleteClick = (teamCode, userCode) => {
@@ -12,16 +12,17 @@ class UserItem extends Component {
       this.openMessage();
   };
   openMessage = () => {
+    const { user } = this.props;
     const key = "updatable";
     setTimeout(() => {
       message.success({
-        content: "  Member deleted succesfully",
+        content: "Member ' " + user.name + " ' deleted succesfully",
         className: "custom-class",
         style: {
           position: "relative",
-          marginTop: "-18%",
-          marginLeft: "40%",
-          marginRight: "44.5%",
+          marginTop: "-4%",
+          marginLeft: "37%",
+          width: "max-content",
           marginBottom: "10%",
           padding: "6px",
           color: "green",
@@ -71,20 +72,21 @@ class UserItem extends Component {
                 User Id : <span>{user.userCode}</span>
               </small>
             </div>
-            <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
-              <Link
-                type="button"
-                data-toggle="tooltip"
-                title="Edit Team Member"
-                className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
-                to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
-              >
-                <i className="fas fa-user-edit"></i>
-              </Link>
-              {(() => {
-                switch (user.role) {
-                  case 1:
-                    return (
+
+            {(() => {
+              switch (user.role) {
+                case 1:
+                  return (
+                    <div className="col-lg-4 col-md-6 col-2 d-flex justify-content-end mt-n2 mb-3">
+                      <Link
+                        type="button"
+                        data-toggle="tooltip"
+                        title="Edit Team Member"
+                        className="rounded btn btn-warning px-3 py-2 mt-3 mr-2"
+                        to={`/updateTeamMember/${user.teamCode}/${userCode}/${user.userCode}`}
+                      >
+                        <i className="fas fa-user-edit"></i>
+                      </Link>
                       <div
                         data-toggle="tooltip"
                         title="Delete Team Member"
@@ -98,13 +100,13 @@ class UserItem extends Component {
                       >
                         <i class="fas fa-trash-alt"></i>
                       </div>
-                    );
+                    </div>
+                  );
 
-                  default:
-                    return "";
-                }
-              })()}
-            </div>
+                default:
+                  return "";
+              }
+            })()}
           </div>
         </div>
       </div>

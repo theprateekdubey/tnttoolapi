@@ -35,19 +35,19 @@ public class UserService {
 			userSequence++;
 			team.setUserSequence(userSequence);
 			user.setUserCode(user.getTeamCode() + "-" + userSequence);
-			 // setting user as team lead if role is specified as that
-            if (user.getRole() == 2) {
-                if (team.getTeamLead() == null) {
-                    team.setTeamLead(user.getName());
-                    team.setTeamLeadCode(user.getUserCode());
-                } else {
-                    String teamLeadCode = team.getTeamLeadCode();
-                    User teamLead = findUserByUCode(teamCode, teamLeadCode);
-                    teamLead.setRole(1);
-                    team.setTeamLead(user.getName());
-                    team.setTeamLeadCode(user.getUserCode());
-                }
-            }
+			// setting user as team lead if role is specified as that
+			if (user.getRole() == 2) {
+				if (team.getTeamLead() == null) {
+					team.setTeamLead(user.getName());
+					team.setTeamLeadCode(user.getUserCode());
+				} else {
+					String teamLeadCode = team.getTeamLeadCode();
+					User teamLead = findUserByUCode(teamCode, teamLeadCode);
+					teamLead.setRole(1);
+					team.setTeamLead(user.getName());
+					team.setTeamLeadCode(user.getUserCode());
+				}
+			}
 			return userRepository.save(user);
 		} catch (NullPointerException ex) {
 			throw new TeamNotFoundException("Team Does not exist");
@@ -89,37 +89,43 @@ public class UserService {
 	}
 
 	public User updateByUserCode(User updateUser, String team_id, String user_id) {
-        // find the user
-        User user = findUserByUCode(team_id, user_id);
-        Team team = teamRepository.findByTeamCode(team_id);
-        //if role is changing from team lead to team member
-        if ((user.getRole() == 2) && (updateUser.getRole() == 1)) {
-            team.setTeamLead(null);
-            team.setTeamLeadCode(null);
-        }
-        // mapping new user to old user for updating
-        user = updateUser;
-        // setting team Lead in team if user role is assign as team lead (i.e. 2)
-        if (updateUser.getRole() == 2) {
-            if (team.getTeamLead() == null) {
-                team.setTeamLead(user.getName());
-                team.setTeamLeadCode(user.getUserCode());
-            } else {
-                String teamLeadCode = team.getTeamLeadCode();
-                User teamLead = findUserByUCode(team_id, teamLeadCode);
-                teamLead.setRole(1);
-                team.setTeamLead(user.getName());
-                team.setTeamLeadCode(user.getUserCode());
+		try { // find the user
+            User user = findUserByUCode(team_id, user_id);
+            Team team = teamRepository.findByTeamCode(team_id);
+            // if role is changing from team lead to team member
+            if ((user.getRole() == 2) && (updateUser.getRole() == 1)) {
+                team.setTeamLead(null);
+                team.setTeamLeadCode(null);
             }
+            // mapping new user to old user for updating
+            user = updateUser;
+
+ 
+
+            // setting team Lead in team if user role is assign as team lead (i.e. 2)
+            if (updateUser.getRole() == 2) {
+                if (team.getTeamLead() == null) {
+                    team.setTeamLead(user.getName());
+                    team.setTeamLeadCode(user.getUserCode());
+                } else {
+                    String teamLeadCode = team.getTeamLeadCode();
+                    User teamLead = findUserByUCode(team_id, teamLeadCode);
+                    teamLead.setRole(1);
+                    team.setTeamLead(user.getName());
+                    team.setTeamLeadCode(user.getUserCode());
+                }
+            }
+            // save user
+            return userRepository.save(user);
+        } catch (Exception e) {
+            throw new UsernameException("username already exisit");
         }
-        // save user
-        return userRepository.save(user);
-    }
-	
+	}
+
 	public Iterable<User> listAllUsers() {
 		return userRepository.findAll();
 	}
-	
+
 	public void deleteUser(String team_id, String user_id) {
 
 		// finding the user

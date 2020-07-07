@@ -118,7 +118,7 @@ class AddTeamMemberAdmin extends Component {
                               onChange={this.onChange}
                               required
                             >
-                              <option value={0}>Select role</option>
+                              <option value="">Select role</option>
                               <option value={3}>Admin</option>
                             </select>
                           );
@@ -134,7 +134,7 @@ class AddTeamMemberAdmin extends Component {
                               onChange={this.onChange}
                               required
                             >
-                              <option value={0}>Select role</option>
+                              <option value="">Select role</option>
                               <option value={1}>Team Member</option>
                               <option value={2}>Team Lead</option>
                             </select>

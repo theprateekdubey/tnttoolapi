@@ -24,14 +24,14 @@ class AdminDashboard extends Component {
             className="rounded btn btn-success px-3 ml-3"
             to={`/addTeamForm/${teamCode}/${userCode}`}
           >
-            <i class="fa fa-plus-circle"></i> Add Team
+            <i className="fa fa-plus-circle"></i> Add Team
           </Link>
           <Link
             type="button"
             className="rounded btn btn-warning px-3 ml-3"
             to={`/listAllEmployees/${teamCode}/${userCode}`}
           >
-            <i class="fas fa-users"></i> All Employees
+            <i className="fas fa-users"></i> All Employees
           </Link>
         </div>
         <div className="team-list ml-5 ">
