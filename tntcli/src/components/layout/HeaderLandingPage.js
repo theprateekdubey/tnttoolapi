@@ -19,11 +19,8 @@ class HeaderLandingPage extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("----------team code-- - " + this.state.teamCode);
-
     const { teamCode } = nextProps.team;
     this.setState({ teamCode });
-    console.log("----------team code-- - " + this.state.teamCode);
   }
 
   render() {

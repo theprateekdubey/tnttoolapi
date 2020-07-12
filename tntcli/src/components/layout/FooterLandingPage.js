@@ -69,7 +69,7 @@ export default class FooterLandingPage extends Component {
                 </a>
 
                 <a
-                  href="mailto:prateek.dubey98@gmail.com?subject=Appreciated your work, want to connect with you&"
+                  href="mailto:prateek.dubey98@gmail.com;samayjain21@gmail.com?subject=Appreciated your work, want to connect with you&"
                   className="social-icon"
                   target="_blank"
                 >

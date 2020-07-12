@@ -16,17 +16,18 @@ class UserItem extends Component {
     const key = "updatable";
     setTimeout(() => {
       message.success({
-        content: "Member ' " + user.name + " ' deleted succesfully",
+        content: "  Member ' " + user.name + " ' deleted succesfully",
         className: "custom-class",
         style: {
           position: "relative",
-          marginTop: "-4%",
-          marginLeft: "37%",
+          margin: "-4% 0 10% 37%",
           width: "max-content",
-          marginBottom: "10%",
           padding: "6px",
-          color: "green",
-          background: "whitesmoke",
+          color: "#00ff66",
+          background: "#323131b3",
+          borderRadius: "15px",
+          padding: "15px",
+          border: "solid gray 1px",
         },
         top: 100,
         key,
