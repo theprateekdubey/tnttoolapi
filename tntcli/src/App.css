@@ -432,7 +432,13 @@ body {
 .add-member-btn {
   margin: -4.3% 0 0 13.5%;
 }
-
+/**Progress Bar**/
+.todo-progress-bar {
+  margin: 0% 45% -2% 4.4%;
+}
+.progress-bar {
+  width: 251px;
+}
 /********************************************TEAM-MEMBER DASHBOARD********************************************/
 
 /*Team Member Todo List*/
@@ -550,14 +556,10 @@ body {
   position: relative;
   margin: -4% 0 10% 37%;
   width: max-content;
-  /* color: #00ff66; */
-  /* color: whitesmoke; */
   color: black;
-  /* background: #323131b3; */
   background: #ffffffd1;
   border-radius: 15px;
   padding: 15px;
-  /* border: solid gray 1px; */
   border: solid #686464 2px;
   font-variant: petite-caps;
 }

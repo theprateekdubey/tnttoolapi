@@ -44,6 +44,7 @@ export const createTodo = (
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
       openMessage();
+      window.location.reload(false);
     }
   } catch (error) {
     dispatch({
@@ -88,6 +89,7 @@ export const updateTodo = (
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
       updateMessage();
+      window.location.reload(false);
     }
     if (userRole === 1) {
       history.push(`/teamMemberDashboard/${teamCode}/${userCode}`);
@@ -135,6 +137,17 @@ export const getUserTodos = (team_id, user_id, history) => async (dispatch) => {
 
 export const deleteTodo = (userCode, taskId) => async (dispatch) => {
   await axios.delete(`http://localhost:8081/api/todo/${userCode}/${taskId}`);
+  const updateMessage = () => {
+    const key = "updatable";
+    message.loading({
+      content: "  Deleting...",
+      className: "custom-class",
+      top: 100,
+      key,
+    });
+  };
+  updateMessage();
+  window.location.reload(false);
   dispatch({
     type: DELETE_TODO,
     payload: taskId,

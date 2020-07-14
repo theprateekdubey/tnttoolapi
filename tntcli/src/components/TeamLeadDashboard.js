@@ -5,6 +5,7 @@ import AddAndListButton from "./todo/AddAndListButton";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { getTodos } from "./../actions/todoAction";
+import TodoProgessChart from "./todo/TodoProgessChart";
 
 class TeamLeadDashboard extends Component {
   componentDidMount() {
@@ -17,6 +18,7 @@ class TeamLeadDashboard extends Component {
     return (
       <div className="teamLeadDash">
         <Header teamCode={teamCode} userCode={userCode} />
+        <TodoProgessChart teamCode={teamCode} />
         <AddAndListButton teamCode={teamCode} userCode={userCode} />
         <div className="todo-list ml-5">
           {todos.map((todo) => (

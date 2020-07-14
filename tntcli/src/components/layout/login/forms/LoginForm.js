@@ -113,7 +113,6 @@ class LoginForm extends Component {
                         onClick={this.toggleShowCurrentPassword}
                       >
                         <i
-                          type="button"
                           className={`fa ${
                             currentPasswordHidden ? "fa-eye-slash" : "fa-eye"
                           } login-show-pass`}
