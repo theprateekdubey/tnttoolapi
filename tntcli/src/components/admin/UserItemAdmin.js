@@ -18,17 +18,6 @@ class UserItemAdmin extends Component {
       message.success({
         content: "  Member ' " + user.name + " ' deleted succesfully",
         className: "custom-class",
-        style: {
-          position: "relative",
-          margin: "-4% 0 10% 37%",
-          width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
-          borderRadius: "15px",
-          padding: "15px",
-          border: "solid gray 1px",
-        },
         top: 100,
         key,
         duration: 2,

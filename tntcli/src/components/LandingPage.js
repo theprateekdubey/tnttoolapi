@@ -11,7 +11,7 @@ class LandingPage extends Component {
         </div>
         <div className="container">
           <div className="landing-page-content ">
-            <p class="landing-page-text font-italic text-dark">
+            <p className="landing-page-text font-italic text-dark">
               This application is for internal team management and it support
               multilevel hierarchy such as Project Admin, Team Lead and Team
               Member. The project admin can control all the employees and team

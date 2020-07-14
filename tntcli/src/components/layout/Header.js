@@ -30,12 +30,14 @@ class Header extends Component {
           position: "relative",
           margin: "-48% 0 10% 43%",
           width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
+          // color: "whitesmoke",
+          color: "black",
+          // background: "#323131b3",
+          background: "#ffffffd1",
           borderRadius: "15px",
           padding: "15px",
-          border: "solid gray 1px",
+          // border: "solid gray 1px",
+          border: "solid #686464 2px",
         },
         top: 100,
         key,
@@ -48,9 +50,9 @@ class Header extends Component {
     return (
       <div id="main-header">
         <nav className=" navbar navbar-expand-sm  mb-4 mx-5">
-          <a className="navbar-brand text-light mt-n1">
+          <Link to="#" className="navbar-brand text-light mt-n1">
             Team & TODO Management Tool
-          </a>
+          </Link>
           <button
             className="navbar-toggler bg-dark mt-n2 mx-n5 px-3"
             type="button"
@@ -66,9 +68,8 @@ class Header extends Component {
                 Welcome, {this.state.name}!
     </li>*/}
               <li>
-                <a
+                <Link
                   className="nav-link dropdown-toggle text-light"
-                  href="#"
                   id="navbarDropdownMenuLink"
                   role="button"
                   data-toggle="dropdown"
@@ -76,7 +77,7 @@ class Header extends Component {
                   aria-expanded="false"
                 >
                   <i className="fa fa-user mt-n1" aria-hidden="true"></i>
-                </a>
+                </Link>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"

@@ -28,17 +28,6 @@ export const createTodo = (
       message.loading({
         content: "  Adding...",
         className: "custom-class",
-        style: {
-          position: "relative",
-          margin: "-4% 0 10% 43%",
-          width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
-          borderRadius: "15px",
-          padding: "15px",
-          border: "solid gray 1px",
-        },
         top: 100,
         key,
       });
@@ -46,24 +35,12 @@ export const createTodo = (
         message.success({
           content: "  TODO ' " + todoName + " ' added succesfully",
           className: "custom-class",
-          style: {
-            position: "relative",
-            margin: "-4% 0 10% 37%",
-            width: "max-content",
-            padding: "6px",
-            color: "#00ff66",
-            background: "#323131b3",
-            borderRadius: "15px",
-            padding: "15px",
-            border: "solid gray 1px",
-          },
           top: 100,
           key,
-          duration: 2,
+          duration: 82,
         });
       }, 1000);
     };
-
     if (userRole === 2) {
       history.push(`/teamLeadDashboard/${teamCode}/${userCode}`);
       openMessage();
@@ -95,17 +72,6 @@ export const updateTodo = (
       message.loading({
         content: "  Updating...",
         className: "custom-class",
-        style: {
-          position: "relative",
-          margin: "-4% 0 10% 43%",
-          width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
-          borderRadius: "15px",
-          padding: "15px",
-          border: "solid gray 1px",
-        },
         top: 100,
         key,
       });
@@ -113,20 +79,9 @@ export const updateTodo = (
         message.success({
           content: "  TODO ' " + todoName + " ' updated succesfully",
           className: "custom-class",
-          style: {
-            position: "relative",
-            margin: "-4% 0 10% 37%",
-            width: "max-content",
-            padding: "6px",
-            color: "#00ff66",
-            background: "#323131b3",
-            borderRadius: "15px",
-            padding: "15px",
-            border: "solid gray 1px",
-          },
           top: 100,
           key,
-          duration: 82,
+          duration: 2,
         });
       }, 1000);
     };
@@ -148,7 +103,7 @@ export const updateTodo = (
 
 export const getTodos = (team_id, history) => async (dispatch) => {
   const res = await axios.get(`http://localhost:8081/api/todo/${team_id}`);
-  console.log("response in react", res);
+
   dispatch({
     type: GET_TODOTASKS,
     payload: res.data,
@@ -162,7 +117,6 @@ export const getTodo = (team_id, user_id, todo_id, history) => async (
     `http://localhost:8081/api/todo/${team_id}/${user_id}/${todo_id}`
   );
 
-  console.log("response in react", res);
   dispatch({
     type: GET_TODO,
     payload: res.data,
@@ -173,7 +127,6 @@ export const getUserTodos = (team_id, user_id, history) => async (dispatch) => {
   const res = await axios.get(
     `http://localhost:8081/api/todo/${team_id}/${user_id}`
   );
-  console.log("response in react", res);
   dispatch({
     type: GET_USERTODOTASKS,
     payload: res.data,

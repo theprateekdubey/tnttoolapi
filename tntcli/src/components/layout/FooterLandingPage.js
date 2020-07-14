@@ -40,6 +40,7 @@ export default class FooterLandingPage extends Component {
                   href="https://www.facebook.com/prateek.dubey.35513/"
                   className=" social-icon"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src="img/facebook.svg"
@@ -60,6 +61,7 @@ export default class FooterLandingPage extends Component {
                   href="https://www.linkedin.com/in/prateek-dubey-18201a159"
                   className="social-icon"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src="img/linkedin.svg"
@@ -72,6 +74,7 @@ export default class FooterLandingPage extends Component {
                   href="mailto:prateek.dubey98@gmail.com;samayjain21@gmail.com?subject=Appreciated your work, want to connect with you&"
                   className="social-icon"
                   target="_blank"
+                  rel="noopener noreferrer"
                 >
                   <img
                     src="img/gmail.svg"

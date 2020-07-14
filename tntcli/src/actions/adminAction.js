@@ -13,17 +13,6 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
       message.loading({
         content: "  Adding...",
         className: "custom-class",
-        style: {
-          position: "relative",
-          margin: "-4% 0 10% 43%",
-          width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
-          borderRadius: "15px",
-          padding: "15px",
-          border: "solid gray 1px",
-        },
         top: 100,
         key,
       });
@@ -31,17 +20,6 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
         message.success({
           content: "  Team ' " + teamName + " ' added succesfully",
           className: "custom-class",
-          style: {
-            position: "relative",
-            margin: "-4% 0 10% 37%",
-            width: "max-content",
-            padding: "6px",
-            color: "#00ff66",
-            background: "#323131b3",
-            borderRadius: "15px",
-            padding: "15px",
-            border: "solid gray 1px",
-          },
           top: 100,
           key,
           duration: 2,
@@ -49,7 +27,7 @@ export const createTeam = (teamCode, userCode, role, team, history) => async (
       }, 1000);
     };
 
-    if (role == 3) {
+    if (role === 3) {
       history.push(`/adminDashboard/${teamCode}/${userCode}`);
       if (team.id == null) {
         openMessage();
@@ -67,27 +45,13 @@ export const updateTeam = (teamCode, userCode, team, history) => async (
   dispatch
 ) => {
   try {
-    const res = await axios.patch(
-      `http://localhost:8081/api/team/${team.teamCode}`,
-      team
-    );
+    await axios.patch(`http://localhost:8081/api/team/${team.teamCode}`, team);
     const teamName = team.name;
     const updateMessage = () => {
       const key = "updatable";
       message.loading({
         content: "  Updating...",
         className: "custom-class",
-        style: {
-          position: "relative",
-          margin: "-4% 0 10% 43%",
-          width: "max-content",
-          padding: "6px",
-          color: "#00ff66",
-          background: "#323131b3",
-          borderRadius: "15px",
-          padding: "15px",
-          border: "solid gray 1px",
-        },
         top: 100,
         key,
       });
@@ -95,17 +59,6 @@ export const updateTeam = (teamCode, userCode, team, history) => async (
         message.success({
           content: "  Team ' " + teamName + " ' updated succesfully",
           className: "custom-class",
-          style: {
-            position: "relative",
-            margin: "-4% 0 10% 37%",
-            width: "max-content",
-            padding: "6px",
-            color: "#00ff66",
-            background: "#323131b3",
-            borderRadius: "15px",
-            padding: "15px",
-            border: "solid gray 1px",
-          },
           top: 100,
           key,
           duration: 2,
@@ -132,7 +85,6 @@ export const getTeams = (history) => async (dispatch) => {
 };
 
 export const deleteTeam = (teamCode) => async (dispatch) => {
-  console.log("team Code - " + teamCode);
   await axios.delete(`http://localhost:8081/api/team/${teamCode}`);
   dispatch({
     type: DELETE_TEAM,
@@ -142,7 +94,6 @@ export const deleteTeam = (teamCode) => async (dispatch) => {
 export const getTeam = (team_id, history) => async (dispatch) => {
   const res = await axios.get(`http://localhost:8081/api/team/${team_id}`);
 
-  console.log("response in react", res);
   dispatch({
     type: GET_TEAM,
     payload: res.data,

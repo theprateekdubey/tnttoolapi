@@ -23,7 +23,7 @@ class TeamMemberDashboard extends Component {
             className="rounded btn btn-warning px-3 ml-3"
             to={`/listPeers/${teamCode}/${userCode}`}
           >
-            <i class="fas fa-users"></i> List Members
+            <i className="fas fa-users"></i> List Members
           </Link>
         </div>
         <div className="todo-list-member ml-5">

@@ -1,158 +1,178 @@
-/**HEADER**/
-#main-header {
-  background-color: rgba(0, 0, 0, 0.911);
-  padding-top: 5px;
-}
-#main-header .dropdown-menu {
-  margin-left: 86%;
-}
-/*List Team Member*/
-.list-team-member .list-member {
-  background-color: rgba(0, 0, 0, 0.911);
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #a9a9a9;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  margin: 0 13% 0 13%;
-}
-.list-team-member .list-member:hover {
-  background-color: black;
-}
-.list-team-member .list-member .list-team-detail span {
-  color: #f5fffa;
-}
-.add-member-btn {
-  margin: -4.3% 0 0 13.5%;
-}
-
-/**List Team Peer*/
-.list-team-peer .list-peer {
-  background-color: rgba(0, 0, 0, 0.911);
-  margin: 0 240px 0px 240px;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-}
-.list-team-peer .list-peer .list-peer-detail {
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #a9a9a9;
-}
-.list-team-peer .list-peer .list-peer-detail span {
-  color: #f5fffa;
-}
-
-.list-team-peer .list-peer:hover {
-  background-color: black;
-}
-/**List ALL Users Admin*/
-
-.list-user-admin .list-users {
-  background-color: rgba(0, 0, 0, 0.911);
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-  float: left;
-  min-width: 576px;
-  margin-left: 9%;
-  margin-right: -2%;
-}
-.list-user-admin .list-users .list-users-details {
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  color: #a9a9a9;
-}
-.list-user-admin .list-users .list-users-details span {
-  color: #f5fffa;
-}
-
-.list-user-admin .list-users:hover {
-  background-color: black;
-}
-/*TodoList*/
 body {
   background-image: url("./bg-03.jpg");
   background-size: cover;
   background-repeat: space;
 }
-.teamLeadDash .todo-list {
-  margin-top: 1.3%;
-}
-.teamLeadDash .todo-list .todo-list-content {
-  position: relative;
-  width: 280px;
-  height: 320px;
-  overflow: hidden;
-  color: #a9a9a9;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
-  background-color: rgba(0, 0, 0, 0.911);
-  border-top-right-radius: 65px;
-  border-bottom-left-radius: 35px;
-  width: 300px;
-  margin-right: 40px;
-  float: left;
-  font-size: 14px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-}
-.teamLeadDash .todo-list .todo-list-content span {
-  color: #f5fffa;
-}
-.card .surface {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  height: 0;
-  opacity: 0;
-  background: black;
-  transition: 0.2s linear;
-}
-.card .todo-detail {
-  font-size: 14px;
-  color: #f1f1f1;
-  opacity: 0;
-  transform: translateX(30px) translateY(250px);
-  transition: 0.4s;
-  margin-left: 3%;
-  margin-right: 5.5%;
-}
-.card .icons {
-  cursor: pointer;
-  display: flex;
-  width: 30px;
-  height: 30px;
-  padding: 7px 8px;
-  font-size: 16px;
-  color: rgb(248, 94, 94);
-  background: #ffffff;
-  border-radius: 50%;
-  margin: 10px;
-  opacity: 0;
-  transform: translateY(130px) translateX(-50px);
-  transition: 0.3s;
-}
-.card:hover .surface {
-  opacity: 0.8;
+
+/**Landing Page**/
+.landing-page {
+  background-image: url("./bg-02.jpg");
+  background-size: cover;
+  background-repeat: round;
   height: 100%;
 }
-.card:hover .todo-detail {
-  opacity: 1;
-  transform: translateX(0px) translateY(-20px);
-  transition: 0.4s;
-}
-.card:hover .icons {
-  opacity: 1;
-  transform: translateY(-10px) translateX(5px);
-}
-.card .fa-edit {
-  transition-delay: 0.2s;
-}
-.card .fa-trash {
-  transition-delay: 0.4s;
+.landing-page-text {
+  margin: 14% 3% 10% 8.3%;
+  max-width: 505px;
+  transform: rotate(-9deg);
+  text-align: justify;
 }
 
-/*Team List*/
+/**HEADER**/
+#main-header {
+  background-color: rgba(0, 0, 0, 0.911);
+  padding: 5px 0 0 0;
+}
+#main-header .dropdown-menu {
+  margin-left: 83.6%;
+}
+
+/**Footer**/
+#main-footer .row {
+  margin: 0 0 0 8%;
+}
+.social-bar {
+  width: 43%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+}
+.social-icon {
+  margin: 0 10px 0 0;
+  filter: grayscale(35%);
+  transition: 0.15s ease-in-out;
+}
+.social-icon:hover {
+  filter: grayscale(0);
+  transform: scale(1.1);
+}
+.social-icon img {
+  min-width: 25px;
+}
+.img-responsive {
+  max-width: 50%;
+}
+
+/**SignIn Form**/
+.login-form {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 100%;
+  font-family: "Numans", sans-serif;
+}
+.login-form .container {
+  height: 100%;
+  align-content: center;
+}
+.login-form .card {
+  height: 370px;
+  margin: 11% 0 16.44% 0;
+  width: 400px;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.login-form .social_icon span {
+  font-size: 60px;
+  margin: 0 0 0 10px;
+  color: #ffc312;
+}
+.login-form .social_icon span:hover {
+  color: white;
+  cursor: pointer;
+}
+.login-form .social_icon {
+  position: absolute;
+  right: 20px;
+  top: -45px;
+}
+.login-form .input-group-prepend span {
+  width: 50px;
+  background-color: #ffc312;
+  color: black;
+  border: 0 !important;
+}
+.login-form input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+}
+.login-form .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+  margin: 2% 0 0 0;
+}
+.login-form .login_btn:hover {
+  color: black;
+  background-color: white;
+}
+.login-pass-field {
+  width: 310px;
+  margin-right: -13%;
+}
+.login-show-pass {
+  margin-top: 2%;
+  position: relative;
+}
+.input-group-prepend {
+  margin-right: -1px;
+  max-height: 38px;
+}
+
+/**Credentials**/
+.add-user-credentials {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 753px;
+}
+.add-user-credentials .card {
+  align-content: center;
+  margin: 7% 0 0 0;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.add-user-credentials input {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials textarea {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials select {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user-credentials input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  background-color: rgba(17, 17, 104, 0.404);
+  caret-color: white;
+}
+.add-user-credentials .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+.add-user-credentials .login_btn:hover {
+  color: black;
+  background-color: white;
+}
+.pass-field {
+  margin-right: -7%;
+  width: 419px;
+}
+.show-pass {
+  margin-top: 1.5%;
+  padding-right: 4px;
+  position: relative;
+}
+/********************************************ADMIN DASHBOARD********************************************/
+
+/**Team List**/
 .adminDash .team-list {
-  margin-top: 1.3%;
+  margin: 1.3% 0 0 0;
 }
 .adminDash .team-list .team-list-content {
   position: relative;
@@ -160,12 +180,11 @@ body {
   height: 250px;
   overflow: hidden;
   color: #a9a9a9;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   background-color: rgba(0, 0, 0, 0.911);
   border-top-right-radius: 65px;
   border-bottom-left-radius: 35px;
   width: 300px;
-  margin-right: 40px;
+  margin: 0 40px 0 0;
   float: left;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -213,11 +232,116 @@ body {
   transition-delay: 0.4s;
 }
 
-/*Team Member Todo List*/
-.teamMemberDash .todo-list-member {
-  margin-top: 1.3%;
+/**List ALL Users Admin**/
+.list-user-admin .list-users {
+  background-color: rgba(0, 0, 0, 0.911);
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  float: left;
+  min-width: 576px;
+  margin: 0 -2% 0 9%;
 }
-.teamMemberDash .todo-list-member .todo-list-content {
+.list-user-admin .list-users .list-users-details {
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a9a9a9;
+}
+.list-user-admin .list-users .list-users-details span {
+  color: #f5fffa;
+}
+.list-user-admin .list-users:hover {
+  background-color: black;
+}
+
+/********************************************TEAM-LEAD DASHBOARD********************************************/
+
+/**Add Todo Form**/
+.add-todo {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+}
+.add-todo .card {
+  margin: -1.5% 0 3.1% 0;
+  width: 600px;
+  height: 680px;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.add-todo input {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+
+.add-todo textarea {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-todo select {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-todo input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  background-color: rgba(17, 17, 104, 0.404);
+  caret-color: white;
+}
+.add-todo .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+.add-todo .login_btn:hover {
+  color: black;
+  background-color: white;
+}
+
+/**Add Team Member Form**/
+.add-user {
+  background-image: url("./bg-01.jpg");
+  background-size: cover;
+  background-repeat: round;
+  height: 753px;
+}
+.add-user .card {
+  align-content: center;
+  margin: 9% 0 0 0;
+  width: 500px;
+  background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.add-user input {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user textarea {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user select {
+  background-color: rgba(17, 17, 104, 0.404);
+  color: white;
+}
+.add-user input:focus {
+  outline: 0 0 0 0 !important;
+  box-shadow: 0 0 0 0 !important;
+  background-color: rgba(17, 17, 104, 0.404);
+  caret-color: white;
+}
+.add-user .login_btn {
+  color: black;
+  background-color: #ffc312;
+  width: 100px;
+}
+.add-user .login_btn:hover {
+  color: black;
+  background-color: white;
+}
+
+/**TodoList**/
+.teamLeadDash .todo-list {
+  margin: 1.3% 0 0 0;
+}
+.teamLeadDash .todo-list .todo-list-content {
   position: relative;
   width: 280px;
   height: 320px;
@@ -228,7 +352,104 @@ body {
   border-top-right-radius: 65px;
   border-bottom-left-radius: 35px;
   width: 300px;
-  margin-right: 40px;
+  margin: 0 40px 0 0;
+  float: left;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.teamLeadDash .todo-list .todo-list-content span {
+  color: #f5fffa;
+}
+.card .surface {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 0;
+  opacity: 0;
+  background: black;
+  transition: 0.2s linear;
+}
+.card .todo-detail {
+  font-size: 14px;
+  color: #f1f1f1;
+  opacity: 0;
+  transform: translateX(30px) translateY(250px);
+  transition: 0.4s;
+  margin: 0 3% 0 5.5%;
+}
+.card .icons {
+  cursor: pointer;
+  display: flex;
+  width: 30px;
+  height: 30px;
+  padding: 7px 8px;
+  font-size: 16px;
+  color: rgb(248, 94, 94);
+  background: #ffffff;
+  border-radius: 50%;
+  margin: 10px;
+  opacity: 0;
+  transform: translateY(130px) translateX(-50px);
+  transition: 0.3s;
+}
+.card:hover .surface {
+  opacity: 0.8;
+  height: 100%;
+}
+.card:hover .todo-detail {
+  opacity: 1;
+  transform: translateX(0px) translateY(-20px);
+  transition: 0.4s;
+}
+.card:hover .icons {
+  opacity: 1;
+  transform: translateY(-10px) translateX(5px);
+}
+.card .fa-edit {
+  transition-delay: 0.2s;
+}
+.card .fa-trash {
+  transition-delay: 0.4s;
+}
+
+/**List Team Member**/
+.list-team-member .list-member {
+  background-color: rgba(0, 0, 0, 0.911);
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a9a9a9;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  margin: 0 13% 0 13%;
+}
+.list-team-member .list-member:hover {
+  background-color: black;
+}
+.list-team-member .list-member .list-team-detail span {
+  color: #f5fffa;
+}
+.add-member-btn {
+  margin: -4.3% 0 0 13.5%;
+}
+
+/********************************************TEAM-MEMBER DASHBOARD********************************************/
+
+/*Team Member Todo List*/
+.teamMemberDash .todo-list-member {
+  margin: 1.3% 0 0 0;
+}
+.teamMemberDash .todo-list-member .todo-list-content {
+  position: relative;
+  width: 280px;
+  height: 320px;
+  overflow: hidden;
+  color: #a9a9a9;
+  background-color: rgba(0, 0, 0, 0.911);
+  border-top-right-radius: 65px;
+  border-bottom-left-radius: 35px;
+  width: 300px;
+  margin: 0 40px 0 0;
   float: left;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -252,8 +473,7 @@ body {
   opacity: 0;
   transform: translateX(30px) translateY(250px);
   transition: 0.4s;
-  margin-left: 3%;
-  margin-right: 5.5%;
+  margin: 0 3% 0 5.5%;
 }
 .card .icons {
   cursor: pointer;
@@ -290,249 +510,28 @@ body {
   transition-delay: 0.4s;
 }
 
-/*Landing Page*/
-.landing-page {
-  background-image: url("./bg-02.jpg");
-  background-size: cover;
-  background-repeat: round;
-  height: 100%;
+/**List Team Peer**/
+.list-team-peer .list-peer {
+  background-color: rgba(0, 0, 0, 0.911);
+  margin: 0 240px 0px 240px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
 }
-.landing-page-text {
-  margin: 14% 3% 10% 8.3%;
-  max-width: 505px;
-  transform: rotate(-9deg);
-  text-align: justify;
+.list-team-peer .list-peer .list-peer-detail {
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  color: #a9a9a9;
 }
-/*Footer*/
-#main-footer .row {
-  margin-left: 8%;
+.list-team-peer .list-peer .list-peer-detail span {
+  color: #f5fffa;
 }
-.social-bar {
-  width: 43%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-}
-.social-icon {
-  margin-right: 10px;
-  filter: grayscale(35%);
-  transition: 0.15s ease-in-out;
-}
-.social-icon:hover {
-  filter: grayscale(0);
-  transform: scale(1.1);
-}
-.social-icon img {
-  min-width: 25px;
-}
-.img-responsive {
-  max-width: 50%;
-}
-/**SignIn Form*/
-
-.login-form {
-  background-image: url("./bg-01.jpg");
-  background-size: cover;
-  background-repeat: round;
-  height: 100%;
-  font-family: "Numans", sans-serif;
+.list-team-peer .list-peer:hover {
+  background-color: black;
 }
 
-.login-form .container {
-  height: 100%;
-  align-content: center;
-}
+/********************************************Css which applies on all the dashboards********************************************/
 
-.login-form .card {
-  height: 370px;
-  margin-top: 15%;
-  margin-bottom: 12.4444%;
-  width: 400px;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-}
-
-.login-form .social_icon span {
-  font-size: 60px;
-  margin-left: 10px;
-  color: #ffc312;
-}
-
-.login-form .social_icon span:hover {
-  color: white;
-  cursor: pointer;
-}
-
-.login-form .social_icon {
-  position: absolute;
-  right: 20px;
-  top: -45px;
-}
-
-.login-form .input-group-prepend span {
-  width: 50px;
-  background-color: #ffc312;
-  color: black;
-  border: 0 !important;
-}
-
-.login-form input:focus {
-  outline: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
-}
-
-.login-form .login_btn {
-  color: black;
-  background-color: #ffc312;
-  width: 100px;
-}
-
-.login-form .login_btn:hover {
-  color: black;
-  background-color: white;
-}
-
-.login-form .links {
-  color: white;
-}
-
-.login-form .links a {
-  margin-left: 4px;
-}
-
-/**Add Todo Form*/
-.add-todo {
-  background-image: url("./bg-01.jpg");
-  background-size: cover;
-  background-repeat: round;
-}
-.add-todo .card {
-  margin-top: -1.5%;
-  margin-bottom: 3.1%;
-  width: 600px;
-  height: 680px;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-}
-.add-todo input {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-
-.add-todo textarea {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-todo select {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-
-.add-todo input:focus {
-  outline: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
-  background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
-}
-
-.add-todo .login_btn {
-  color: black;
-  background-color: #ffc312;
-  width: 100px;
-}
-
-.add-todo .login_btn:hover {
-  color: black;
-  background-color: white;
-}
-
-/**Add Team Member Form*/
-.add-user {
-  background-image: url("./bg-01.jpg");
-  background-size: cover;
-  background-repeat: round;
-  height: 753px;
-}
-
-.add-user .card {
-  align-content: center;
-  margin-top: 9%;
-  width: 500px;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-}
-.add-user input {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user textarea {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user select {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user input:focus {
-  outline: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
-  background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
-}
-
-.add-user .login_btn {
-  color: black;
-  background-color: #ffc312;
-  width: 100px;
-}
-
-.add-user .login_btn:hover {
-  color: black;
-  background-color: white;
-}
-
-/**CRedentials***/
-.add-user-credentials {
-  background-image: url("./bg-01.jpg");
-  background-size: cover;
-  background-repeat: round;
-  height: 753px;
-}
-
-.add-user-credentials .card {
-  align-content: center;
-  margin-top: 7%;
-  width: 500px;
-  background-color: rgba(0, 0, 0, 0.75) !important;
-}
-.add-user-credentials input {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user-credentials textarea {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user-credentials select {
-  background-color: rgba(17, 17, 104, 0.404);
-  color: white;
-}
-.add-user-credentials input:focus {
-  outline: 0 0 0 0 !important;
-  box-shadow: 0 0 0 0 !important;
-  background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
-}
-
-.add-user-credentials .login_btn {
-  color: black;
-  background-color: #ffc312;
-  width: 100px;
-}
-
-.add-user-credentials .login_btn:hover {
-  color: black;
-  background-color: white;
-}
-/************All Btn class gradient***********/
+/**All Btn class gradient**/
 .btn {
   background-image: linear-gradient(
     to bottom,
@@ -542,4 +541,23 @@ body {
     rgba(0, 0, 0, 0.05)
   );
   background-repeat: repeat-x;
+}
+.anticon {
+  vertical-align: 0rem;
+  font-size: 20px;
+}
+.ant-message-notice {
+  position: relative;
+  margin: -4% 0 10% 37%;
+  width: max-content;
+  /* color: #00ff66; */
+  /* color: whitesmoke; */
+  color: black;
+  /* background: #323131b3; */
+  background: #ffffffd1;
+  border-radius: 15px;
+  padding: 15px;
+  /* border: solid gray 1px; */
+  border: solid #686464 2px;
+  font-variant: petite-caps;
 }

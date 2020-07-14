@@ -12,6 +12,7 @@ class LoginForm extends Component {
       username: "",
       password: "",
       userCode: "",
+      currentPasswordHidden: false,
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -33,8 +34,15 @@ class LoginForm extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
+  toggleShowCurrentPassword = () => {
+    const { currentPasswordHidden } = this.state;
+    this.setState({
+      currentPasswordHidden: !currentPasswordHidden,
+    });
+  };
   render() {
     const { errors } = this.state;
+    const { currentPasswordHidden } = this.state;
     return (
       <div className="login-form">
         <div>
@@ -82,20 +90,38 @@ class LoginForm extends Component {
                         <i className="fas fa-key"></i>
                       </span>
                     </div>
-                    <input
-                      type="password"
-                      name="password"
-                      className={classnames("form-control", {
-                        "is-invalid": errors.userCode,
-                      })}
-                      placeholder="password"
-                      value={this.state.password}
-                      onChange={this.onChange}
-                    />
-                    {errors.userCode && (
-                      <div className="invalid-feedback">{errors.userCode}</div>
-                    )}
+                    <div className="login-pass-field">
+                      <input
+                        type={currentPasswordHidden ? "text" : "password"}
+                        name="password"
+                        className={classnames("form-control", {
+                          "is-invalid": errors.userCode,
+                        })}
+                        placeholder="password"
+                        value={this.state.password}
+                        onChange={this.onChange}
+                      />
+                      {errors.userCode && (
+                        <div className="invalid-feedback">
+                          {errors.userCode}
+                        </div>
+                      )}
+                    </div>
+                    <div className="login-show-pass">
+                      <span
+                        type="button"
+                        onClick={this.toggleShowCurrentPassword}
+                      >
+                        <i
+                          type="button"
+                          className={`fa ${
+                            currentPasswordHidden ? "fa-eye-slash" : "fa-eye"
+                          } login-show-pass`}
+                        ></i>
+                      </span>
+                    </div>
                   </div>
+
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>

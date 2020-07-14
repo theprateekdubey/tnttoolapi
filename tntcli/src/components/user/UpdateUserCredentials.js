@@ -25,10 +25,15 @@ class UpdateUserCredentials extends Component {
       teamId: "",
       taskSequence: "",
       errorMessage: "",
+      currentPasswordHidden: true,
+      newPasswordHidden: true,
+      button: true,
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
+    this.toggleShowCurrentPassword = this.toggleShowCurrentPassword.bind(this);
+    this.toggleShowNewPassword = this.toggleShowNewPassword.bind(this);
   }
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
@@ -68,9 +73,9 @@ class UpdateUserCredentials extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { teamCode, userCode } = this.props.match.params;
-    if (this.state.password == this.state.currentPassword) {
-      if (this.state.newPassword && this.state.confirmPassword != "") {
-        if (this.state.newPassword == this.state.confirmPassword) {
+    if (this.state.password === this.state.currentPassword) {
+      if (this.state.newPassword && this.state.confirmPassword !== "") {
+        if (this.state.newPassword === this.state.confirmPassword) {
           const updatedUser = {
             id: this.state.id,
             name: this.state.name,
@@ -108,6 +113,17 @@ class UpdateUserCredentials extends Component {
       this.setState({ currentPassword: "" });
     }
   }
+
+  toggleShowCurrentPassword() {
+    this.setState({
+      currentPasswordHidden: !this.state.currentPasswordHidden,
+      button: !this.state.button,
+    });
+  }
+  toggleShowNewPassword() {
+    this.setState({ newPasswordHidden: !this.state.newPasswordHidden });
+  }
+
   render() {
     const { user } = this.props;
     const { errors } = this.state;
@@ -189,14 +205,32 @@ class UpdateUserCredentials extends Component {
                         <i className="fa fa-lock"></i>
                       </span>
                     </div>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Enter Current Password"
-                      name="currentPassword"
-                      value={this.state.currentPassword}
-                      onChange={this.onChange}
-                    />
+                    <div className="pass-field">
+                      <input
+                        type={
+                          this.state.currentPasswordHidden ? "password" : "text"
+                        }
+                        className="form-control"
+                        placeholder="Enter Current Password"
+                        name="currentPassword"
+                        value={this.state.currentPassword}
+                        onChange={this.onChange}
+                      />
+                    </div>
+                    <div className="show-pass">
+                      <span
+                        type="button"
+                        onClick={this.toggleShowCurrentPassword}
+                      >
+                        <i
+                          className={
+                            this.state.button
+                              ? "fa fa-eye text-white"
+                              : "fa fa-eye-slash text-white"
+                          }
+                        ></i>
+                      </span>
+                    </div>
                   </div>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -204,14 +238,23 @@ class UpdateUserCredentials extends Component {
                         <i className="fas fa-key"></i>
                       </span>
                     </div>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Enter New Password"
-                      name="newPassword"
-                      value={this.state.newPassword}
-                      onChange={this.onChange}
-                    />
+                    <div className="pass-field">
+                      <input
+                        type={
+                          this.state.newPasswordHidden ? "password" : "text"
+                        }
+                        className="form-control"
+                        placeholder="Enter New Password"
+                        name="newPassword"
+                        value={this.state.newPassword}
+                        onChange={this.onChange}
+                      />
+                    </div>
+                    <div className="show-pass">
+                      <span type="button" onClick={this.toggleShowNewPassword}>
+                        <i className="fa fa-eye text-white "></i>
+                      </span>
+                    </div>
                   </div>
                   <div className="input-group form-group">
                     <div className="input-group-prepend">
@@ -219,14 +262,23 @@ class UpdateUserCredentials extends Component {
                         <i className="fas fa-key"></i>
                       </span>
                     </div>
-                    <input
-                      type="password"
-                      className="form-control"
-                      placeholder="Re-Enter New Password"
-                      name="confirmPassword"
-                      value={this.state.confirmPassword}
-                      onChange={this.onChange}
-                    />
+                    <div className="pass-field">
+                      <input
+                        type={
+                          this.state.newPasswordHidden ? "password" : "text"
+                        }
+                        className="form-control"
+                        placeholder="Re-Enter New Password"
+                        name="confirmPassword"
+                        value={this.state.confirmPassword}
+                        onChange={this.onChange}
+                      />
+                    </div>
+                    <div className="show-pass">
+                      <span type="button" onClick={this.toggleShowNewPassword}>
+                        <i className="fa fa-eye text-white "></i>
+                      </span>
+                    </div>
                   </div>
                   <div className="text-danger">{this.state.errorMessage}</div>
                   <input type="submit" className="btn float-right login_btn" />
