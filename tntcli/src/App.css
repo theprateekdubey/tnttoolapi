@@ -176,15 +176,15 @@ body {
 }
 .adminDash .team-list .team-list-content {
   position: relative;
-  width: 280px;
+  min-width: 255px;
+  width: 20%;
   height: 250px;
   overflow: hidden;
   color: #a9a9a9;
   background-color: rgba(0, 0, 0, 0.911);
   border-top-right-radius: 65px;
   border-bottom-left-radius: 35px;
-  width: 300px;
-  margin: 0 40px 0 0;
+  margin: 0 3% 0 0;
   float: left;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -212,7 +212,7 @@ body {
   color: rgb(248, 94, 94);
   background: #ffffff;
   border-radius: 50%;
-  margin: 10px;
+  margin: auto 2% 4% 2%;
   opacity: 0;
   transform: translateY(130px) translateX(-50px);
   transition: 0.3s;
@@ -259,7 +259,8 @@ body {
 /**Team Progress Dashboard**/
 .team-progress-dashboard {
   background: #000000c2;
-  min-height: 754px;
+  /* min-height: 754px; */
+  min-height: 100%;
 }
 .circular-complete-bar {
   margin: 0 0 0 6%;
@@ -303,6 +304,7 @@ body {
 .card-stats {
   margin: 16% 4% 0 5% !important;
   border-radius: 15px !important;
+  padding-bottom: 4.5%;
 }
 .progress-svg-icon {
   margin: 0 0 0 70% !important;
@@ -403,16 +405,15 @@ body {
 }
 .teamLeadDash .todo-list .todo-list-content {
   position: relative;
-  width: 280px;
-  height: 320px;
+  min-width: 255px;
+  height: 294px;
   overflow: hidden;
   color: #a9a9a9;
-  /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); */
   background-color: rgba(0, 0, 0, 0.911);
   border-top-right-radius: 65px;
   border-bottom-left-radius: 35px;
-  width: 300px;
-  margin: 0 40px 0 0;
+  width: 20%;
+  margin: 0 3% 0 0;
   float: left;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -448,7 +449,7 @@ body {
   color: rgb(248, 94, 94);
   background: #ffffff;
   border-radius: 50%;
-  margin: 10px;
+  margin: auto 2% 4% 2%;
   opacity: 0;
   transform: translateY(130px) translateX(-50px);
   transition: 0.3s;
@@ -507,15 +508,15 @@ body {
 }
 .teamMemberDash .todo-list-member .todo-list-content {
   position: relative;
-  width: 280px;
-  height: 320px;
+  min-width: 255px;
+  height: 294px;
   overflow: hidden;
   color: #a9a9a9;
   background-color: rgba(0, 0, 0, 0.911);
   border-top-right-radius: 65px;
   border-bottom-left-radius: 35px;
-  width: 300px;
-  margin: 0 40px 0 0;
+  width: 20%;
+  margin: 0 3% 0 0;
   float: left;
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -551,7 +552,7 @@ body {
   color: rgb(248, 94, 94);
   background: #ffffff;
   border-radius: 50%;
-  margin: 10px;
+  margin: auto 2% 4% 2%;
   opacity: 0;
   transform: translateY(130px) translateX(-50px);
   transition: 0.3s;
