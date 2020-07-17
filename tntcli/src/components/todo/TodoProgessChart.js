@@ -4,16 +4,15 @@ import { connect } from "react-redux";
 import { ProgressBar } from "react-bootstrap";
 import { getTodos } from "./../../actions/todoAction";
 
-var todoCounter = 0;
 var totalCount = 0;
+var todoCounter = 0;
 var inProgressCounter = 0;
 var completedCounter = 0;
 class TodoProgessChart extends Component {
   componentDidMount() {
-    const { teamCode } = this.props.teamCode;
+    const { teamCode } = this.props;
     this.props.getTodos(teamCode, this.props.history);
   }
-
   componentWillUnmount() {
     todoCounter = 0;
     totalCount = 0;
@@ -22,14 +21,12 @@ class TodoProgessChart extends Component {
   }
   render() {
     const { todos } = this.props.todos;
-
     return (
       <div>
         <div>
           {todos.map((todo) =>
             (() => {
               totalCount++;
-              console.log("----------------totalCount -" + totalCount);
               switch (todo.status) {
                 case "Completed":
                   completedCounter++;

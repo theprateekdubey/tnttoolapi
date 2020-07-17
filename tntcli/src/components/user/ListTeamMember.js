@@ -41,7 +41,6 @@ class ListTeamMember extends Component {
 }
 
 ListTeamMember.propTypes = {
-  user: PropTypes.object.isRequired,
   getUsers: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

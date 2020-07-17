@@ -11,6 +11,9 @@ class AllTeamMember extends Component {
     const { teamCode } = this.props.match.params;
     this.props.getUsers(teamCode, this.props.history);
   }
+  componentWillUnmount() {
+    window.location.reload(false);
+  }
   render() {
     const { users } = this.props.users;
     const { teamCode, userCode, teamId } = this.props.match.params;
@@ -51,7 +54,6 @@ class AllTeamMember extends Component {
 }
 
 AllTeamMember.propTypes = {
-  user: PropTypes.object.isRequired,
   getUsers: PropTypes.func.isRequired,
 };
 

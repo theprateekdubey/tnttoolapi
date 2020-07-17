@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { getUser } from "../../actions/userActions";
 import { updateTeam, getTeam } from "../../actions/adminAction";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
@@ -18,7 +17,6 @@ class UpdateTeamForm extends Component {
       teamLead: "",
       teamLeadCode: "",
       teamCode: "",
-      role: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -26,8 +24,7 @@ class UpdateTeamForm extends Component {
   }
 
   componentDidMount() {
-    const { teamCode, userCode } = this.props.match.params;
-    this.props.getUser(teamCode, userCode, this.props.history);
+    const { teamCode } = this.props.match.params;
     this.props.getTeam(teamCode, this.props.history);
   }
   componentWillReceiveProps(nextProps) {
@@ -52,8 +49,6 @@ class UpdateTeamForm extends Component {
       teamLeadCode,
       teamCode,
     });
-    const { role } = nextProps.user;
-    this.setState({ role });
   }
 
   onChange(event) {
@@ -148,13 +143,12 @@ UpdateTeamForm.propTypes = {
   getTeam: PropTypes.func.isRequired,
   updateTeam: PropTypes.func.isRequired,
   errors: PropTypes.object.isRequired,
-  getUser: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({
   user: state.users.user,
   errors: state.errors,
   team: state.teams.team,
 });
-export default connect(mapStateToProps, { updateTeam, getUser, getTeam })(
+export default connect(mapStateToProps, { updateTeam, getTeam })(
   UpdateTeamForm
 );

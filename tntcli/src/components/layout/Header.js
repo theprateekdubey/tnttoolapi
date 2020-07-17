@@ -30,13 +30,10 @@ class Header extends Component {
           position: "relative",
           margin: "-48% 0 10% 43%",
           width: "max-content",
-          // color: "whitesmoke",
           color: "black",
-          // background: "#323131b3",
           background: "#ffffffd1",
           borderRadius: "15px",
           padding: "15px",
-          // border: "solid gray 1px",
           border: "solid #686464 2px",
         },
         top: 100,
@@ -75,6 +72,7 @@ class Header extends Component {
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
+                  to=""
                 >
                   <i className="fa fa-user mt-n1" aria-hidden="true"></i>
                 </Link>

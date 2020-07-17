@@ -30,7 +30,6 @@ class TeamLeadDashboard extends Component {
   }
 }
 TeamLeadDashboard.propTypes = {
-  todo: PropTypes.object.isRequired,
   getTodos: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

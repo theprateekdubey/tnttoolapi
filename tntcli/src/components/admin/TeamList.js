@@ -78,12 +78,21 @@ class TeamList extends Component {
               return;
             default:
               return (
-                <div
-                  data-toggle="tooltip"
-                  title="Delete Team "
-                  onClick={this.onDeleteClick.bind(this, team.teamCode)}
-                >
-                  <i className="fa fa-trash icons"></i>
+                <div>
+                  <Link
+                    data-toggle="tooltip"
+                    title="Team Report "
+                    to={`/teamProgressDashboard/${teamCode}/${userCode}/${team.teamCode}`}
+                  >
+                    <i className="fas fa-chart-line icons"></i>
+                  </Link>
+                  <Link
+                    data-toggle="tooltip"
+                    title="Delete Team "
+                    onClick={this.onDeleteClick.bind(this, team.teamCode)}
+                  >
+                    <i className="fa fa-trash icons"></i>
+                  </Link>
                 </div>
               );
           }

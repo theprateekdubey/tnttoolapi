@@ -30,7 +30,6 @@ class CompletedTodo extends Component {
 }
 
 CompletedTodo.propTypes = {
-  todo: PropTypes.object.isRequired,
   getTodos: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

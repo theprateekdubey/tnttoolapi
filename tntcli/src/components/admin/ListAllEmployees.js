@@ -78,7 +78,6 @@ class ListAllEmployees extends Component {
 }
 
 ListAllEmployees.propTypes = {
-  user: PropTypes.object.isRequired,
   getUsersList: PropTypes.func.isRequired,
 };
 const mapStateToProps = (state) => ({

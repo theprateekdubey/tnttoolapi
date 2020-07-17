@@ -24,6 +24,7 @@ import AllTeamMember from "./components/admin/AllTeamMember";
 import UpdateTeamMemberAdmin from "./components/admin/UpdateTeamMemberAdmin";
 import AddTeamMemberAdmin from "./components/admin/AddTeamMemberAdmin";
 import ListAllEmployees from "./components/admin/ListAllEmployees";
+import TeamProgressDashboard from "./components/admin/TeamProgressDashboard";
 
 function App() {
   return (
@@ -106,6 +107,11 @@ function App() {
           exact
           path="/updateUserTodo/:teamCode/:userCode/:taskIdentifier"
           component={UpdateUserTodoForm}
+        />
+        <Route
+          exact
+          path="/teamProgressDashboard/:teamId/:userId/:teamCode"
+          component={TeamProgressDashboard}
         />
         <Route
           exact

@@ -143,7 +143,6 @@ export const updateUser = (teamCode, userCode, user, history) => async (
 
 export const getUsers = (team_id, history) => async (dispatch) => {
   const res = await axios.get(`http://localhost:8081/api/user/${team_id}`);
-
   dispatch({
     type: GET_USERS,
     payload: res.data,
