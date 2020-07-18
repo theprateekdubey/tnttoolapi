@@ -30,6 +30,7 @@ body {
 /**Footer**/
 #main-footer .row {
   margin: 0 0 0 8%;
+  text-align: justify;
 }
 .social-bar {
   width: 43%;
@@ -304,13 +305,13 @@ body {
 .card-stats {
   margin: 16% 4% 0 5% !important;
   border-radius: 15px !important;
-  padding-bottom: 4.5%;
+  padding-bottom: 4.8%;
 }
 .progress-svg-icon {
   margin: 0 0 0 66.5% !important;
 }
 .team-member-count {
-  margin: -2.4% 5% -14% 43%;
+  margin: -2.7% 5% -14% 43%;
   border-radius: 15px !important;
   padding: 13px;
 }

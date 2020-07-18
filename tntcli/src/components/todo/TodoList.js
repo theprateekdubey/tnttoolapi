@@ -35,7 +35,7 @@ class TodoList extends Component {
                     <p className="card-title ">
                       Due Date : <span>{todo.dueDateAndTime}</span>
                     </p>
-                    <p className="card-text text-light font-italic">
+                    <p className="card-text text-light font-italic text-justify">
                       {todo.comment}
                     </p>
                   </div>

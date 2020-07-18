@@ -34,6 +34,7 @@ class LoginForm extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
+
   toggleShowCurrentPassword = () => {
     const { currentPasswordHidden } = this.state;
     this.setState({

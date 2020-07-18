@@ -14,9 +14,9 @@ export default class FooterLandingPage extends Component {
               <i className="text-light">
                 We're a learning Developer, who loves building web solutions. We
                 have designed product features and flows (from gathering
-                requirements to prototyping) and brand websites, banners,
-                posters, etc. And, we seek our creative inspiration from mother
-                nature.
+                requirements to prototyping) and brand web-applications,
+                banners, posters, etc. And, we seek our creative inspiration
+                from mother nature.
               </i>
             </div>
             <div className="col-md-4">

@@ -46,30 +46,15 @@ class TeamProgressDashboard extends Component {
           {todos.map((todo) =>
             (() => {
               totalCount++;
-              console.log(
-                "totoal todo ----------------------------------" + totalCount
-              );
               switch (todo.status) {
                 case "Completed":
                   completedCounter++;
-                  console.log(
-                    "completedCounter ---------------------------------- " +
-                      completedCounter
-                  );
                   return;
                 case "TODO":
                   todoCounter++;
-                  console.log(
-                    "todoCounter ----------------------------------" +
-                      todoCounter
-                  );
                   return;
                 case "In-Progress":
                   inProgressCounter++;
-                  console.log(
-                    "inProgressCounter ----------------------------------" +
-                      inProgressCounter
-                  );
                   return;
                 default:
                   return;
@@ -162,10 +147,10 @@ class TeamProgressDashboard extends Component {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-calendar"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-calendar"
                   >
                     <rect
                       x="3"
@@ -199,10 +184,10 @@ class TeamProgressDashboard extends Component {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-edit-3"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-edit-3"
                   >
                     <path d="M12 20h9"></path>
                     <path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"></path>
@@ -227,10 +212,10 @@ class TeamProgressDashboard extends Component {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-check-square"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-check-square"
                   >
                     <polyline points="9 11 12 14 22 4"></polyline>
                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
@@ -255,10 +240,10 @@ class TeamProgressDashboard extends Component {
                     viewBox="0 0 24 24"
                     fill="none"
                     stroke="currentColor"
-                    stroke-width="1"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                    class="feather feather-message-circle"
+                    strokeWidth="1"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="feather feather-message-circle"
                   >
                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                   </svg>

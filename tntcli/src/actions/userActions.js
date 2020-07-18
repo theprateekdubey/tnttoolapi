@@ -15,26 +15,22 @@ export const login = (user, history) => async (dispatch) => {
     const loggedInName = res.data.name;
     const loginMessage = () => {
       const key = "updatable";
-      message.loading({
-        content: "  Login...",
-        className: "custom-class",
-        top: 100,
-        key,
-      });
       setTimeout(() => {
         message.success({
           content: "  Welcome, " + loggedInName,
           className: "custom-class",
-
           top: 100,
           key,
           duration: 3,
         });
-      }, 1000);
+      }, 300);
     };
     if (res.data.role === 3) {
       history.push(`/adminDashboard/${res.data.teamCode}/${res.data.userCode}`);
       loginMessage();
+      setTimeout(() => {
+        window.location.reload(false);
+      }, 1000);
     }
     if (res.data.role === 2) {
       history.push(
