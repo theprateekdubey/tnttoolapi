@@ -5,7 +5,7 @@ class AddandListButton extends Component {
   render() {
     const { teamCode, userCode } = this.props;
     return (
-      <div className="mx-5 d-flex justify-content-end mt-1">
+      <div className="mx-5 d-flex justify-content-end mt-2">
         <Link
           type="button"
           className="rounded btn btn-success px-3 ml-3 "

@@ -13,7 +13,7 @@ class TodoListMember extends Component {
               return (
                 <div className="todo-list-content card  ml-3 mb-3 border border-success">
                   <div className="card-body">
-                    <p className="mr-5">
+                    <p>
                       TODO : <span>{todo.name}</span>
                     </p>
 
