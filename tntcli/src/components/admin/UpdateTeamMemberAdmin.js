@@ -148,7 +148,7 @@ class UpdateTeamMemberAdmin extends Component {
                             <select
                               data-toggle="tooltip"
                               title="Select role here"
-                              className="form-control"
+                              className="form-control px-2"
                               name="role"
                               value={this.state.role}
                               onChange={this.onChange}
@@ -164,7 +164,7 @@ class UpdateTeamMemberAdmin extends Component {
                             <select
                               data-toggle="tooltip"
                               title="Select role here"
-                              className="form-control"
+                              className="form-control px-2"
                               name="role"
                               value={this.state.role}
                               onChange={this.onChange}

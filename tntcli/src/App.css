@@ -347,7 +347,7 @@ body {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;
   background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
+  caret-color: #0083ff;
 }
 .add-todo .login_btn {
   color: black;
@@ -388,7 +388,7 @@ body {
   outline: 0 0 0 0 !important;
   box-shadow: 0 0 0 0 !important;
   background-color: rgba(17, 17, 104, 0.404);
-  caret-color: white;
+  caret-color: #0083ff;
 }
 .add-user .login_btn {
   color: black;
@@ -477,6 +477,7 @@ body {
 }
 
 /**List Team Member**/
+
 .list-team-member .list-member {
   background-color: rgba(0, 0, 0, 0.911);
   font-size: 14px;
@@ -497,11 +498,13 @@ body {
 }
 /**Progress Bar**/
 .todo-progress-bar {
-  margin: 0% 45% -2% 4.4%;
+  /* margin: 0% 45% -2% 4.4%; */
+  margin: 0% 55% -2% 4.1%;
 }
 .progress-bar {
   width: 259px;
 }
+
 /********************************************TEAM-MEMBER DASHBOARD********************************************/
 
 /*Team Member Todo List*/

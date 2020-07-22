@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { login } from "./../../../../actions/userActions";
 import HeaderLandingPage from "../../HeaderLandingPage";
 import classnames from "classnames";
+import { Link } from "react-router-dom";
 
 class LoginForm extends Component {
   constructor(props) {
@@ -124,6 +125,66 @@ class LoginForm extends Component {
 
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
+              </div>
+              <div className="card-footer">
+                <div className="d-flex justify-content-center links text-light mb-3">
+                  Forgot password?
+                  <Link
+                    type="button"
+                    data-toggle="modal"
+                    data-target="#exampleModalCenter"
+                    to=""
+                  >
+                    Ask for it
+                  </Link>
+                </div>
+                <div className="modal fade" id="exampleModalCenter">
+                  <div className="modal-dialog modal-dialog-centered">
+                    <div className="modal-content">
+                      <div className="modal-header p-3">
+                        <h5
+                          className="modal-title text-primary"
+                          id="exampleModalLongTitle"
+                        >
+                          Need Help ?
+                        </h5>
+                        <button
+                          type="button"
+                          className="close"
+                          data-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div className="modal-body text-secondary font-italic text-justify">
+                        If you have
+                        <span className="text-danger"> forgotten </span>
+                        your username or password then please, <br /> Reach out
+                        to your
+                        <span className="text-success">
+                          {" "}
+                          <u>Lead</u>{" "}
+                        </span>{" "}
+                        or
+                        <span className="text-success">
+                          {" "}
+                          <u>Administration</u>{" "}
+                        </span>
+                        to reset it.
+                      </div>
+                      <div className="modal-footer p-2">
+                        <button
+                          type="button"
+                          className="btn btn-primary"
+                          data-dismiss="modal"
+                        >
+                          Ok
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

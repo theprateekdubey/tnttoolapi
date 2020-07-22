@@ -49,13 +49,18 @@ export default class FooterLandingPage extends Component {
                   />
                 </a>
 
-                <Link to="#" className="social-icon">
+                <a
+                  href="https://www.instagram.com/theprateekdubey/"
+                  className="social-icon"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   <img
-                    src="img/skype.svg"
+                    src="img/instagram.svg"
                     className="social-icons"
                     alt="skype"
                   />
-                </Link>
+                </a>
 
                 <a
                   href="https://www.linkedin.com/in/prateek-dubey-18201a159"
