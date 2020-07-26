@@ -4,12 +4,20 @@ import { connect } from "react-redux";
 import { createUserViaAdmin } from "../../actions/userActions";
 import classnames from "classnames";
 import Header from "./../layout/Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class AddTeamMemberAdmin extends Component {
   constructor(props) {
+    const { userId } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userId + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       name: "",
       username: "",
       password: "password",
@@ -48,6 +56,9 @@ class AddTeamMemberAdmin extends Component {
       );
   }
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { teamId, userId, teamCode } = this.props.match.params;
     const { errors } = this.state;
     return (

@@ -14,6 +14,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -29,6 +30,7 @@ public class User {
 	@Column(unique = true)
 	private String username;
 	@NotBlank(message = "password is required")
+	@Size(min = 8, message = "It should be between 8 characters")
 	private String password;
 	@Column(unique = true, updatable = false)
 	private String userCode;

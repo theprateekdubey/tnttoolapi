@@ -9,7 +9,13 @@ import { Link } from "react-router-dom";
 class LoginForm extends Component {
   constructor(props) {
     super(props);
+    let IsLoggedIn = false;
+    if (sessionStorage.length > 0) {
+      IsLoggedIn = true;
+    }
+    console.log(" --length --- " + sessionStorage.length);
     this.state = {
+      IsLoggedIn,
       username: "",
       password: "",
       userCode: "",
@@ -22,6 +28,7 @@ class LoginForm extends Component {
   onChange(event) {
     this.setState({ [event.target.name]: event.target.value });
   }
+
   onSubmit(event) {
     event.preventDefault();
     const userData = {
@@ -35,14 +42,28 @@ class LoginForm extends Component {
       this.setState({ errors: nextProps.errors });
     }
   }
-
   toggleShowCurrentPassword = () => {
     const { currentPasswordHidden } = this.state;
     this.setState({
       currentPasswordHidden: !currentPasswordHidden,
     });
   };
+  goForward() {
+    window.history.forward();
+  }
+  goBack() {
+    window.history.back();
+  }
   render() {
+    console.log("---------ISlooged in login - " + this.state.IsLoggedIn);
+    if (this.state.IsLoggedIn === true) {
+      console.log(
+        "---------ISlooged if condition login -" + this.state.IsLoggedIn
+      );
+      this.goForward();
+      this.goBack();
+      window.location.reload(false);
+    }
     const { errors } = this.state;
     const { currentPasswordHidden } = this.state;
     return (

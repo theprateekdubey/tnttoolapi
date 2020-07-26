@@ -2,20 +2,18 @@ body {
   background-image: url("./bg-03.jpg");
   background-size: cover;
   background-repeat: space;
+  height: 100%;
 }
 
 /**Landing Page**/
 .landing-page {
-  background-image: url("./bg-02.jpg");
+  background-image: url("./bg-04.jpg");
   background-size: cover;
   background-repeat: round;
   height: 100%;
 }
 .landing-page-text {
-  margin: 14% 3% 10% 8.3%;
-  max-width: 45%;
-  transform: rotate(-9deg);
-  text-align: justify;
+  min-height: 489px;
 }
 
 /**HEADER**/
@@ -640,10 +638,64 @@ body {
 ::-webkit-scrollbar-thumb {
   /* background: rgba(128, 134, 139, 0.26); */
   background: rgba(0, 0, 0, 0.479);
-  border-radius: 7px;
+  border-radius: 8px;
 }
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   /* background: rgba(91, 98, 104, 0.26); */
   background: rgba(0, 0, 0, 0.779);
+}
+
+@media screen and (max-width: 1281px) {
+  .landing-page-text {
+    min-height: 512px;
+  }
+  /***Admin***/
+  /*progress*/
+  .team-progress-bar {
+    padding: 13px;
+    box-shadow: 3px 3px 3px 3px rgba(18, 19, 21, 0.45),
+      0 1px 3px 1px rgba(60, 64, 67, 0.15);
+    border-radius: 15px;
+    margin: -28.3% 5% 4% 43%;
+    background-color: #ffffffeb;
+    max-width: 62%;
+  }
+  .card-stats {
+    margin: 15.79% 4% 0% 5% !important;
+    border-radius: 15px !important;
+    padding-bottom: 0.999%;
+    /* padding-bottom: 3.999%; */
+  }
+
+  .circular-complete-bar {
+    margin: -2% 0 0 6%;
+    border-radius: 15px !important;
+    max-width: 35%;
+    height: 365px;
+  }
+  /***Lead***/
+  /*todo*/
+  .teamLeadDash .todo-list .todo-list-content {
+    position: relative;
+    max-width: 20.7%;
+    overflow: hidden;
+    color: #a9a9a9;
+    background-color: rgba(0, 0, 0, 0.911);
+    border-top-right-radius: 65px;
+    border-bottom-left-radius: 35px;
+    margin: -0.1% 2% 0 0;
+    float: left;
+    font-size: 14px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .card .todo-detail {
+    font-size: 14px;
+    color: #f1f1f1;
+    opacity: 0;
+    transform: translateX(30px) translateY(250px);
+    transition: 0.4s;
+    margin: 0 3% -2% 3%;
+    padding: 0 1.5% 0% 1.5%;
+  }
 }

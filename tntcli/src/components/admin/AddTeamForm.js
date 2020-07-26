@@ -3,18 +3,27 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import Header from "./../layout/Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { getUser } from "../../actions/userActions";
 import { createTeam } from "./../../actions/adminAction";
 
 class AddTeamForm extends Component {
   constructor(props) {
+    const { userCode } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       name: "",
       projectName: "",
       teamCode: "",
       role: "",
+      teamId: "",
       errors: {},
     };
     this.onChange = this.onChange.bind(this);
@@ -56,6 +65,9 @@ class AddTeamForm extends Component {
   }
 
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
     return (
@@ -98,15 +110,15 @@ class AddTeamForm extends Component {
                       title="Enter team code here"
                       type="text"
                       className={classnames("form-control", {
-                        "is-invalid": errors.teamCode,
+                        "is-invalid": errors.teamId,
                       })}
                       placeholder="teamCode"
                       name="teamCode"
                       value={this.state.teamCode}
                       onChange={this.onChange}
                     />
-                    {errors.teamCode && (
-                      <div className="invalid-feedback">{errors.teamCode}</div>
+                    {errors.teamId && (
+                      <div className="invalid-feedback">{errors.teamId}</div>
                     )}
                   </div>
 

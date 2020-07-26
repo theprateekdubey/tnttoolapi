@@ -6,11 +6,20 @@ import BackToDashboardButton from "./../user/BackToDashboardButton";
 import { getTodo, updateTodo } from "./../../actions/todoAction";
 import { getUser } from "./../../actions/userActions";
 import Header from "../layout/Header";
+import { Redirect } from "react-router-dom";
 
 class UpdateTodoForm extends Component {
   constructor(props) {
+    const { userCode } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       id: "",
       name: "",
       detail: "",
@@ -101,6 +110,9 @@ class UpdateTodoForm extends Component {
   }
 
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
 

@@ -19,7 +19,7 @@ public class TeamService {
 			team.setTeamCode(team.getTeamCode().toUpperCase());
 			return teamRepository.save(team);
 		} catch (Exception e) {
-			throw new TeamIdException("Team Id already Exists");
+			throw new TeamIdException("Team Code already Exists");
 		}
 	}
 

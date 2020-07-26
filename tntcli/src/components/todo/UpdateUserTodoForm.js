@@ -6,11 +6,20 @@ import { PropTypes } from "prop-types";
 import Header from "./../layout/Header";
 import classnames from "classnames";
 import BackToTeamMemberDashBoard from "./../user/BackToTeamMemberDashBoard";
+import { Redirect } from "react-router-dom";
 
 class UpdateUserTodoForm extends Component {
   constructor(props) {
+    const { userCode } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       id: "",
       name: "",
       detail: "",
@@ -101,6 +110,9 @@ class UpdateUserTodoForm extends Component {
   }
 
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
 

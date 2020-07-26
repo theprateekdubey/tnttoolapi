@@ -14,7 +14,7 @@ class SignUp extends Component {
       name: "Admin",
       projectName: "Adminstration",
       username: "admin",
-      password: "admin",
+      password: "admin2020",
       role: "3",
       teamCode: "",
       errors: {},
@@ -100,7 +100,7 @@ class SignUp extends Component {
                   <span className="text-secondary font-italic">
                     Password :{" "}
                   </span>
-                  admin
+                  admin2020
                   <p className="text-success font-weight-bold">
                     After clicking on 'OK', click on Sign In and enter above
                     credentials.

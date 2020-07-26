@@ -8,19 +8,59 @@ import { message } from "antd";
 class Header extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      name: "",
-    };
+
+    this.state = { logginStatus: true, name: "", role: "" };
+    this.events = [
+      "load",
+      "mousemove",
+      "mousedown",
+      "click",
+      "scroll",
+      "keypress",
+    ];
+    this.logout = this.logout.bind(this);
+    this.resetTimeout = this.resetTimeout.bind(this);
+
+    for (var i in this.events) {
+      window.addEventListener(this.events[i], this.resetTimeout);
+    }
+
+    this.setTimeout();
   }
+
+  clearTimeout() {
+    if (this.logoutTimeout) clearTimeout(this.logoutTimeout);
+  }
+
+  setTimeout() {
+    this.logoutTimeout = setTimeout(this.logout, 600 * 1000);
+  }
+
+  resetTimeout() {
+    this.clearTimeout();
+    this.setTimeout();
+  }
+
+  logout() {
+    this.redirect();
+  }
+
   componentDidMount() {
     const { teamCode, userCode } = this.props;
     this.props.getUser(teamCode, userCode, this.props.history);
   }
   componentWillReceiveProps(nextProps) {
-    const { name } = nextProps.user;
-    this.setState({ name });
+    const { name, role } = nextProps.user;
+    this.setState({ name, role });
+  }
+  redirect() {
+    this.logOutMessage();
   }
   logOutMessage = () => {
+    const { userCode } = this.props;
+    console.log("-----role-- " + this.state.role);
+    sessionStorage.removeItem(userCode + "Token");
+
     const key = "updatable";
     setTimeout(() => {
       message.success({
@@ -41,6 +81,7 @@ class Header extends Component {
         duration: 2,
       });
     }, 1000);
+    window.location.reload(false);
   };
   render() {
     const { teamCode, userCode } = this.props;
@@ -61,9 +102,9 @@ class Header extends Component {
 
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
-              {/*<li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
-                Welcome, {this.state.name}!
-    </li>*/}
+              <li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
+                Hello, {this.state.name}!
+              </li>
               <li>
                 <Link
                   className="nav-link dropdown-toggle text-light"

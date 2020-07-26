@@ -4,12 +4,20 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import classnames from "classnames";
 import Header from "./../layout/Header";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class UpdateTeamForm extends Component {
   constructor(props) {
+    const { userCode } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       id: "",
       name: "",
       projectName: "",
@@ -74,6 +82,9 @@ class UpdateTeamForm extends Component {
   }
 
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { errors } = this.state;
     const { teamId, userCode } = this.props.match.params;
     return (

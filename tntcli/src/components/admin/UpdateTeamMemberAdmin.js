@@ -1,15 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { PropTypes } from "prop-types";
-import Header from "./../layout/Header";
+import PlainHeader from "./../layout/PlainHeader";
 import classnames from "classnames";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { getUser, updateUserViaAdmin } from "../../actions/userActions";
 
 class UpdateTeamMemberAdmin extends Component {
   constructor(props) {
+    const { userId } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userId + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       id: "",
       name: "",
       username: "",
@@ -84,11 +92,14 @@ class UpdateTeamMemberAdmin extends Component {
       );
   }
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { errors } = this.state;
     const { userId, teamId, teamCode } = this.props.match.params;
     return (
       <div className="add-user">
-        <Header teamCode={teamId} userCode={userId} />
+        <PlainHeader />
         <Link
           to={`/listTeamMember/${teamId}/${userId}/${teamCode}`}
           type="button"

@@ -9,6 +9,16 @@ import {
 } from "./type";
 import { message } from "antd";
 
+let IsLoggedIn = false;
+
+function tokenGenerator() {
+  return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(/[xy]/g, function (c) {
+    var r = (Math.random() * 16) | 0,
+      v = c === "x" ? r : (r & 0x3) | 0x8;
+    return v.toString(16);
+  });
+}
+
 export const login = (user, history) => async (dispatch) => {
   try {
     const res = await axios.post("http://localhost:8081/api/user/login", user);
@@ -25,23 +35,35 @@ export const login = (user, history) => async (dispatch) => {
         });
       }, 300);
     };
+    IsLoggedIn = true;
     if (res.data.role === 3) {
-      history.push(`/adminDashboard/${res.data.teamCode}/${res.data.userCode}`);
-      loginMessage();
-      setTimeout(() => {
-        window.location.reload(false);
-      }, 1000);
+      sessionStorage.setItem(res.data.userCode + "Token", tokenGenerator());
+      if (IsLoggedIn) {
+        history.push(
+          `/adminDashboard/${res.data.teamCode}/${res.data.userCode}`
+        );
+        loginMessage();
+        setTimeout(() => {
+          window.location.reload(false);
+        }, 1000);
+      }
     }
     if (res.data.role === 2) {
-      history.push(
-        `/teamLeadDashboard/${res.data.teamCode}/${res.data.userCode}/`
-      );
+      sessionStorage.setItem(res.data.userCode + "Token", tokenGenerator());
+      if (IsLoggedIn) {
+        history.push(
+          `/teamLeadDashboard/${res.data.teamCode}/${res.data.userCode}/`
+        );
+      }
       loginMessage();
     }
     if (res.data.role === 1) {
-      history.push(
-        `/teamMemberDashboard/${res.data.teamCode}/${res.data.userCode}`
-      );
+      sessionStorage.setItem(res.data.userCode + "Token", tokenGenerator());
+      if (IsLoggedIn) {
+        history.push(
+          `/teamMemberDashboard/${res.data.teamCode}/${res.data.userCode}`
+        );
+      }
       loginMessage();
     }
     dispatch({

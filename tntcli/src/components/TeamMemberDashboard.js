@@ -1,17 +1,34 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import Header from "./layout/Header";
 import { getUserTodos } from "../actions/todoAction";
 import TodoListMember from "./todo/TodoListMember";
 
 class TeamMemberDashboard extends Component {
+  constructor(props) {
+    const { userCode } = props.match.params;
+
+    super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
+    this.state = {
+      IsLoggedIn,
+    };
+  }
   componentDidMount() {
     const { teamCode, userCode } = this.props.match.params;
     this.props.getUserTodos(teamCode, userCode, this.props.history);
   }
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { todos } = this.props.todos;
     const { teamCode, userCode } = this.props.match.params;
     return (

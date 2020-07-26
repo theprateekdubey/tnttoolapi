@@ -6,12 +6,20 @@ import Header from "../layout/Header";
 import { updateUserCredential, getUser } from "./../../actions/userActions";
 import BackToTeamMemberDashBoard from "./BackToTeamMemberDashBoard";
 import BackToDashboardButton from "./BackToDashboardButton";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 class UpdateUserCredentials extends Component {
   constructor(props) {
+    const { userCode } = props.match.params;
     super(props);
+    const Token = sessionStorage.getItem(userCode + "Token");
+    let IsLoggedIn = true;
+    console.log(" --token --- " + Token);
+    if (Token === null) {
+      IsLoggedIn = false;
+    }
     this.state = {
+      IsLoggedIn,
       id: "",
       name: "",
       username: "",
@@ -63,8 +71,8 @@ class UpdateUserCredentials extends Component {
     });
   }
   componentDidMount() {
-    const { teamCode, userId } = this.props.match.params;
-    this.props.getUser(teamCode, userId, this.props.history);
+    const { teamCode, userCode } = this.props.match.params;
+    this.props.getUser(teamCode, userCode, this.props.history);
   }
 
   onChange(event) {
@@ -125,6 +133,9 @@ class UpdateUserCredentials extends Component {
   }
 
   render() {
+    if (this.state.IsLoggedIn === false) {
+      return <Redirect to="/login" />;
+    }
     const { user } = this.props;
     const { errors } = this.state;
     const { teamCode, userCode } = this.props.match.params;
