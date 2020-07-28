@@ -47,28 +47,29 @@ class ListPeers extends Component {
                       <span className="font-italic h6">
                         {" "}
                         ({user.username}){" "}
-                        {(() => {
-                          switch (user.role) {
-                            case 2:
-                              return (
-                                <span>
-                                  -{" "}
-                                  <span className="text-danger">
-                                    Team Lead <br />
-                                  </span>
-                                </span>
-                              );
-
-                            default:
-                              return;
-                          }
-                        })()}
                       </span>
                     </span>
                   </h3>
-
                   <small>
                     User Id : <span>{user.userCode}</span>
+                  </small>{" "}
+                  <small>
+                    {(() => {
+                      switch (user.role) {
+                        case 2:
+                          return (
+                            <span>
+                              -{" "}
+                              <span className="text-danger">
+                                <u>Team Lead</u>
+                              </span>
+                            </span>
+                          );
+
+                        default:
+                          return;
+                      }
+                    })()}
                   </small>
                 </div>
               </div>

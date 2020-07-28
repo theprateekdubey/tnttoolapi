@@ -42,46 +42,41 @@ class ListAllEmployees extends Component {
           <div className="list-user-admin ">
             <div className="card card-body list-users  mb-3">
               <div className="row">
-                <div className="list-users-details  px-5">
-                  <h3>
-                    <span>
-                      {user.name}
-                      <span className="font-italic h6">
-                        {" "}
-                        ({user.username}){" "}
-                        {(() => {
-                          switch (user.role) {
-                            case 2:
-                              return (
-                                <span>
-                                  -{" "}
-                                  <span className="text-danger">
-                                    Team Lead <br />
-                                  </span>
-                                </span>
-                              );
-                            case 3:
-                              return (
-                                <span>
-                                  -{" "}
-                                  <span className="text-danger">
-                                    Admin <br />
-                                  </span>
-                                </span>
-                              );
-                            default:
-                              return;
-                          }
-                        })()}
-                      </span>
-                    </span>
-                  </h3>
+                <div className="list-users-details  px-3">
+                  <h4>
+                    <span>{user.name}</span>
+                  </h4>
                   <small>
                     User Id : <span>{user.userCode}</span>
-                  </small>
-
-                  <small className="ml-3">
-                    Team Id : <span>{user.teamCode}</span>
+                  </small>{" "}
+                  <small className="font-italic text-light">
+                    ({user.username}){" "}
+                  </small>{" "}
+                  <small>
+                    {(() => {
+                      switch (user.role) {
+                        case 2:
+                          return (
+                            <span>
+                              -{" "}
+                              <span className="text-danger">
+                                <u>Team Lead</u>
+                              </span>
+                            </span>
+                          );
+                        case 3:
+                          return (
+                            <span>
+                              -{" "}
+                              <span className="text-danger">
+                                <u>Admin</u>
+                              </span>
+                            </span>
+                          );
+                        default:
+                          return;
+                      }
+                    })()}
                   </small>
                 </div>
               </div>

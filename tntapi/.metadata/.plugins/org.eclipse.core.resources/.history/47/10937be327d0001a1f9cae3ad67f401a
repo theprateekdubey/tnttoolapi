@@ -28,9 +28,10 @@ public class User {
 	private String name;
 	@NotBlank(message = "Username is required")
 	@Column(unique = true)
+	@Size(min = 5,max = 15, message = "It should be between 5 to 15 characters")
 	private String username;
 	@NotBlank(message = "password is required")
-	@Size(min = 8, message = "minimun 8 characters required")
+	@Size(min = 8, message = "It should be min of 8 characters")
 	private String password;
 	@Column(unique = true, updatable = false)
 	private String userCode;

@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { Link } from "react-router-dom";
 
 export default class FooterLandingPage extends Component {
   render() {
@@ -7,7 +6,7 @@ export default class FooterLandingPage extends Component {
       <div>
         <footer id="main-footer" className="p-3">
           <div className="row">
-            <div className="col-md-5">
+            <div className="col-md-8">
               <p className="text-light">
                 <i className="fas fa-user-circle"></i> About Us
               </p>
@@ -19,23 +18,14 @@ export default class FooterLandingPage extends Component {
                 from mother nature.
               </i>
             </div>
+
             <div className="col-md-4">
-              <Link
-                to="#"
-                data-toggle="modal"
-                data-target="#developerInfo"
-                className="nav-link text-light mt-n2 ml-5"
-              >
-                Developers Description
-              </Link>
-            </div>
-            <div className="col-md-3">
-              <p className="text-light ml-5">
+              <p className="text-light contact-us">
                 <i className="fa fa-address-card" aria-hidden="true"></i>{" "}
                 Contact Us
               </p>
 
-              <div className="social-bar ml-4">
+              <div className="social-bar">
                 <a
                   href="https://www.facebook.com/prateek.dubey.35513/"
                   className=" social-icon"
@@ -50,7 +40,7 @@ export default class FooterLandingPage extends Component {
                 </a>
 
                 <a
-                  href="https://www.instagram.com/theprateekdubey/"
+                  href="https://www.instagram.com/it_marshals/"
                   className="social-icon"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -76,7 +66,7 @@ export default class FooterLandingPage extends Component {
                 </a>
 
                 <a
-                  href="mailto:prateek.dubey98@gmail.com;samayjain21@gmail.com?subject=Appreciated your work, want to connect with you&"
+                  href="mailto:it.marshals20@gmail.com?subject=Appreciated your work, want to connect with you&"
                   className="social-icon"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -91,44 +81,6 @@ export default class FooterLandingPage extends Component {
             </div>
           </div>
         </footer>
-
-        <div className="modal fade" id="developerInfo">
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <button type="button" className="close" data-dismiss="modal">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div className="modal-body">
-                <div className="container">
-                  <img
-                    className="img-responsive  rounded mx-auto d-block"
-                    src="img/modal1.jpg"
-                    alt="Developer 1"
-                  />
-                  <h5 className="text-light  text-center text-muted">
-                    Prateek Dubey
-                  </h5>
-
-                  <img
-                    className="img-responsive border border-dark rounded mx-auto d-block"
-                    src="img/modal2.jpg"
-                    alt="Developer 2"
-                  />
-                  <h5 className="text-light  text-center text-muted">
-                    Samay Jain
-                  </h5>
-                </div>
-              </div>
-              <div className="modal-footer">
-                <p className="text-dark mx-auto d-block">
-                  Thank you for Visiting...
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     );
   }

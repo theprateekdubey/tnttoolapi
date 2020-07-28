@@ -110,15 +110,15 @@ class AddTeamForm extends Component {
                       title="Enter team code here"
                       type="text"
                       className={classnames("form-control", {
-                        "is-invalid": errors.teamId,
+                        "is-invalid": errors.teamCode,
                       })}
                       placeholder="teamCode"
                       name="teamCode"
                       value={this.state.teamCode}
                       onChange={this.onChange}
                     />
-                    {errors.teamId && (
-                      <div className="invalid-feedback">{errors.teamId}</div>
+                    {errors.teamCode && (
+                      <div className="invalid-feedback">{errors.teamCode}</div>
                     )}
                   </div>
 

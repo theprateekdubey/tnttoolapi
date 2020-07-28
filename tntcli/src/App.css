@@ -13,7 +13,7 @@ body {
   height: 100%;
 }
 .landing-page-text {
-  min-height: 489px;
+  margin: 49.8% 0% 0% 0%;
 }
 
 /**HEADER**/
@@ -30,12 +30,16 @@ body {
   margin: 0 0 0 8%;
   text-align: justify;
 }
+.contact-us {
+  margin: 0 0 5% 35%;
+}
 .social-bar {
   width: 43%;
   display: flex;
   justify-content: center;
   align-items: center;
   padding: 0;
+  margin: 0 0 0 28%;
 }
 .social-icon {
   margin: 0 10px 0 0;
@@ -70,6 +74,9 @@ body {
   margin: 11% 0 16.44% 0;
   width: 400px;
   background-color: rgba(0, 0, 0, 0.75) !important;
+}
+.login-form .content {
+  margin: 0% 0% 0% 0%;
 }
 .login-form .social_icon span {
   font-size: 60px;
@@ -240,7 +247,7 @@ body {
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   float: left;
-  min-width: 576px;
+  width: 38%;
   margin: 0 -2% 0 9%;
 }
 .list-user-admin .list-users .list-users-details {
@@ -323,9 +330,8 @@ body {
   background-repeat: round;
 }
 .add-todo .card {
-  margin: -1.5% 0 3.1% 0;
+  margin: -1.5% 0 4.4% 0;
   width: 600px;
-  height: 680px;
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
 .add-todo input {
@@ -362,11 +368,10 @@ body {
   background-image: url("./bg-01.jpg");
   background-size: cover;
   background-repeat: round;
-  height: 753px;
 }
 .add-user .card {
   align-content: center;
-  margin: 9% 0 0 0;
+  margin: 9% 0 26.9% 0;
   width: 500px;
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
@@ -646,56 +651,95 @@ body {
   background: rgba(0, 0, 0, 0.779);
 }
 
-@media screen and (max-width: 1281px) {
+@media screen and (max-width: 1280px) {
+  /***landing***/
   .landing-page-text {
-    min-height: 512px;
+    margin: 44.05% 0 0 0;
+  }
+  /***login***/
+  .login-form .card {
+    margin: 13.5% 0 13.99% 0;
+  }
+  .login-form .content {
+    margin: -6% 0% 0% 0%;
   }
   /***Admin***/
   /*progress*/
   .team-progress-bar {
     padding: 13px;
-    box-shadow: 3px 3px 3px 3px rgba(18, 19, 21, 0.45),
-      0 1px 3px 1px rgba(60, 64, 67, 0.15);
-    border-radius: 15px;
     margin: -28.3% 5% 4% 43%;
-    background-color: #ffffffeb;
     max-width: 62%;
   }
   .card-stats {
     margin: 15.79% 4% 0% 5% !important;
-    border-radius: 15px !important;
-    padding-bottom: 0.999%;
-    /* padding-bottom: 3.999%; */
+    padding-bottom: 3.5%;
   }
-
   .circular-complete-bar {
     margin: -2% 0 0 6%;
-    border-radius: 15px !important;
     max-width: 35%;
     height: 365px;
   }
   /***Lead***/
   /*todo*/
   .teamLeadDash .todo-list .todo-list-content {
-    position: relative;
     max-width: 20.7%;
-    overflow: hidden;
-    color: #a9a9a9;
-    background-color: rgba(0, 0, 0, 0.911);
-    border-top-right-radius: 65px;
-    border-bottom-left-radius: 35px;
     margin: -0.1% 2% 0 0;
-    float: left;
-    font-size: 14px;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
   }
   .card .todo-detail {
-    font-size: 14px;
-    color: #f1f1f1;
-    opacity: 0;
-    transform: translateX(30px) translateY(250px);
-    transition: 0.4s;
     margin: 0 3% -2% 3%;
-    padding: 0 1.5% 0% 1.5%;
+    padding: 0 2.5% 0% 1.5%;
+  }
+  /***Member***
+  /*todo*/
+  .teamMemberDash .todo-list-member .todo-list-content {
+    margin: -0.1% 2% 0 0;
+  }
+  .card .todo-detail-member {
+    margin: 0 3% -6% 3%;
+    padding: 0 4.5% 0% 1.5%;
+  }
+}
+
+@media screen and (min-width: 1300px) and (max-width: 1400px) {
+  /***landing***/
+  .landing-page-text {
+    margin: 41.15% 0 0 0;
+  }
+  /***login***/
+  .login-form .card {
+    margin: 13.5% 0 13.99% 0;
+  }
+  .login-form .content {
+    margin: -8.88% 0% 0% 0%;
+  }
+  /***Admin***/
+  /*progress*/
+  .team-progress-bar {
+    margin: -26.7% 5% 4.3% 43%;
+    max-width: 62%;
+  }
+  .team-member-count {
+    margin: -2.7% 5% -12.1% 43%;
+    padding: 13px;
+  }
+  .card-stats {
+    margin: 13.79% 4% 0% 5% !important;
+    padding-bottom: 2.5%;
+  }
+  /*list peers*/
+  .list-user-admin .list-users {
+    min-width: 576px;
+    margin: 0 -2% 0 6%;
+  }
+  /***lead***/
+  .card .todo-detail {
+    margin: 0 3% -3% 3%;
+    padding: 0 2.5% 0% 1.5%;
+  }
+  /***Member***
+  /*todo*/
+  .card .todo-detail-member {
+    margin: 0 3% -6% 3%;
+    padding: 0 4.5% 0% 1.5%;
   }
 }

@@ -72,7 +72,7 @@ class LoginForm extends Component {
           <HeaderLandingPage />
         </div>
         <div className="container">
-          <div className="d-flex justify-content-center h-100">
+          <div className="d-flex justify-content-center content">
             <div className="card">
               <div className="card-header">
                 <h3 className="text-light mt-5">ACCOUNT LOGIN</h3>

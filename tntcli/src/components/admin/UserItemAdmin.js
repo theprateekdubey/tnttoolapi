@@ -32,34 +32,32 @@ class UserItemAdmin extends Component {
         <div className="card card-body  list-member mb-3 p-3">
           <div className="row">
             <div className="col-lg-8 col-md-6 col-10 pl-4 list-team-detail">
-              <h3>
-                <span>
-                  {user.name}
-                  <span className="font-italic h6">
-                    {" "}
-                    ({user.username}){" "}
-                    {(() => {
-                      switch (user.role) {
-                        case 2:
-                          return (
-                            <span>
-                              -{" "}
-                              <span className="text-danger">
-                                Team Lead <br />
-                              </span>
-                            </span>
-                          );
-
-                        default:
-                          return;
-                      }
-                    })()}
-                  </span>
-                </span>
-              </h3>
-
+              <h4>
+                <span>{user.name}</span>
+              </h4>
               <small>
                 User Id : <span>{user.userCode}</span>
+              </small>{" "}
+              <small className="font-italic text-light">
+                ({user.username}){" "}
+              </small>{" "}
+              <small>
+                {(() => {
+                  switch (user.role) {
+                    case 2:
+                      return (
+                        <span>
+                          -{" "}
+                          <span className="text-danger">
+                            <u>Team Lead</u>
+                          </span>
+                        </span>
+                      );
+
+                    default:
+                      return;
+                  }
+                })()}
               </small>
             </div>
 

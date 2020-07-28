@@ -103,7 +103,7 @@ class Header extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             <ul className="navbar-nav ml-auto">
               <li className="nav-item text-light mt-2 mr-5 font-weight-light font-italic">
-                Hello, {this.state.name}!
+                Hello, {this.state.name}
               </li>
               <li>
                 <Link
