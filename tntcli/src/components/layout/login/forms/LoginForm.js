@@ -102,9 +102,10 @@ class LoginForm extends Component {
                       className={classnames("form-control", {
                         "is-invalid": errors.userCode,
                       })}
-                      placeholder="username"
+                      placeholder="Username"
                       value={this.state.username}
                       onChange={this.onChange}
+                      required
                     />
                   </div>
                   <div className="input-group form-group">
@@ -120,9 +121,10 @@ class LoginForm extends Component {
                         className={classnames("form-control", {
                           "is-invalid": errors.userCode,
                         })}
-                        placeholder="password"
+                        placeholder="Password"
                         value={this.state.password}
                         onChange={this.onChange}
+                        required
                       />
                       {errors.userCode && (
                         <div className="invalid-feedback">

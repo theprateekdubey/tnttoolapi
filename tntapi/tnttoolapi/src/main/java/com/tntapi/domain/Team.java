@@ -26,7 +26,7 @@ public class Team {
 	private String name;
 	private String projectName;
 	private Integer userSequence = 0;
-	@NotBlank(message = "Team Code is Required")
+	@NotBlank(message = "Team Code is required")
 	@Size(min = 3, max = 5, message = "It should be between 3 to 5 characters")
 	@Column(updatable = false, unique = true)
 	private String teamCode;

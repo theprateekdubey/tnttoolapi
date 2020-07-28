@@ -1,5 +1,6 @@
 package com.tntapi.service;
 
+import java.security.MessageDigest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.tntapi.domain.Team;
 import com.tntapi.domain.User;
+import com.tntapi.exception.PasswordDidNotMatchException;
 import com.tntapi.exception.TeamNotFoundException;
 import com.tntapi.exception.UserNotFoundException;
 import com.tntapi.exception.UsernameException;
@@ -48,6 +50,7 @@ public class UserService {
 					team.setTeamLeadCode(user.getUserCode());
 				}
 			}
+			user.setPassword(encryptor(user.getPassword()));
 			return userRepository.save(user);
 		} catch (NullPointerException ex) {
 			throw new TeamNotFoundException("Team Does not exist");
@@ -90,36 +93,34 @@ public class UserService {
 
 	public User updateByUserCode(User updateUser, String team_id, String user_id) {
 		try { // find the user
-            User user = findUserByUCode(team_id, user_id);
-            Team team = teamRepository.findByTeamCode(team_id);
-            // if role is changing from team lead to team member
-            if ((user.getRole() == 2) && (updateUser.getRole() == 1)) {
-                team.setTeamLead(null);
-                team.setTeamLeadCode(null);
-            }
-            // mapping new user to old user for updating
-            user = updateUser;
-
- 
-
-            // setting team Lead in team if user role is assign as team lead (i.e. 2)
-            if (updateUser.getRole() == 2) {
-                if (team.getTeamLead() == null) {
-                    team.setTeamLead(user.getName());
-                    team.setTeamLeadCode(user.getUserCode());
-                } else {
-                    String teamLeadCode = team.getTeamLeadCode();
-                    User teamLead = findUserByUCode(team_id, teamLeadCode);
-                    teamLead.setRole(1);
-                    team.setTeamLead(user.getName());
-                    team.setTeamLeadCode(user.getUserCode());
-                }
-            }
-            // save user
-            return userRepository.save(user);
-        } catch (Exception e) {
-            throw new UsernameException("username already exisit");
-        }
+			User user = findUserByUCode(team_id, user_id);
+			Team team = teamRepository.findByTeamCode(team_id);
+			// if role is changing from team lead to team member
+			if ((user.getRole() == 2) && (updateUser.getRole() == 1)) {
+				team.setTeamLead(null);
+				team.setTeamLeadCode(null);
+			}
+			// mapping new user to old user for updating
+			user = updateUser;
+			// setting team Lead in team if user role is assign as team lead (i.e. 2)
+			if (updateUser.getRole() == 2) {
+				if (team.getTeamLead() == null) {
+					team.setTeamLead(user.getName());
+					team.setTeamLeadCode(user.getUserCode());
+				} else {
+					String teamLeadCode = team.getTeamLeadCode();
+					User teamLead = findUserByUCode(team_id, teamLeadCode);
+					teamLead.setRole(1);
+					team.setTeamLead(user.getName());
+					team.setTeamLeadCode(user.getUserCode());
+				}
+			}
+			// save user
+			user.setPassword(encryptor(updateUser.getPassword()));
+			return userRepository.save(user);
+		} catch (Exception e) {
+			throw new UsernameException("username already exisit");
+		}
 	}
 
 	public Iterable<User> listAllUsers() {
@@ -155,11 +156,49 @@ public class UserService {
 	public User userLoginCheck(String username, String password) {
 		User user = userRepository.findUserByUsername(username);
 		if (user == null) {
-			throw new UserNotFoundException("Username does not exists");
+			throw new UserNotFoundException(
+					"The username you entered doesn't belong to an account. Please check your username and try again.");
 		}
+		password = encryptor(password);
 		if (!user.getPassword().equals(password)) {
-			throw new UserNotFoundException("Wrong Password");
+			throw new UserNotFoundException("Sorry, your password was incorrect. Please double-check your password.");
 		}
 		return user;
+	}
+
+	public User updateCredentails(String username, String oldPassword, String newPassword) {
+		User user = userRepository.findUserByUsername(username);
+		if (user == null) {
+			throw new UserNotFoundException("username does not exists");
+		}
+		oldPassword = encryptor(oldPassword);
+		if (!user.getPassword().equals(oldPassword)) {
+			throw new PasswordDidNotMatchException("Your password did not match with the current password");
+		}
+		user.setPassword(encryptor(newPassword));
+		userRepository.save(user);
+		return user;
+	}
+
+	public String encryptor(String password) {
+		String algorithm = "SHA";
+		StringBuilder encryptedPassword = new StringBuilder();
+		try {
+			MessageDigest md = MessageDigest.getInstance(algorithm);
+			md.reset();
+			md.update(password.getBytes());
+			byte[] encodedPassword = md.digest();
+
+			for (int i = 0; i < encodedPassword.length; i++) {
+				if ((encodedPassword[i] & 0xff) < 0x10) {
+					encryptedPassword.append("0");
+				}
+				encryptedPassword.append(Long.toString(encodedPassword[i] & 0xff, 16));
+			}
+
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return encryptedPassword.toString();
 	}
 }

@@ -24,13 +24,13 @@ public class User {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@NotBlank(message = "User name is required")
+	@NotBlank(message = "Name is required")
 	private String name;
 	@NotBlank(message = "Username is required")
 	@Column(unique = true)
 	private String username;
-	@NotBlank(message = "password is required")
-	@Size(min = 8, message = "minimun 8 characters required")
+	@NotBlank(message = "Password is required")
+	@Size(min = 8, message = "Minimun 8 characters required")
 	private String password;
 	@Column(unique = true, updatable = false)
 	private String userCode;

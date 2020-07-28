@@ -81,44 +81,38 @@ class UpdateUserCredentials extends Component {
   onSubmit(event) {
     event.preventDefault();
     const { teamCode, userCode } = this.props.match.params;
-    if (this.state.password === this.state.currentPassword) {
-      if (this.state.newPassword && this.state.confirmPassword !== "") {
-        if (this.state.newPassword === this.state.confirmPassword) {
-          const updatedUser = {
-            id: this.state.id,
-            name: this.state.name,
-            username: this.state.username,
-            password: this.state.confirmPassword,
-            role: this.state.role,
-            teamId: this.state.teamId,
-            userCode: this.state.userCode,
-            teamCode: this.state.teamCode,
-            taskSequence: this.state.taskSequence,
-          };
-          window.confirm("Are you sure you want to delete the TODO?") &&
-            this.props.updateUserCredential(
-              teamCode,
-              userCode,
-              updatedUser,
-              this.props.history
-            );
-        } else {
-          this.setState({ errorMessage: "Your password did not match" });
-          this.setState({ confirmPassword: "" });
-          this.setState({ newPassword: "" });
-        }
+    this.setState({ errorMessage: "" });
+    if (this.state.newPassword && this.state.confirmPassword !== "") {
+      if (this.state.newPassword === this.state.confirmPassword) {
+        const updatedUser = {
+          id: this.state.id,
+          name: this.state.name,
+          username: this.state.username,
+          password: this.state.confirmPassword,
+          role: this.state.role,
+          teamId: this.state.teamId,
+          userCode: this.state.userCode,
+          teamCode: this.state.teamCode,
+          taskSequence: this.state.taskSequence,
+        };
+        window.confirm("Are you sure you want to delete the TODO?") &&
+          this.props.updateUserCredential(
+            teamCode,
+            userCode,
+            updatedUser,
+            this.state.currentPassword,
+            this.state.confirmPassword,
+            this.props.history
+          );
       } else {
-        this.setState({
-          errorMessage: "Password can not be blank",
-        });
+        this.setState({ errorMessage: "Your password did not match" });
+        this.setState({ confirmPassword: "" });
+        this.setState({ newPassword: "" });
       }
     } else {
       this.setState({
-        errorMessage: "Your password did not match with the current password",
+        errorMessage: "Password can not be blank",
       });
-      this.setState({ confirmPassword: "" });
-      this.setState({ newPassword: "" });
-      this.setState({ currentPassword: "" });
     }
   }
 
@@ -221,12 +215,19 @@ class UpdateUserCredentials extends Component {
                         type={
                           this.state.currentPasswordHidden ? "password" : "text"
                         }
-                        className="form-control"
+                        className={classnames("form-control", {
+                          "is-invalid": errors.password,
+                        })}
                         placeholder="Enter Current Password"
                         name="currentPassword"
                         value={this.state.currentPassword}
                         onChange={this.onChange}
                       />
+                      {errors.password && (
+                        <div className="invalid-feedback">
+                          {errors.password}
+                        </div>
+                      )}
                     </div>
                     <div className="show-pass">
                       <span
@@ -291,7 +292,11 @@ class UpdateUserCredentials extends Component {
                       </span>
                     </div>
                   </div>
-                  <div className="text-danger">{this.state.errorMessage}</div>
+                  <div className="mt-n3">
+                    <small className="text-danger ml-5">
+                      {this.state.errorMessage}
+                    </small>
+                  </div>
                   <input type="submit" className="btn float-right login_btn" />
                 </form>
               </div>

@@ -187,11 +187,13 @@ export const updateUserCredential = (
   teamCode,
   userCode,
   user,
+  oldPassword,
+  newPassword,
   history
 ) => async (dispatch) => {
   try {
     await axios.patch(
-      `http://localhost:8081/api/user/${teamCode}/${userCode}`,
+      `http://localhost:8081/api/user/${user.username}/${oldPassword}/${newPassword}`,
       user
     );
     const updateMessage = () => {

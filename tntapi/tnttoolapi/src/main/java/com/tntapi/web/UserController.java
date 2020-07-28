@@ -16,7 +16,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
 import com.tntapi.domain.User;
 import com.tntapi.service.MapValidationErrorService;
 import com.tntapi.service.UserService;
@@ -53,15 +52,15 @@ public class UserController {
 	public Iterable<User> getUserList(@PathVariable String team_id) {
 		return userService.findUserList(team_id);
 	}
-	
+
 	@GetMapping("/all")
 	public Iterable<User> findAllUsers() {
 		return userService.listAllUsers();
 	}
 
 	@PatchMapping("/{team_id}/{user_id}")
-	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable String team_id,
-			@PathVariable String user_id, BindingResult result) {
+	public ResponseEntity<?> updateUser(@Valid @RequestBody User user, BindingResult result,
+			@PathVariable String team_id, @PathVariable String user_id) {
 		ResponseEntity<?> errorMap = mapValidationErrorService.mapValidateError(result);
 		if (errorMap != null) {
 			return errorMap;
@@ -80,5 +79,12 @@ public class UserController {
 	public ResponseEntity<?> loginUser(@RequestBody User user) {
 		User loggedInUser = userService.userLoginCheck(user.getUsername(), user.getPassword());
 		return new ResponseEntity<User>(loggedInUser, HttpStatus.OK);
+	}
+
+	@PatchMapping("/{username}/{oldpass}/{newpass}")
+	public ResponseEntity<?> updateUserCredentails(@PathVariable String username, @PathVariable String oldpass,
+			@PathVariable String newpass) {
+		User updateUser = userService.updateCredentails(username, oldpass, newpass);
+		return new ResponseEntity<User>(updateUser, HttpStatus.OK);
 	}
 }
