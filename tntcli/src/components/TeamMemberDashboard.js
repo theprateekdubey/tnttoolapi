@@ -13,7 +13,6 @@ class TeamMemberDashboard extends Component {
     super(props);
     const Token = sessionStorage.getItem(userCode + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }
@@ -63,7 +62,7 @@ class TeamMemberDashboard extends Component {
                 type="text"
                 placeholder="Search..."
               />
-              <input type="button" />
+              <input type="search" />
             </form>
           </div>
           {filteredTodos.map((todo) => (

@@ -13,7 +13,6 @@ class CompletedTodo extends Component {
     super(props);
     const Token = sessionStorage.getItem(userCode + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }
@@ -56,7 +55,7 @@ class CompletedTodo extends Component {
                 type="text"
                 placeholder="Search..."
               />
-              <input id="search_submit" type="button" />
+              <input type="search" />
             </form>
           </div>
 

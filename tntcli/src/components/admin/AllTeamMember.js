@@ -12,7 +12,6 @@ class AllTeamMember extends Component {
     super(props);
     const Token = sessionStorage.getItem(userCode + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }
@@ -72,7 +71,7 @@ class AllTeamMember extends Component {
                 type="text"
                 placeholder="Search..."
               />
-              <input type="button" />
+              <input type="search" />
             </form>
           </div>
           {filteredUsers.map((user) => (

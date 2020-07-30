@@ -58,9 +58,7 @@ class Header extends Component {
   }
   logOutMessage = () => {
     const { userCode } = this.props;
-    console.log("-----role-- " + this.state.role);
     sessionStorage.removeItem(userCode + "Token");
-
     const key = "updatable";
     setTimeout(() => {
       message.success({
@@ -68,7 +66,7 @@ class Header extends Component {
         className: "custom-class",
         style: {
           position: "relative",
-          margin: "-48% 0 10% 43%",
+          margin: "-14% 0 10% 14%",
           width: "max-content",
           color: "black",
           background: "#ffffffd1",
@@ -131,7 +129,7 @@ class Header extends Component {
                   <Link
                     className="dropdown-item"
                     onClick={this.logOutMessage.bind()}
-                    to="/"
+                    to="/login"
                   >
                     Sign Out <i className="fas fa-sign-out-alt"></i>
                   </Link>

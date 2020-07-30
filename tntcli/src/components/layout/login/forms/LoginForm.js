@@ -13,7 +13,6 @@ class LoginForm extends Component {
     if (sessionStorage.length > 0) {
       IsLoggedIn = true;
     }
-    console.log(" --length --- " + sessionStorage.length);
     this.state = {
       IsLoggedIn,
       username: "",
@@ -55,11 +54,7 @@ class LoginForm extends Component {
     window.history.back();
   }
   render() {
-    console.log("---------ISlooged in login - " + this.state.IsLoggedIn);
     if (this.state.IsLoggedIn === true) {
-      console.log(
-        "---------ISlooged if condition login -" + this.state.IsLoggedIn
-      );
       this.goForward();
       this.goBack();
       window.location.reload(false);

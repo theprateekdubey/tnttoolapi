@@ -13,7 +13,6 @@ class ListPeers extends Component {
     super(props);
     const Token = sessionStorage.getItem(userCode + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }
@@ -54,25 +53,22 @@ class ListPeers extends Component {
               type="text"
               placeholder="Search..."
             />
-            <input type="button" />
+            <input type="search" />
           </form>
         </div>
         {filteredUsers.map((user) => (
           <div className="container list-team-peer">
             <div className="card card-body list-peer mb-3">
               <div className="row">
-                <div className="list-peer-detail px-5">
-                  <h3>
-                    <span>
-                      {user.name}
-                      <span className="font-italic h6">
-                        {" "}
-                        ({user.username}){" "}
-                      </span>
-                    </span>
-                  </h3>
+                <div className="list-peer-detail px-3">
+                  <h4>
+                    <span>{user.name}</span>
+                  </h4>
                   <small>
                     User Id : <span>{user.userCode}</span>
+                  </small>{" "}
+                  <small className="font-italic text-light">
+                    ({user.username}){" "}
                   </small>{" "}
                   <small>
                     {(() => {

@@ -20,7 +20,6 @@ class TeamProgressDashboard extends Component {
     super(props);
     const Token = sessionStorage.getItem(userId + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }

@@ -12,7 +12,6 @@ class AdminDashboard extends Component {
     super(props);
     const Token = sessionStorage.getItem(userCode + "Token");
     let IsLoggedIn = true;
-    console.log(" --token --- " + Token);
     if (Token === null) {
       IsLoggedIn = false;
     }
@@ -28,7 +27,6 @@ class AdminDashboard extends Component {
     this.setState({ search: event.target.value });
   }
   render() {
-    console.log("---isloggedIn -" + this.state.IsLoggedIn);
     if (this.state.IsLoggedIn === false) {
       return <Redirect to="/login" />;
     }
@@ -87,7 +85,7 @@ class AdminDashboard extends Component {
                 type="text"
                 placeholder="Search..."
               />
-              <input type="button" />
+              <input type="search" />
             </form>
           </div>
           {filteredTeams.map((team) => (

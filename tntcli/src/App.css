@@ -330,7 +330,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #team-search input[type="text"] {
   margin-top: 2%;
@@ -362,7 +361,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#team-search input[type="button"] {
+#team-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -389,7 +388,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #all-employee-search input[type="text"] {
   margin-top: 2%;
@@ -421,7 +419,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#all-employee-search input[type="button"] {
+#all-employee-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -462,7 +460,7 @@ body {
   background-repeat: round;
 }
 .add-todo .card {
-  margin: -1.5% 0 4.4% 0;
+  margin: -1.5% 0 10% 0;
   width: 600px;
   background-color: rgba(0, 0, 0, 0.75) !important;
 }
@@ -645,7 +643,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #todo-list-search input[type="text"] {
   margin-top: 2%;
@@ -677,7 +674,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#todo-list-search input[type="button"] {
+#todo-list-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -705,7 +702,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #completed-todo-search input[type="text"] {
   height: 50px;
@@ -736,7 +732,7 @@ body {
   border-bottom: 1px solid #bbb;
   cursor: text;
 }
-#completed-todo-search input[type="button"] {
+#completed-todo-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -764,7 +760,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #team-member-search input[type="text"] {
   margin-top: 2%;
@@ -796,7 +791,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#team-member-search input[type="button"] {
+#team-member-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -909,10 +904,13 @@ body {
 /**List Team Peer**/
 .list-team-peer .list-peer {
   background-color: rgba(0, 0, 0, 0.911);
-  margin: 0 240px 0px 240px;
+  margin: 0 0 0 2%;
   border-radius: 10px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  float: left;
+  width: 48%;
 }
+
 .list-team-peer .list-peer .list-peer-detail {
   font-size: 14px;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -933,7 +931,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #todo-List_Member-search input[type="text"] {
   margin-top: 2%;
@@ -965,7 +962,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#todo-List_Member-search input[type="button"] {
+#todo-List_Member-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -993,7 +990,6 @@ body {
   height: 60px;
   float: right;
   padding: 0;
-  position: relative;
 }
 #all_team-member-search input[type="text"] {
   margin-top: 2%;
@@ -1025,7 +1021,7 @@ body {
   border-bottom: 1px solid rgb(255, 255, 255);
   cursor: text;
 }
-#all_team-member-search input[type="button"] {
+#all_team-member-search input[type="search"] {
   height: 62px;
   width: 62px;
   color: red;
@@ -1093,6 +1089,10 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
+  /***Header***/
+  #main-header .dropdown-menu {
+    margin-left: 80.6%;
+  }
   /***landing***/
   .landing-page-text {
     margin: 44.05% 0 0 0;
@@ -1104,6 +1104,7 @@ body {
   .login-form .content {
     margin: -6% 0% 0% 0%;
   }
+
   /***Admin***/
   /*progress*/
   .team-progress-bar {
@@ -1120,6 +1121,20 @@ body {
     max-width: 35%;
     height: 365px;
   }
+  /***menu-dropdown***/
+  .admin-menu {
+    margin: 0 5.3% 0 91.2%;
+  }
+  /***Search***/
+  /*all-team-list*/
+  #team-search {
+    margin: -5.5% 10% 0 0;
+  }
+  /*all-employee-list*/
+  #all-employee-search {
+    margin: -2% 4.4% 0 0;
+  }
+
   /***Lead***/
   /*todo*/
   .teamLeadDash .todo-list .todo-list-content {
@@ -1130,7 +1145,31 @@ body {
     margin: 0 3% -2% 3%;
     padding: 0 2.5% 0% 1.5%;
   }
-  /***Member***
+  /***lead-menu***/
+  .lead-menu {
+    margin: 0 5.3% 0 91.2%;
+  }
+  .lead-menu .lead-menu-content {
+    margin: 0.5% 0 0 -12% !important;
+  }
+  /***Search***/
+  /*TodoList*/
+  #todo-list-search {
+    margin: -5.5% 10% 0 0;
+  }
+  #todo-list-search input[type="text"]:focus {
+    width: 500px;
+  }
+  /*CompletedTodoList*/
+  #completed-todo-search {
+    margin: -5% 4.7% 0 0;
+  }
+  /*Team-member-List*/
+  #team-member-search {
+    margin: -4% 17% 0 0;
+  }
+
+  /***Member***/
   /*todo*/
   .teamMemberDash .todo-list-member .todo-list-content {
     margin: -0.1% 2% 0 0;
@@ -1139,9 +1178,22 @@ body {
     margin: 0 3% -6% 3%;
     padding: 0 4.5% 0% 1.5%;
   }
+  /***Search***/
+  /*TodoList*/
+  #todo-List_Member-search {
+    margin: -5.5% 17.5% 0 0;
+  }
+  /*all-member-list*/
+  #all_team-member-search {
+    margin: -4.3% 4.5% 0 0;
+  }
 }
 
 @media screen and (min-width: 1300px) and (max-width: 1400px) {
+  /***Header***/
+  #main-header .dropdown-menu {
+    margin-left: 81.3%;
+  }
   /***landing***/
   .landing-page-text {
     margin: 41.15% 0 0 0;
@@ -1153,6 +1205,7 @@ body {
   .login-form .content {
     margin: -8.88% 0% 0% 0%;
   }
+
   /***Admin***/
   /*progress*/
   .team-progress-bar {
@@ -1172,15 +1225,62 @@ body {
     min-width: 576px;
     margin: 0 -2% 0 6%;
   }
+  /***menu-dropdown***/
+  .admin-menu {
+    margin: 0 5.2% 0 91.8%;
+  }
+  /***Search***/
+  /*all-team-list*/
+  #team-search {
+    margin: -5% 10% 0 0;
+  }
+  /*all-employee-list*/
+  #all-employee-search {
+    margin: -2% 4.4% 0 0;
+  }
+
   /***lead***/
   .card .todo-detail {
     margin: 0 3% -3% 3%;
     padding: 0 2.5% 0% 1.5%;
   }
+  /***lead-menu***/
+  .lead-menu {
+    margin: 0 5% 0 91.8%;
+  }
+  .lead-menu .lead-menu-content {
+    margin: 0.5% 0 0 -11.5% !important;
+  }
+  /***Search***/
+  /*TodoList*/
+  #todo-list-search {
+    margin: -5% 10% 0 0;
+  }
+  #todo-list-search input[type="text"]:focus {
+    width: 580px;
+  }
+  /*CompletedTodoList*/
+  #completed-todo-search {
+    margin: -5% 4.4% 0 0;
+  }
+  /*Team-member-List*/
+  #team-member-search {
+    margin: -3.7% 17% 0 0;
+  }
+
   /***Member***
   /*todo*/
   .card .todo-detail-member {
     margin: 0 3% -6% 3%;
     padding: 0 4.5% 0% 1.5%;
+  }
+  /***Search***/
+  /*TodoList*/
+  #todo-List_Member-search {
+    margin: -5% 17.5% 0 0;
+  }
+  /*all-member-list*/
+  #all_team-member-search {
+    margin: -4.3% 4.5% 0 0;
   }
 }

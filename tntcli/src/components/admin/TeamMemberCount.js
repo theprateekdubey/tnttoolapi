@@ -18,12 +18,7 @@ class TeamMemberCount extends Component {
       <div>
         <p>
           {users.map((user) => (
-            <span>
-              {
-                (memberCount++,
-                console.log("memberCount = == = = =  =-" + memberCount))
-              }
-            </span>
+            <span>{memberCount++}</span>
           ))}
         </p>
         {memberCount}
