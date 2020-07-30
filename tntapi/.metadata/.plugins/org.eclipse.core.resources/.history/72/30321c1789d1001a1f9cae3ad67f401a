@@ -49,7 +49,7 @@ public class CustomResponseEntityExceptionHandler extends ResponseEntityExceptio
 	}
 
 	@ExceptionHandler
-	public final ResponseEntity<Object> PasswordException(PasswordException ex,
+	public final ResponseEntity<Object> PasswordDidNotMatchException(PasswordException ex,
 			WebRequest request) {
 		PasswordExceptionResponse exceptionResponse = new PasswordExceptionResponse(
 				ex.getMessage());

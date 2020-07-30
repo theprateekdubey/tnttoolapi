@@ -17,6 +17,7 @@ class AllTeamMember extends Component {
       IsLoggedIn = false;
     }
     this.state = {
+      search: "",
       IsLoggedIn,
     };
   }
@@ -27,11 +28,19 @@ class AllTeamMember extends Component {
   componentWillUnmount() {
     window.location.reload(false);
   }
+  updateSearch(event) {
+    this.setState({ search: event.target.value });
+  }
   render() {
     if (this.state.IsLoggedIn === false) {
       return <Redirect to="/login" />;
     }
     const { users } = this.props.users;
+    let filteredUsers = users.filter((user) => {
+      return (
+        user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
     const { teamCode, userCode, teamId } = this.props.match.params;
     return (
       <div>
@@ -53,7 +62,20 @@ class AllTeamMember extends Component {
           </Link>
         </div>
         <p>
-          {users.map((user) => (
+          <div id="team-member-search">
+            <form action="" autocomplete="on">
+              <input
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+                id="search"
+                name="search"
+                type="text"
+                placeholder="Search..."
+              />
+              <input type="button" />
+            </form>
+          </div>
+          {filteredUsers.map((user) => (
             <span>
               <UserItemAdmin
                 key={user.id}

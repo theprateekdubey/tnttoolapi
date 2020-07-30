@@ -17,42 +17,80 @@ class AdminDashboard extends Component {
       IsLoggedIn = false;
     }
     this.state = {
+      search: "",
       IsLoggedIn,
     };
   }
   componentDidMount() {
     this.props.getTeams(this.props.history);
   }
-
+  updateSearch(event) {
+    this.setState({ search: event.target.value });
+  }
   render() {
     console.log("---isloggedIn -" + this.state.IsLoggedIn);
     if (this.state.IsLoggedIn === false) {
       return <Redirect to="/login" />;
     }
     const { teams } = this.props.teams;
+    let filteredTeams = teams.filter((team) => {
+      return (
+        team.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
     const { teamCode, userCode } = this.props.match.params;
 
     return (
       <div className="adminDash ">
         <Header teamCode={teamCode} userCode={userCode} />
-        <div className="mx-5 d-flex justify-content-end mt-n2">
+        <div className="admin-menu">
           <Link
-            type="button"
-            className="rounded btn btn-success px-3 ml-3"
-            to={`/addTeamForm/${teamCode}/${userCode}`}
+            className="nav-link  btn btn-outline-dark rounded-circle "
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+            to=""
           >
-            <i className="fa fa-plus-circle"></i> Add Team
+            <i
+              className="fa fa-ellipsis-v mt-n1 text-light"
+              aria-hidden="true"
+            ></i>
           </Link>
-          <Link
-            type="button"
-            className="rounded btn btn-warning px-3 ml-3"
-            to={`/listAllEmployees/${teamCode}/${userCode}`}
+          <div
+            className="dropdown-menu admin-menu-content"
+            aria-labelledby="navbarDropdownMenuLink"
           >
-            <i className="fas fa-users"></i> All Employees
-          </Link>
+            <Link
+              className="dropdown-item"
+              to={`/addTeamForm/${teamCode}/${userCode}`}
+            >
+              <i className="fa fa-plus-circle"></i> Add Team
+            </Link>
+            <Link
+              className="dropdown-item"
+              to={`/listAllEmployees/${teamCode}/${userCode}`}
+            >
+              <i className="fas fa-users"></i> All Employees
+            </Link>
+          </div>
         </div>
         <div className="team-list ml-5 ">
-          {teams.map((team) => (
+          <div id="team-search">
+            <form action="" autocomplete="on">
+              <input
+                value={this.state.search}
+                onChange={this.updateSearch.bind(this)}
+                id="search"
+                name="search"
+                type="text"
+                placeholder="Search..."
+              />
+              <input type="button" />
+            </form>
+          </div>
+          {filteredTeams.map((team) => (
             <TeamList
               key={team.id}
               team={team}

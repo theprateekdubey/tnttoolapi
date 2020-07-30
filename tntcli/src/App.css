@@ -24,6 +24,9 @@ body {
 #main-header .dropdown-menu {
   margin-left: 83.6%;
 }
+#main-header .dropdown-item:hover {
+  background-color: rgb(230, 230, 230);
+}
 
 /**Footer**/
 #main-footer .row {
@@ -320,7 +323,136 @@ body {
   border-radius: 15px !important;
   padding: 13px;
 }
+/**all-team-list**/
+#team-search {
+  margin: -4.7% 8.8% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#team-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#team-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#team-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#team-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#team-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
+/**all-employee-list**/
+#all-employee-search {
+  margin: -2% 3.8% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#all-employee-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#all-employee-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#all-employee-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#all-employee-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#all-employee-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
 
+/**menu-dropdown**/
+.admin-menu {
+  margin: 0 4.5% 0 92.5%;
+}
+.admin-menu .admin-menu-content {
+  margin: 0.5% 0 0 -8.5% !important;
+  font-family: sans-serif;
+}
+.admin-menu .dropdown-item:hover {
+  background-color: rgb(230, 230, 230);
+}
 /********************************************TEAM-LEAD DASHBOARD********************************************/
 
 /**Add Todo Form**/
@@ -480,7 +612,6 @@ body {
 }
 
 /**List Team Member**/
-
 .list-team-member .list-member {
   background-color: rgba(0, 0, 0, 0.911);
   font-size: 14px;
@@ -501,13 +632,202 @@ body {
 }
 /**Progress Bar**/
 .todo-progress-bar {
-  /* margin: 0% 45% -2% 4.4%; */
   margin: 0% 55% -2% 4.1%;
 }
 .progress-bar {
   width: 259px;
 }
+/***Search***/
+/**TodoList**/
+#todo-list-search {
+  margin: -4.7% 8% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#todo-list-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#todo-list-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#todo-list-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#todo-list-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#todo-list-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
 
+/**CompletedTodoList**/
+#completed-todo-search {
+  margin: -5% 4% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#completed-todo-search input[type="text"] {
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#completed-todo-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid #bbb;
+}
+#completed-todo-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid #bbb;
+  cursor: text;
+}
+#completed-todo-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#completed-todo-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
+
+/**Team-member-List**/
+#team-member-search {
+  margin: -3.3% 14% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#team-member-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#team-member-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#team-member-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#team-member-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#team-member-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
+
+/**menu-dropdown**/
+.lead-menu {
+  margin: 0 4.5% 0 92.5%;
+}
+.lead-menu .lead-menu-content {
+  margin: 0.5% 0 0 -10% !important;
+  font-family: sans-serif;
+}
+.lead-menu .dropdown-item:hover {
+  background-color: rgb(230, 230, 230);
+}
 /********************************************TEAM-MEMBER DASHBOARD********************************************/
 
 /*Team Member Todo List*/
@@ -603,6 +923,127 @@ body {
 }
 .list-team-peer .list-peer:hover {
   background-color: black;
+}
+
+/***Search***/
+/**TodoList**/
+#todo-List_Member-search {
+  margin: -4.7% 14.5% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#todo-List_Member-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#todo-List_Member-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#todo-List_Member-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#todo-List_Member-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#todo-List_Member-search input[type="text"]::placeholder {
+  color: #ffffff;
+}
+
+/**all-member-list**/
+#all_team-member-search {
+  margin: -3.5% 3.8% 0 0;
+  position: relative;
+  height: 60px;
+  float: right;
+  padding: 0;
+  position: relative;
+}
+#all_team-member-search input[type="text"] {
+  margin-top: 2%;
+  height: 50px;
+  font-size: 18px;
+  display: inline-block;
+  font-family: "Lato";
+  font-weight: 100;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 3px;
+  padding-right: 60px;
+  width: 0px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: none;
+  z-index: 3;
+  transition: width 0.4s cubic-bezier(0, 0.795, 0, 1);
+  cursor: pointer;
+}
+#all_team-member-search input[type="text"]:focus:hover {
+  border-bottom: 1px solid rgb(255, 255, 255);
+}
+#all_team-member-search input[type="text"]:focus {
+  width: 700px;
+  z-index: 1;
+  border-bottom: 1px solid rgb(255, 255, 255);
+  cursor: text;
+}
+#all_team-member-search input[type="button"] {
+  height: 62px;
+  width: 62px;
+  color: red;
+  float: right;
+  background: url(./search.svg) center center no-repeat;
+  text-indent: -10000px;
+  border: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
+  transition: opacity 0.4s ease;
+}
+#all_team-member-search input[type="text"]::placeholder {
+  color: #ffffff;
 }
 
 /********************************************Css which applies on all the dashboards********************************************/

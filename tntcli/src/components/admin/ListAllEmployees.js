@@ -16,11 +16,15 @@ class ListAllEmployees extends Component {
       IsLoggedIn = false;
     }
     this.state = {
+      search: "",
       IsLoggedIn,
     };
   }
   componentDidMount() {
     this.props.getUsersList(this.props.history);
+  }
+  updateSearch(event) {
+    this.setState({ search: event.target.value });
   }
   render() {
     if (this.state.IsLoggedIn === false) {
@@ -28,6 +32,11 @@ class ListAllEmployees extends Component {
     }
     const { teamCode, userCode } = this.props.match.params;
     const { users } = this.props.users;
+    let filteredUsers = users.filter((user) => {
+      return (
+        user.name.toLowerCase().indexOf(this.state.search.toLowerCase()) !== -1
+      );
+    });
     return (
       <div>
         <Header teamCode={teamCode} userCode={userCode} />
@@ -38,7 +47,20 @@ class ListAllEmployees extends Component {
         >
           <i className="fa fa-arrow-left" aria-hidden="true"></i>
         </Link>
-        {users.map((user) => (
+        <div id="all-employee-search">
+          <form action="" autocomplete="on">
+            <input
+              value={this.state.search}
+              onChange={this.updateSearch.bind(this)}
+              id="search"
+              name="search"
+              type="text"
+              placeholder="Search..."
+            />
+            <input type="button" />
+          </form>
+        </div>
+        {filteredUsers.map((user) => (
           <div className="list-user-admin ">
             <div className="card card-body list-users  mb-3">
               <div className="row">

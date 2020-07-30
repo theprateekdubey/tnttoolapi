@@ -21,7 +21,7 @@ class UpdateTeamMemberAdmin extends Component {
       id: "",
       name: "",
       username: "",
-      password: "password",
+      password: "Password2020",
       role: "",
       userCode: "",
       teamCode: "",

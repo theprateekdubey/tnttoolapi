@@ -22,7 +22,7 @@ class UpdateTeamMember extends Component {
       id: "",
       name: "",
       username: "",
-      password: "password",
+      password: "Password2020",
       role: "1",
       userCode: "",
       teamCode: "",

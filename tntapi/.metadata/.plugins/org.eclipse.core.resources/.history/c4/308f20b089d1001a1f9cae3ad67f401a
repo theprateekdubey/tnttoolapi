@@ -121,10 +121,6 @@ public class UserService {
 					team.setTeamLeadCode(user.getUserCode());
 				}
 			}
-			if (!isValidPassword(user.getPassword())) {
-				throw new PasswordException(
-						"Password must be of minimum 8 character and maximam 20 character, it should contain atleast one upper case letter, lower case Letter & a number");
-			}
 			// save user
 			user.setPassword(encryptor(updateUser.getPassword()));
 			return userRepository.save(user);

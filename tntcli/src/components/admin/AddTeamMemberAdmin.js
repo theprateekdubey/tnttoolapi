@@ -20,7 +20,7 @@ class AddTeamMemberAdmin extends Component {
       IsLoggedIn,
       name: "",
       username: "",
-      password: "password",
+      password: "Password2020",
       role: "",
       errors: {},
     };

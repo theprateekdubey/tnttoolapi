@@ -104,6 +104,9 @@ class UpdateUserCredentials extends Component {
             this.state.confirmPassword,
             this.props.history
           );
+        this.setState({ confirmPassword: "" });
+        this.setState({ newPassword: "" });
+        this.setState({ currentPassword: "" });
       } else {
         this.setState({ errorMessage: "Your password did not match" });
         this.setState({ confirmPassword: "" });
@@ -223,11 +226,6 @@ class UpdateUserCredentials extends Component {
                         value={this.state.currentPassword}
                         onChange={this.onChange}
                       />
-                      {errors.password && (
-                        <div className="invalid-feedback">
-                          {errors.password}
-                        </div>
-                      )}
                     </div>
                     <div className="show-pass">
                       <span
@@ -255,7 +253,9 @@ class UpdateUserCredentials extends Component {
                         type={
                           this.state.newPasswordHidden ? "password" : "text"
                         }
-                        className="form-control"
+                        className={classnames("form-control", {
+                          "is-invalid": errors.password,
+                        })}
                         placeholder="Enter New Password"
                         name="newPassword"
                         value={this.state.newPassword}
@@ -279,12 +279,19 @@ class UpdateUserCredentials extends Component {
                         type={
                           this.state.newPasswordHidden ? "password" : "text"
                         }
-                        className="form-control"
+                        className={classnames("form-control", {
+                          "is-invalid": errors.password,
+                        })}
                         placeholder="Re-Enter New Password"
                         name="confirmPassword"
                         value={this.state.confirmPassword}
                         onChange={this.onChange}
                       />
+                      {errors.password && (
+                        <div className="invalid-feedback">
+                          {errors.password}
+                        </div>
+                      )}
                     </div>
                     <div className="show-pass">
                       <span type="button" onClick={this.toggleShowNewPassword}>

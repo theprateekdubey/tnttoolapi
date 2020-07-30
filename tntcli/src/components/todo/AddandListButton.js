@@ -5,29 +5,45 @@ class AddandListButton extends Component {
   render() {
     const { teamCode, userCode } = this.props;
     return (
-      <div className="mx-5 d-flex justify-content-end mt-2">
+      <div className="lead-menu">
         <Link
-          type="button"
-          className="rounded btn btn-success px-3 ml-3 "
-          to={`/addTodo/${teamCode}/${userCode}`}
+          className="nav-link  btn btn-outline-dark rounded-circle "
+          id="navbarDropdownMenuLink"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+          to=""
         >
-          <i className="fa fa-plus-circle"></i> Add TODO
+          <i
+            className="fa fa-ellipsis-v mt-n1 text-light"
+            aria-hidden="true"
+          ></i>
         </Link>
-        <Link
-          type="button"
-          className="rounded btn btn-info px-3 ml-3"
-          to={`/completedTodo/${teamCode}/${userCode}`}
+        <div
+          className="dropdown-menu lead-menu-content"
+          aria-labelledby="navbarDropdownMenuLink"
         >
-          <i className="fa fa-check-circle"></i> Completed TODO{"   "}
-          <span className="badge bg-dark"></span>
-        </Link>
-        <Link
-          type="button"
-          className="rounded btn btn-warning px-3 ml-3"
-          to={`/teamMember/${teamCode}/${userCode}`}
-        >
-          <i className="fas fa-users"></i> List Members
-        </Link>
+          <Link
+            className="dropdown-item"
+            to={`/addTodo/${teamCode}/${userCode}`}
+          >
+            <i className="fa fa-plus-circle"></i> Add TODO
+          </Link>
+          <Link
+            className="dropdown-item"
+            to={`/completedTodo/${teamCode}/${userCode}`}
+          >
+            <i className="fa fa-check-circle"></i> Completed TODO{"   "}
+            <span className="badge bg-dark"></span>
+          </Link>
+          <Link
+            className="dropdown-item"
+            to={`/teamMember/${teamCode}/${userCode}`}
+          >
+            <i className="fas fa-users"></i> List Members
+          </Link>
+        </div>
       </div>
     );
   }

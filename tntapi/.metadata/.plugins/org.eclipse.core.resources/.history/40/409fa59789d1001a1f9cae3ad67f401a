@@ -52,10 +52,6 @@ public class UserService {
 					team.setTeamLeadCode(user.getUserCode());
 				}
 			}
-			if (!isValidPassword(user.getPassword())) {
-				throw new PasswordException(
-						"Password must be of minimum 8 character and maximam 20 character, it should contain atleast one upper case letter, lower case Letter & a number");
-			}
 			user.setPassword(encryptor(user.getPassword()));
 			return userRepository.save(user);
 		} catch (NullPointerException ex) {
@@ -121,10 +117,6 @@ public class UserService {
 					team.setTeamLeadCode(user.getUserCode());
 				}
 			}
-			if (!isValidPassword(user.getPassword())) {
-				throw new PasswordException(
-						"Password must be of minimum 8 character and maximam 20 character, it should contain atleast one upper case letter, lower case Letter & a number");
-			}
 			// save user
 			user.setPassword(encryptor(updateUser.getPassword()));
 			return userRepository.save(user);
@@ -184,10 +176,6 @@ public class UserService {
 		oldPassword = encryptor(oldPassword);
 		if (!user.getPassword().equals(oldPassword)) {
 			throw new PasswordException("Your password did not match with the current password");
-		}
-		if (!isValidPassword(newPassword)) {
-			throw new PasswordException(
-					"Password must be of minimum 8 character and maximam 20 character, it should contain atleast one upper case letter, lower case Letter & a number");
 		}
 		user.setPassword(encryptor(newPassword));
 		userRepository.save(user);
