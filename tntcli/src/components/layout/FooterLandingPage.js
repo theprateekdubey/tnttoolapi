@@ -27,7 +27,7 @@ export default class FooterLandingPage extends Component {
 
               <div className="social-bar">
                 <a
-                  href="https://www.facebook.com/prateek.dubey.35513/"
+                  href="https://www.facebook.com/"
                   className=" social-icon"
                   target="_blank"
                   rel="noopener noreferrer"
@@ -53,7 +53,7 @@ export default class FooterLandingPage extends Component {
                 </a>
 
                 <a
-                  href="https://www.linkedin.com/in/prateek-dubey-18201a159"
+                  href="https://www.linkedin.com/"
                   className="social-icon"
                   target="_blank"
                   rel="noopener noreferrer"

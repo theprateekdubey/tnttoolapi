@@ -123,15 +123,15 @@ class Header extends Component {
                     className="dropdown-item"
                     to={`/updateUserCredentials/${teamCode}/${userCode}`}
                   >
-                    Manage Credentials{" "}
-                    <i className="fa fa-cog fa-spin fa-1x"></i>
+                    <i className="fa fa-cog fa-spin fa-1x"></i> Manage
+                    Credentials
                   </Link>
                   <Link
                     className="dropdown-item"
                     onClick={this.logOutMessage.bind()}
                     to="/login"
                   >
-                    Sign Out <i className="fas fa-sign-out-alt"></i>
+                    <i className="fas fa-sign-out-alt"></i> Sign Out
                   </Link>
                 </div>
               </li>
